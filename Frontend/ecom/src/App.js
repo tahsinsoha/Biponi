@@ -31,6 +31,7 @@ import { Other } from "./components/Collections/Other";
 import Chat from "./components/Chat/Chat";
 import Search from "./components/Search/Search";
 import SingleService from "./components/Products/Product/SingleService";
+import Item from "./components/ProductDetails/Item";
 
 const App = () => {
   return (
@@ -110,11 +111,13 @@ const App = () => {
                     exact
                     component={CustomerAccessPage}
                   />
-                   <Route
-
-                   
+                   <Route                   
                     path="/upload"
                     component={Upload}
+                  />
+                  <Route
+                  path="/item"
+                  component={Item} 
                   />
                 </Switch>
               </Router>
