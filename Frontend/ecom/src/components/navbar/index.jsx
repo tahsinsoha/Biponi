@@ -55,7 +55,7 @@ export function Navbar(props) {
   const history= useHistory()
 
   return (
-    <NavbarContainer useTransparent={useTransparent}>
+    <NavbarContainer>
       <Link to="/">
       <BrandLogo />
       </Link>

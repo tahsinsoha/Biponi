@@ -5,6 +5,8 @@ import { BrandLogo } from "../../components/brandLogo";
 import { Marginer } from "../../components/marginer";
 import { Button } from "../../components/button";
 import { Link, Route, Switch } from "react-router-dom";
+import Slider  from "./slider";
+import { sliderClasses } from "@mui/material";
 const TopSectionContainer = styled.div`
   width: 100%;
   height: 50%;
@@ -73,6 +75,9 @@ export function TopSection(props) {
           </StandoutImage>
         </TopSectionInnerContainer>
       </BackgroundFilter>
+
+    <Slider/>
+
     </TopSectionContainer>
   );
 }
