@@ -5,6 +5,7 @@ import { TopSection } from "./topSection";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
+import Slider from "./slider"
 import SingleProduct from "../../components/Products/Product/SingleProduct"
 import { CommonStateContext } from "../../contexts/common";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -275,9 +276,10 @@ export function HomePage() {
     return (
 
         <PageContainer>
-            <TopSection>
-                <Navbar useTransparent />
-            </TopSection>
+            
+                <Navbar/>
+            <Slider/>
+
             <div className='container'>
                 <Link to="/electronics">
                     <h1  style={{ "color": "#fff" }}>
