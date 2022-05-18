@@ -6,14 +6,14 @@ import "./style.css";
 function Item(props) {
   const [color, setColor] = useState("#80CED7");
 
-  const description =
-    props.description !== null
-      ? props.description.slice(3, props.description.length - 4)
-      : "";
+  const description = "Description";
+    // props.description !== null
+    //   ? props.description.slice(3, props.description.length - 4)
+    //   : "";
 
   return (
     <Row className="item">
-      <Col sm={6}>
+      <Col sm={3}>
         <Animation {...props} color={color} />
       </Col>
       <Col className="info">
@@ -29,12 +29,12 @@ function Item(props) {
             <Button id="red" onClick={() => setColor("#BF211E")}></Button>
           </Col>
           <Col style={{ textAlign: "right" }}>
-            <p>Price: {props.price.formatted_with_symbol}</p>
-            <a href={props.checkout_url.display}>
+            {/* <p>Price: {props.price.formatted_with_symbol}</p> */}
+            {/* <a href={props.checkout_url.display}> */}
               <Button id="buy" variant="primary">
                 Buy Now
               </Button>
-            </a>
+            {/* </a> */}
           </Col>
         </Row>
       </Col>

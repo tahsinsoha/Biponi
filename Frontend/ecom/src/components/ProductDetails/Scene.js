@@ -9,20 +9,18 @@ title: Advanced Game Characters - Week 2 Jacket
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export default function Model() {
+export default function Model({ ...props }) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('./scene.gltf')
+  const { nodes, materials } = useGLTF('/model.glb')
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]} userData={{ name: 'Sketchfab_model' }}>
-        <group rotation={[Math.PI / 2, 0, 0]} userData={{ name: 'Collada visual scene group' }}>
-          <group userData={{ name: 'Jacket_Lv2:jacket_low' }}>
-            <mesh castShadow receiveShadow geometry={nodes.defaultMaterial.geometry} material={materials.Jacket_Lv2_Jacket} userData={{ name: 'defaultMaterial' }} material-color={props.color} />
-          </group>
+    <group ref={group} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <mesh material-color={props.color} geometry={nodes.defaultMaterial.geometry} material={materials.Jacket_Lv2_Jacket} />
         </group>
       </group>
     </group>
   )
 }
 
-useGLTF.preload('/scene.gltf')
+useGLTF.preload('/model.glb')
