@@ -34,6 +34,7 @@ import SingleService from "./components/Products/Product/SingleService";
 import Item from "./components/ProductDetails/Item";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Cart from "./components/Cart/Cart";
 
 const App = () => {
   return (
@@ -74,6 +75,11 @@ const App = () => {
                   <Route
                     path="/other"
                     component={Other}
+                  />
+
+                  <Route
+                    path="/cart"
+                    component={Cart}
                   />
                   
                   
