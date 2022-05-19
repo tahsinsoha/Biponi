@@ -33,6 +33,8 @@ import Search from "./components/Search/Search";
 import SingleService from "./components/Products/Product/SingleService";
 import Item from "./components/ProductDetails/Item";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const App = () => {
   return (
     <div className="App">

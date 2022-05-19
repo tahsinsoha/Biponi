@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import Animation from "./Animation";
 import "./style.css";
 
@@ -12,8 +12,9 @@ function Item(props) {
     //   : "";
 
   return (
-    <Row className="item">
-      <Col sm={3}>
+    <Container>
+      <Row className="item">
+      <Col sm={6} >
         <Animation {...props} color={color} />
       </Col>
       <Col className="info">
@@ -39,6 +40,7 @@ function Item(props) {
         </Row>
       </Col>
     </Row>
+    </Container>
   );
 }
 
