@@ -22,6 +22,7 @@ import MTable from "./components/Products/Product/MTable";
 //import HomePage from "../pages/home";
 import CheckoutPage from "./pages/checkout";
 import Upload from "./components/Upload";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./assets/scss/style.scss";
 import { MyProducts } from "./components/UserProfile/MyProducts";
 import AfterPayment from "./components/AfterPayment/AfterPayment";
@@ -33,12 +34,13 @@ import Search from "./components/Search/Search";
 import SingleService from "./components/Products/Product/SingleService";
 import Item from "./components/ProductDetails/Item";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from "./components/Cart/Cart";
+import { Container } from "@material-ui/core";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="App" >
         <ProductsProvider>
           <CartProvider>
             <CheckoutProvider>

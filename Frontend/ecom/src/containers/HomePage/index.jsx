@@ -280,7 +280,7 @@ export function HomePage() {
                 <Navbar/>
             <Slider/>
 
-            <div className='container'>
+            <div className='cont'>
                 <Link to="/electronics">
                     <h1  style={{ "color": "#fff" }}>
                         Electronics

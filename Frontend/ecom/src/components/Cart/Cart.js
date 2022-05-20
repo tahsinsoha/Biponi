@@ -4,6 +4,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import CartItem from "./CartItem";
 import "./style.css";
 import { Navbar } from "../navbar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Cart(props) {
   const showCart = useSpring(

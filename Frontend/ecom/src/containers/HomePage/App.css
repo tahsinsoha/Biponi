@@ -24,7 +24,7 @@
             align-items: center;
   }
   
-  .container {
+  .cont {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
