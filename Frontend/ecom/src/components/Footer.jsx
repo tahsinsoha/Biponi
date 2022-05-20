@@ -3,7 +3,7 @@ import React from "react";
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className='container' >
+    <footer className='cont' >
       {/* <p className="footer-links">
         <a
           href="https://github.com/sivadass/react-shopping-cart"
