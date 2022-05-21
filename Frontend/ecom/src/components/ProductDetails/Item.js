@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function Item(props) {
   const [color, setColor] = useState("#80CED7");
-  const [product, setproduct] = useState()
+  const [product, setproduct] = useState(null)
   useEffect(() => {
 
     console.log("item ")
@@ -32,7 +32,7 @@ function Item(props) {
         <Animation {...props} color={color} />
       </Col>
       <Col className="info">
-        <h2>{}</h2>
+        { product!==null?<h2>{product.Title}</h2>:<></>}
         <br />
         <br />
         <p>{}</p>

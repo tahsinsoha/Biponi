@@ -12,6 +12,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 app.use('/api/products', require('./routes/productRoutes'))
 app.use(errorHandler)
+
+const cors = require('cors');
+app.use(cors());
 // //Middlewares
 // app.use("/posts", () => {
 //     console.log("This is a middleware running");
