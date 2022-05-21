@@ -1,10 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Animation from "./Animation";
 import "./style.css";
+import axios from 'axios';
 
 function Item(props) {
   const [color, setColor] = useState("#80CED7");
+  const [product, setproduct] = useState()
+  useEffect(() => {
+
+    console.log("item ")
+    
+    async function fetchProduct(){
+        const {data}= await axios.get(`http://127.0.0.1:5000/api/products/6288fca2cf6785cbfd5d8d23`)
+        setproduct(data)
+        console.log(data)
+    }
+
+    fetchProduct()
+}, [])
 
   const description = "Description";
     // props.description !== null
@@ -18,10 +32,10 @@ function Item(props) {
         <Animation {...props} color={color} />
       </Col>
       <Col className="info">
-        <h2>{props.name}</h2>
+        <h2>{}</h2>
         <br />
         <br />
-        <p>{description}</p>
+        <p>{}</p>
         <Row className="buttonRow">
           <Col>
             <p>Available Colors:</p>
