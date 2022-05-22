@@ -33,9 +33,7 @@ function Item(props) {
       </Col>
       <Col className="info">
         { product!==null?<h2>{product.Title}</h2>:<></>}
-        <br />
-        <br />
-        <p>{}</p>
+        { product!==null?<h2>{product.Price}</h2>:<></>}
         <Row className="buttonRow">
           <Col>
             <p>Available Colors:</p>

@@ -4,6 +4,7 @@ console.log('Hello World')
  const colors = require('colors')
  const dotenv = require('dotenv').config()
  const {errorHandler} = require('./middleware/errorMiddleware')
+ const upload = require('./routes/upload')
  const connectDB = require('./config/db')
  const port = 5000;
  connectDB()
