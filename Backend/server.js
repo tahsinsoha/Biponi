@@ -36,7 +36,6 @@ app.use(cors());
 
 
 let gfs;
-
 const conn = mongoose.connection;
 conn.once("open", function () {
     gfs = Grid(conn.db, mongoose.mongo);
