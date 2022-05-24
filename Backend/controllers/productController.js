@@ -9,17 +9,14 @@ const getProducts = asyncHandler(async(req,res) => {
 const setProduct = asyncHandler(async(req,res) => {
      if(!req.body.Title){
          res.status(400)
-         console.log(req.body+"")
          throw new Error('Please add a title field')
-
 
      }
      const product = await Product.create({
          Title : req.body.Title,
          Description: req.body.Description,
          Price: req.body.Price,
-         Category: req.body.Category,
-         Image: req.body.Image
+         Category: req.body.Category
      })
     res.status(200).json(product)
 })
