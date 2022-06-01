@@ -6,9 +6,9 @@ const mongoose = require("mongoose");
 const { errorHandler } = require('./middleware/errorMiddleware')
 const upload = require('./routes/upload')
 const connectDB = require('./config/db')
-const Grid = require("gridfs-stream");
+const Grid = require("gridfs-stream")
+const bodyParser = require("body-parser")
 const port = 5000;
-
 const app = express();
 
 connectDB()
@@ -20,7 +20,10 @@ app.use(errorHandler)
 
 const cors = require('cors');
 app.use(cors());
-
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 // //Middlewares
 // app.use("/posts", () => {
 //     console.log("This is a middleware running");

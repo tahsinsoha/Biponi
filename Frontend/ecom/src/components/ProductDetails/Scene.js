@@ -10,8 +10,9 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function Model({ ...props }) {
+  console.log("props in Model ", props)
   const group = useRef()
-  const { nodes, materials } = useGLTF('/model.glb')
+  const { nodes, materials } = useGLTF(`/${props.userId}.glb`)
   return (
     <group ref={group} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Animation from "./Animation";
 import "./style.css";
@@ -7,18 +8,30 @@ import axios from 'axios';
 function Item(props) {
   const [color, setColor] = useState("#80CED7");
   const [product, setproduct] = useState(null)
+  const {id}= useParams()
+
   useEffect(() => {
 
     console.log("item ")
     
     async function fetchProduct(){
-        const {data}= await axios.get(`http://127.0.0.1:5000/api/products/6288fca2cf6785cbfd5d8d23`)
+        const {data}= await axios.get(`http://127.0.0.1:5000/api/products/${id}`)
         setproduct(data)
         console.log(data)
     }
 
     fetchProduct()
 }, [])
+
+function addToCart()
+{
+  let cartSize= localStorage.getItem("cartSize");
+
+  localStorage.setItem(`cart[${cartSize}]`, id);
+
+  cartSize++;
+  localStorage.setItem("cartSize", cartSize);
+}
 
   const description = "Description";
     // props.description !== null
@@ -29,7 +42,7 @@ function Item(props) {
     <Container>
       <Row className="item">
       <Col sm={6} >
-        <Animation {...props} color={color} />
+        <Animation color={color} userId={id} />
       </Col>
       <Col className="info">
         { product!==null?<h2>{product.Title}</h2>:<></>}
@@ -44,8 +57,8 @@ function Item(props) {
           <Col style={{ textAlign: "right" }}>
             {/* <p>Price: {props.price.formatted_with_symbol}</p> */}
             {/* <a href={props.checkout_url.display}> */}
-              <Button id="buy" variant="primary">
-                Buy Now
+              <Button id="buy" variant="primary" onClick={addToCart}>
+                Add to Cart
               </Button>
             {/* </a> */}
           </Col>
