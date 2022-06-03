@@ -126,7 +126,7 @@ const App = () => {
                     component={Upload}
                   />
                   <Route
-                  path="/item"
+                  path="/item/:id"
                   component={Item} 
                   />
                 </Switch>

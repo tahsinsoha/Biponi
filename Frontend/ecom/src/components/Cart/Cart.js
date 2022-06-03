@@ -21,6 +21,11 @@ function Cart(props) {
         }
   );
 
+  let cartSize= localStorage.getItem("cartSize");
+
+  for( let i=0;i<cartSize;i++ )
+        console.log("Cart item", localStorage.getItem(`cart[${i}]`));
+
   return (
     <div>
         <Navbar/>

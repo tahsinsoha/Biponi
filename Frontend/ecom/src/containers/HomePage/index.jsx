@@ -60,7 +60,7 @@ export function HomePage() {
     useEffect(() => {
 
         async function fetchProducts() {
-            const { data } = await axios.get('http://127.0.0.1:8000/store/products')
+            const { data } = await axios.get('http://127.0.0.1:5000/api/products')
             setproducts(data)
             setinitial(data)
             console.log(data)
@@ -86,22 +86,22 @@ export function HomePage() {
 
         fetchProducts()
 
-        async function fetchCollection() {
-            const { data } = await axios.get('http://127.0.0.1:8000/store/collections')
-            setcollection(data)
-            console.log(data)
-        }
+        // async function fetchCollection() {
+        //     const { data } = await axios.get('http://127.0.0.1:8000/store/collections')
+        //     setcollection(data)
+        //     console.log(data)
+        // }
 
-        fetchCollection()
+        // fetchCollection()
 
-        async function fetchServices() {
-            console.log("service")
-            const { data } = await axios.get('http://127.0.0.1:8000/store/services')
-            setservices(data)
+        // async function fetchServices() {
+        //     console.log("service")
+        //     const { data } = await axios.get('http://127.0.0.1:8000/store/services')
+        //     setservices(data)
 
-        }
+        // }
 
-        fetchServices()
+        // fetchServices()
 
 
     }, [])
@@ -131,19 +131,20 @@ export function HomePage() {
     }
 
     const listItems1 = products.map((item) => {
-        if (item.collection == 1)
+        if (item.Category == '1')
 
             return (
-                <Link to={`/products/${item.id}`} >
+                <Link to={`/item/${item._id}`} >
                     <div className="card" key={item.id}>
 
                         <div className="card_img">
-                            <img src={'http://127.0.0.1:8000' + item.image} />
+                        {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                            <img src={'https://i.ibb.co/VWJQKTC/laptop-png-6754.png'} />
                         </div>
                         <div className="card_header">
-                            <h2>{item.title}</h2>
+                            <h2>{item.Title}</h2>
                             <p>{item.description}</p>
-                            <p className="price">{item.budget}<span></span></p>
+                            <p className="price">{item.Price}<span></span></p>
                             <div className="btn">Show Details</div>
                         </div>
                     </div>
@@ -272,6 +273,7 @@ export function HomePage() {
 
     );
 
+    localStorage.setItem("cartSize", 0);
 
     return (
 

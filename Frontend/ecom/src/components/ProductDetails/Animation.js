@@ -4,6 +4,7 @@ import Controls from "./Controls";
 import Model from "./Scene";
 
 function Animation(props) {
+  console.log("Props in animation ", props)
   return (
     <Canvas
       camera={{
