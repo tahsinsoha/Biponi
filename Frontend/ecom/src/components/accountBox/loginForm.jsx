@@ -96,8 +96,6 @@ const Login = ({ handleLogin }) => {
 
 }
 
-
-
 const Dashboard = ({ handleLogin }) => {
   return (
     <div className="dashboard">
