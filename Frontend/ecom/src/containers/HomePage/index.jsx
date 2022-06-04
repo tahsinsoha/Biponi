@@ -156,19 +156,20 @@ export function HomePage() {
 
 
     const listItems2 = products.map((item) => {
-        if (item.collection == 2)
+        if (item.Category == '2')
 
             return (
-                <Link to={`/products/${item.id}`} >
+                <Link to={`/item/${item._id}`} >
                     <div className="card" key={item.id}>
 
                         <div className="card_img">
-                            <img src={'http://127.0.0.1:8000' + item.image} />
+                        {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                            <img src={'https://ibb.co/M5cYCg3'} />
                         </div>
                         <div className="card_header">
-                            <h2>{item.title}</h2>
+                            <h2>{item.Title}</h2>
                             <p>{item.description}</p>
-                            <p className="price">{item.budget}<span></span></p>
+                            <p className="price">{item.Price}<span></span></p>
                             <div className="btn">Show Details</div>
                         </div>
                     </div>
@@ -186,7 +187,7 @@ export function HomePage() {
                     <div className="card" key={item.id}>
 
                         <div className="card_img">
-                            <img src={'http://127.0.0.1:8000' + item.image} />
+                            <img src={'https://ibb.co/M5cYCg3' } />
                         </div>
                         <div className="card_header">
                             <h2>{item.title}</h2>
@@ -299,7 +300,7 @@ export function HomePage() {
                 {/* </Slider> */}
                 <Link to="/furnitures">
                     <h1 style={{ "color": "#fff" }}>
-                        Furnitures
+                        Mens' and Womens' Closet
                     </h1>
                 </Link>
                 <div className="main_content">

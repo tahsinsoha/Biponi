@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas } from '@react-three/fiber';
 import Controls from "./Controls";
+import Laptop_model from "./Scene";
 import Model from "./Scene";
 
 function Animation(props) {
