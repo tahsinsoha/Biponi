@@ -27,11 +27,15 @@ export function SignupForm(props) {
           'Content-type': 'application/json'
         }
       }
+      // const { ata } = await axios.get(
+      //   'http://localhost:5000/api/users/')
+      //   console.log(ata)
+
       const { data } = await axios.post(
-        'http://127.0.0.1:8000/store/users/register/',
+        'http://localhost:5000/api/users/register/',
         {
-          'name': name,
-          'email': email, 'password': password
+          'Name': name,
+          'Email': email, 'Password': password
         },
         config)
 

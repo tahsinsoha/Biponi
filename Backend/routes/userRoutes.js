@@ -17,8 +17,8 @@ const {
 } = require('../controllers/userController');
 const { Router } = require('express');
 
-router.route('/').get(getUsers).post(
- upload.any(),setUser);
+router.route('/').get(getUsers)
+router.route('/register').post( setUser);
 router.route('/:id').delete(deleteUser).put(updateUser).get(getUserByid);
 
 module.exports = router;
