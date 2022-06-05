@@ -43,20 +43,43 @@ const Login = ({ handleLogin }) => {
           'Content-type': 'application/json'
         }
       }
+      // const { ata } = await axios.get(
+      //   'http://localhost:5000/api/users/')
+      //   console.log(ata)
+
       const { data } = await axios.post(
-        'http://127.0.0.1:5000/api/users/login/',
+        'http://localhost:5000/api/users/login/',
         {
-          'Name': email,
           'Email': email, 'Password': password
         },
         config)
 
       console.log(data)
       localStorage.setItem('user', data.id)
-      console.log(localStorage.getItem('user'));
-      setCorrect(true)
 
-      history.push("../../myproducts");
+      history.push("../../");
+
+    // const response = await fetch('http://localhost:5000/api/users/login', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify({
+		// 		email,
+		// 		password,
+		// 	}),
+		// })
+
+		// const data = await response.json()
+    //  console.log(data)
+		// if (data.user) {
+		// 	localStorage.setItem('token', data.user)
+		// 	alert('Login successful')
+			
+		// } else {
+		// 	alert('Please check your username and password')
+		// }
+	
 
     }
     catch (e) {

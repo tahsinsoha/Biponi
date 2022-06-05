@@ -1,5 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const User = require('../model/userModel')
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
 const getUsers = asyncHandler(async(req,res) => {
     const users = await User.find()
     res.status(200).json(users)
@@ -39,19 +41,40 @@ const updateUser = asyncHandler(async (req, res) => {
   })
 
   const getUserByemail = asyncHandler(async (req, res) => {
-    const user = await User.findOne(req.params.Email)
-  
-    if (!user) {
-      res.status(400)
-      throw new Error('User not found')
-    }
-  
-    res.status(200).json(user)
+    const user = await User.findOne({
+		Email: req.body.Email,
+        Password: req.body.Password,
+    })
+	if (!user) {
+        res.status(400)
+        throw new Error('user not found')
+	}
+     res.status(200).json(user)
+    
+    // const isPasswordValid = await bcrypt.compare(
+	// 	req.params.Password,
+	// 	user.Password
+	// )
+
+	// if (isPasswordValid) {
+	// 	const token = jwt.sign(
+	// 		{
+	// 			name: user.name,
+	// 			email: user.email,
+	// 		},
+	// 		'secret123'
+	// 	)
+
+	// 	return res.json({ status: 'ok', user: token })
+	// } else {
+	// 	return res.json({ status: 'error', user: false })
+	// }
+
+
   })
 
   const getUserByid = asyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id)
-  
     if (!user) {
       res.status(400)
       throw new Error('User not found')
