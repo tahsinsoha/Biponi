@@ -13,12 +13,15 @@ const {
   setUser,
   updateUser,
   deleteUser,
-  getUserByid
+  getUserByid,
+  getUserByemail
 } = require('../controllers/userController');
 const { Router } = require('express');
 
 router.route('/').get(getUsers)
 router.route('/register').post( setUser);
-router.route('/:id').delete(deleteUser).put(updateUser).get(getUserByid);
+router.route('/:id').delete(deleteUser).put(updateUser);
+router.route('/login').post(getUserByemail);
+router.route('/:id').get(getUserByid);
 
 module.exports = router;

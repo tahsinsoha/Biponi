@@ -38,12 +38,23 @@ const updateUser = asyncHandler(async (req, res) => {
     res.status(200).json(updatedUser)
   })
 
+  const getUserByemail = asyncHandler(async (req, res) => {
+    const user = await User.findOne(req.params.Email)
+  
+    if (!user) {
+      res.status(400)
+      throw new Error('User not found')
+    }
+  
+    res.status(200).json(user)
+  })
+
   const getUserByid = asyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id)
   
     if (!user) {
       res.status(400)
-      throw new Error('user not found')
+      throw new Error('User not found')
     }
   
     res.status(200).json(user)
@@ -67,5 +78,5 @@ setUser,
 updateUser,
 deleteUser,
 getUserByid,
-
+getUserByemail
 }

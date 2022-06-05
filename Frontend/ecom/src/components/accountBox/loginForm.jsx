@@ -44,10 +44,10 @@ const Login = ({ handleLogin }) => {
         }
       }
       const { data } = await axios.post(
-        'http://127.0.0.1:8000/store/users/login/',
+        'http://127.0.0.1:5000/api/users/login/',
         {
-          'username': email,
-          'email': email, 'password': password
+          'Name': email,
+          'Email': email, 'Password': password
         },
         config)
 
