@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import axios from 'axios'
-const BidForm = ({onclose, productID}) => {
+const BankForm = ({onclose, productID}) => {
   const [selectedFile, setSelectedFile]= useState()
 
   function changeHandler(event) {
@@ -10,9 +10,8 @@ const BidForm = ({onclose, productID}) => {
   
     };
   const [formData, setFormData] = useState({
-    price: "",
-    quantity: "",
-    description: ""
+    account_no: "",
+    pin: ""
   });
 
   async function handleSubmission(event) {
@@ -22,26 +21,43 @@ const BidForm = ({onclose, productID}) => {
 
     console.log("submit clicked")
 
-    Data.append("image", selectedFile);
-    Data.append("description", formData.description)
-    Data.append("price", formData.price)
-    Data.append("quantity", formData.quantity)
-    Data.append("customer", localStorage.getItem('user'))
-    Data.append("product", productID)
-    
-      
-    const result= await axios.post("http://localhost:8000/store/bids/",
-      Data
-    )
-      .then((result) => {
-        console.log("Success:", result);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    Data.append("Account_no", formData.account_no)
+    Data.append("Pin", formData.pin)
+    Data.append("User_id", localStorage.getItem('user'))
+    Data.append("Current_amount", 80000)
+   const User =  localStorage.getItem('user')
+   const amount = 80000;
+   console.log(User)
+    //   console.log(Data)
+    // const result= await axios.post("http://localhost:5000/api/banks/",
+    //   Data
+    // )
+    //   .then((result) => {
+    //     console.log("Success:", result);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
 
-      console.log(result)
-      onclose()
+    //   console.log(result)
+    const config = {
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+
+    const { data } = await axios.post(
+      'http://localhost:5000/api/banks/',
+      {
+        'Account_no': account_no,
+        'Pin': pin, 
+        'User_id': User,
+        'Current_amount': amount, 
+      },
+      config)
+      console.log(data)
+      console.log(data.User_id)
+      onclose();
   }
 
   const updateFormData = event =>
@@ -51,7 +67,7 @@ const BidForm = ({onclose, productID}) => {
     });
 
     
-  const { price, quantity, description } = formData;
+  const { account_no, pin } = formData;
 
   return (
     <form onSubmit={handleSubmission}>
@@ -67,11 +83,11 @@ const BidForm = ({onclose, productID}) => {
     "border": "1px solid #e4e6e8",
     "transition": "0.1s ease"
       }}
-        value={price}
+        value={account_no}
         onChange={e => updateFormData(e)}
-        placeholder="price"
+        placeholder="account_no"
         type="text"
-        name="price"
+        name="account_no"
         required
       />
       <input
@@ -86,14 +102,14 @@ const BidForm = ({onclose, productID}) => {
     "border": "1px solid #e4e6e8",
     "transition": "0.1s ease"
       }}
-        value={quantity}
+        value={pin}
         onChange={e => updateFormData(e)}
-        placeholder="quantity"
+        placeholder="pin"
         type="text"
-        name="quantity"
+        name="pin"
         required
       />
-      <input
+      {/* <input
       style={{
         "display": "block",
     "min-width": "90%",
@@ -136,9 +152,9 @@ const BidForm = ({onclose, productID}) => {
     <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
   </Dropdown.Menu>
-</Dropdown> */}
+</Dropdown> */} 
 
-<div className="upload">
+{/* <div className="upload">
         <input
         style={{
           "display": "block",
@@ -154,7 +170,7 @@ const BidForm = ({onclose, productID}) => {
         type="file" name="file" className = "upload" onChange={changeHandler} />
         </div>
       
-        <br></br>
+        <br></br> */}
 
       <button type="submit">Submit</button>
     </form>
@@ -162,4 +178,4 @@ const BidForm = ({onclose, productID}) => {
 };
 
 
-export default  BidForm;
+export default  BankForm;

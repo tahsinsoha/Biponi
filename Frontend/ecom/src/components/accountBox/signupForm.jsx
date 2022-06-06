@@ -41,7 +41,7 @@ export function SignupForm(props) {
 
       console.log(data)
       localStorage.setItem('user', data._id)
-
+      localStorage.setItem('registered', data._id)
       history.push("../../");
     }
     catch (e) {

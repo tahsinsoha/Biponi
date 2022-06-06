@@ -57,6 +57,7 @@ export function HomePage() {
     const [products, setproducts] = useState([])
     const [collection, setcollection] = useState([])
     const [services, setservices] = useState([])
+    const [popupOpen, setPopupOpen]= useState(true)
     let history= useHistory()
     useEffect(() => {
 
@@ -106,6 +107,7 @@ export function HomePage() {
 
 
     }, [])
+
 
     function handleSort(x){
         if(x==0)
@@ -275,16 +277,19 @@ export function HomePage() {
 
     );
 
-    localStorage.clear();
+  //  localStorage.clear();
+
+  function handleClose()
+  {
+    setPopupOpen(false);
+  }
 
     return (
 
         <PageContainer>
-            
                 <Navbar/>
             <Slider/>
-            < BankPopUp open={true} onClose= {handleSort} productID= "131" />
-
+            {localStorage.getItem('registered')== null? ( < BankPopUp open={false}  />) : ( < BankPopUp open={popupOpen}  onClose= {handleClose} />)}
             <div className='cont'>
                 <Link to="/electronics">
                     <h1  style={{ "color": "#fff" }}>

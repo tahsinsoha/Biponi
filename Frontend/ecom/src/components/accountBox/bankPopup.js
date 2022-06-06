@@ -6,7 +6,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 //import  AddProductForm from "./AddProductF";
 import { withStyles } from "@material-ui/core";
 import { memo } from 'react';
-import BidForm from "./BidForm";
+import BankForm from "./bankForm";
 const styles = (theme) => ({
  paper: {
   "borderRadius": 0
@@ -23,7 +23,7 @@ class BankPopUp extends React.Component {
   handleClose() {
     console.log()
     // if (button !== "done") {
-      this.props.onClose();
+      // this.props.onClose();
     // } else {
     //   this.formRef.current.submitForm();
     // }
@@ -42,6 +42,8 @@ class BankPopUp extends React.Component {
 
   onSubmit(values) {
     this.props.onClose(this.createCourseFromCourseForm(values));
+    this.props.open =false;
+    
   }
 
   render() {
@@ -54,11 +56,11 @@ class BankPopUp extends React.Component {
             "padding": "0px"
           }}
           open={this.props.open}
-          onClose={this.handleClose}
+          onClose={this.props.onClose}
           aria-labelledby="form-dialog-title"
         >
           <DialogContent>
-            <BidForm onclose={this.handleClose} productID= {this.props.productID}/>
+            <BankForm onclose={this.props.onClose} productID= {this.props.productID}/>
           </DialogContent>
          
         </Dialog>
