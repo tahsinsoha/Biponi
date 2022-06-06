@@ -55,7 +55,7 @@ const Login = ({ handleLogin }) => {
         config)
 
       console.log(data)
-      localStorage.setItem('user', data.id)
+      localStorage.setItem('user', data._id)
 	// if (data.user) {
 	// 		localStorage.setItem('token', data.user)
 	// 		alert('Login successful')
