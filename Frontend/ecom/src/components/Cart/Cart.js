@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Container } from "react-bootstrap";
 import CartItem from "./CartItem";
 import axios from "axios";
 import "./style.css";
@@ -92,7 +92,9 @@ function updateCart(id, quantity)
 }
 
   return (
-    <div>
+    // <Container style = {{color:"black"}}>
+    <div style = {{BackgroundColor:"black"}}>
+    <div style = {{BackgroundColor:"black"}}>
         <Navbar/>
         {cartSize== 0 ? (
             <h3 style={{ textAlign: "center" }}>
@@ -151,10 +153,13 @@ function updateCart(id, quantity)
           
         </div>
     </div>
+    
               
   )
               }
               </div>
+              </div>
+             
   )
               
             }
