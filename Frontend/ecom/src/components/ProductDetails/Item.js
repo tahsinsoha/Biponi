@@ -4,6 +4,10 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import Animation from "./Animation";
 import "./style.css";
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { Navbar } from "../navbar";
+
+toast.configure();
 
 function Item(props) {
   const [color, setColor] = useState("#80CED7");
@@ -27,10 +31,16 @@ function addToCart()
 {
   let cartSize= localStorage.getItem("cartSize");
 
+  console.log("Product here", product.Price);
+
   localStorage.setItem(`cart[${cartSize}]`, id);
+  localStorage.setItem(`${id}`, product.Price);
+  
 
   cartSize++;
   localStorage.setItem("cartSize", cartSize);
+
+  toast.success("Product added to cart", {position:toast.POSITION.TOP_CENTER})
 }
 
   const description = "Description";
@@ -39,10 +49,12 @@ function addToCart()
     //   : "";
 
   return (
-    <Container>
+    <div>
+      <Navbar />
+      <Container>
       <Row className="item">
       <Col sm={6} >
-        <Animation color={color} userId={id} />
+        <Animation color={color} productId={id} />
       </Col>
       <Col className="info">
         { product!==null?<h2>{product.Title}</h2>:<></>}
@@ -66,6 +78,7 @@ function addToCart()
       </Col>
     </Row>
     </Container>
+    </div>
   );
 }
 

@@ -1,16 +1,22 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Animation from "./Animation";
 
+
 const CartItem = (props) => {
+
+  const [quantity, setQuantity]= useState(1);
+
   const handleIncrement = (e) => {
     e.preventDefault();
-    props.updateCart(props.id, props.quantity + 1);
+    setQuantity(quantity+1)
+    props.updateCart(props.productId, 1);
   };
 
   const handleDecrement = (e) => {
     e.preventDefault();
-    props.updateCart(props.id, props.quantity - 1);
+    setQuantity(quantity-1);
+    props.updateCart(props.productId, -1);
   };
 
   const handleRemove = (e) => {
@@ -42,7 +48,7 @@ const CartItem = (props) => {
                 <i className="fas fa-minus"></i>
               </button>
             </span>{" "}
-            {props.quantity}{" "}
+            {quantity}{" "}
             <span>
               <button className="quantityButton" onClick={handleIncrement}>
                 <i className="fas fa-plus"></i>

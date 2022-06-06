@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import { Row, Col, Button } from "react-bootstrap";
 import CartItem from "./CartItem";
@@ -21,34 +21,72 @@ function Cart(props) {
         }
   );
 
-  let cartSize= localStorage.getItem("cartSize");
+  const [totalCost, setTotalCost]= useState(0);
+  const [cartList, setCartList]= useState([]);
+  
+  let cartItems= new Set();
+  let cost= 0;
+  let cartSize= 0;
+
+  if( "cartSize" in localStorage )
+    cartSize= localStorage.getItem("cartSize");
+  
+  useEffect(() => {
+  
+    cartItems.clear();
+  console.log(cartSize)
 
   for( let i=0;i<cartSize;i++ )
-        console.log("Cart item", localStorage.getItem(`cart[${i}]`));
+  {
+    cartItems.add(localStorage.getItem(`cart[${i}]`));
+  }
+
+
+    cartItems.forEach (function(value) {
+      cost += parseInt(localStorage.getItem(value));
+      setCartList([...cartList,value])
+      
+      console.log("cartlist ", cost);
+
+      setTotalCost(cost);
+    })
+    
+}, [])
+
+function updateCart(id, quantity)
+{
+  console.log("agey", totalCost);
+  cost= totalCost;
+  cost+= parseInt(localStorage.getItem(id))*quantity;
+  console.log("pore", cost);
+  setTotalCost(cost);
+}
 
   return (
     <div>
         <Navbar/>
-        <div className="cart">
-      {props.cart == undefined ? (
-        <div>
-          {props=== 0 ? (
+        {cartSize== 0 ? (
             <h3 style={{ textAlign: "center" }}>
               Your cart is currently empty.
             </h3>
-          ) : (
+        )
+        : (
+        <div className="cart">
+      
+        <div>
+          
             <>
-              {/* {props.cart.line_items.map((item) => (
+              {cartList.map((item) => (
                 <CartItem
-                  key={item.id}
-                  uniqueId={item.product_id}
-                  updateCart={props.updateCart}
-                  removeItemFromCart={props.removeItemFromCart}
-                  quantity={item.quantity}
+                  key={item}
+                  productId= {item}
+                  // uniqueId={item.product_id}
+                  updateCart={updateCart}
+                  // removeItemFromCart={props.removeItemFromCart}
                   {...item}
                 />
-              ))} */}
-              <CartItem
+              ))}
+              {/* <CartItem
                   key={1}
                   uniqueId={1}
                 //   updateCart={props.updateCart}
@@ -63,11 +101,11 @@ function Cart(props) {
                 //   removeItemFromCart={props.removeItemFromCart}
                   quantity={4}
                 //   {...item}
-                />
+                /> */}
               <Row>
                 <Col>
                   <h3 id="total">
-                    Total: {"$100"}
+                    Total: {totalCost}
                   </h3>
                 </Col>
               </Row>
@@ -81,14 +119,16 @@ function Cart(props) {
                 </Col>
               </Row>
             </>
-          )}
+          
         </div>
-      ) : (
-        <></>
-      )}
     </div>
-    </div>
-  );
-}
+              
+  )
+              }
+              </div>
+  )
+              
+            }
+
 
 export default Cart;

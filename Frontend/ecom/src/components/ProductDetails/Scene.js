@@ -12,8 +12,8 @@ import { useGLTF } from '@react-three/drei'
 export default function Model({ ...props }) {
   console.log("props in Model ", props)
   const group = useRef()
-  const { nodes, materials } = useGLTF(`/${props.userId}.glb`)
-  if (props.userId == "6288fca2cf6785cbfd5d8d23"){
+  const { nodes, materials } = useGLTF(`/${props.productId}.glb`)
+  if (props.productId == "6288fca2cf6785cbfd5d8d23"){
   return (
     <group ref={group} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -24,7 +24,7 @@ export default function Model({ ...props }) {
     </group>
   )
   }
-  else if (props.userId=="629484e5e3acff4e1c71a7e4") {
+  else if (props.productId=="629484e5e3acff4e1c71a7e4") {
     return(
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} userData={{ name: 'Sketchfab_model' }}>
