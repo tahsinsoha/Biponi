@@ -6,7 +6,7 @@ import axios from "axios";
 import "./style.css";
 import { Navbar } from "../navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import TransPopUp from "../../components/accountBox/TransPopup";
 function Cart(props) {
   const showCart = useSpring(
     props.isCartOpen
@@ -23,8 +23,12 @@ function Cart(props) {
   );
 
   const [totalCost, setTotalCost]= useState(0);
+  const [buyclicked, setbuyclicked]= useState(false);
   const [cartList, setCartList]= useState([]);
+  const [popupOpen, setPopupOpen]= useState(true)
+  const [transactionID, setTransactionID]= useState('')
   
+   localStorage.setItem('amount', totalCost);
   let cartItems= new Set();
   let cost= 0;
   let cartSize= 0;
@@ -55,6 +59,7 @@ function Cart(props) {
 }, [])
 async function transaction(){
   const User = localStorage.getItem('user')
+  
   console.log(User)
 try {
   const config = {
@@ -74,14 +79,23 @@ try {
   //localStorage.setItem('user', data.id)
  // history.push("../../");
 
-
+    setTransactionID(data._id);
+    setbuyclicked(true);
+    // localStorage.setItem('transID',data._id);
+    console.log("locally ",localStorage.getItem('transID'));
 }
+
 catch (e) {
  // setCorrect(false)
   console.log(e)
 }
 
 }
+function handleClose()
+  {
+    setbuyclicked(false);
+    setPopupOpen(false);
+  }
 function updateCart(id, quantity)
 {
   console.log("agey", totalCost);
@@ -141,9 +155,10 @@ function updateCart(id, quantity)
               <Row>
                 <Col>
                   {/* <a href={props.cart.hosted_checkout_url}> */}
-                    <Button id="buy" variant="primary" onClick={transaction}>
+                    <Button id="buy" variant="primary" onClick={transaction} >
                       Buy Now
                     </Button>
+                    { buyclicked == true && transactionID!='' ? ( < TransPopUp open={true} transID= {transactionID} onClose= {handleClose} />) : ( < TransPopUp open={false} transID= {transactionID} />)}
                   {/* </a> */}
                 </Col>
               </Row>
