@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/api/products', require('./routes/productRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/banks', require('./routes/bankRoutes'))
+app.use('/api/transactions', require('./routes/transactionRoutes'))
 app.use(errorHandler)
 
 const cors = require('cors');
