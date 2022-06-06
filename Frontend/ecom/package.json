@@ -33,6 +33,7 @@
     "formik-material-ui": "^3.0.1",
     "formik-material-ui-lab": "0.0.8",
     "formik-material-ui-pickers": "0.0.12",
+    "framer-motion": "^4.1.17",
     "material-ui": "^0.20.2",
     "node-sass": "^4.14.1",
     "react": "^18.1.0",
