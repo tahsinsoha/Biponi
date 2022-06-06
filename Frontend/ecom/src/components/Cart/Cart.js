@@ -82,7 +82,7 @@ try {
     setTransactionID(data._id);
     setbuyclicked(true);
     // localStorage.setItem('transID',data._id);
-    console.log("locally ",localStorage.getItem('transID'));
+    console.log("locally ",data._id);
 }
 
 catch (e) {

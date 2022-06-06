@@ -3,6 +3,9 @@ import "./styles.css";
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import axios from 'axios'
 const TransForm = ({onclose, productID, transID}) => {
+
+    console.log("Form e trans ID", transID);
+
   const [selectedFile, setSelectedFile]= useState()
   const [transactionID, setTransactionID]= useState("")
   function changeHandler(event) {

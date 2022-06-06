@@ -47,6 +47,7 @@ class TransPopUp extends React.Component {
   }
 
   render() {
+      console.log("popup e trans", this.props.transID);
     const { classes } = this.props;
     return (
       <div  >

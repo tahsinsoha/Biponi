@@ -278,7 +278,7 @@ export function HomePage() {
 
     );
 
-   localStorage.clear();
+//    localStorage.clear();
 
   function handleClose()
   {
