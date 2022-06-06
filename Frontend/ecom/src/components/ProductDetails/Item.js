@@ -62,17 +62,16 @@ function addToCart()
   return (
     <div>
       <Navbar />
-      <Container>
-      <Row className="item">
+      <Row className="item" style= {{backgroundColor:"#2b3039"}}>
       <Col sm={6} >
         <Animation color={color} productId={id} />
       </Col>
-      <Col className="info">
-        { product!==null?<h2>{product.Title}</h2>:<></>}
-        { product!==null?<h2>{product.Price}</h2>:<></>}
+      <Col className="info"  >
+        { product!==null?<h2 style= {{color:"white"}}>{product.Title}</h2>:<></>}
+        { product!==null?<h2  style= {{color:"white"}}>{product.Price}</h2>:<></>}
         <Row className="buttonRow">
           <Col>
-            <p>Available Colors:</p>
+            <p style= {{color:"white"}}>Available Colors:</p>
             <Button id="blue" onClick={() => setColor("#80CED7")}></Button>
             <Button id="flax" onClick={() => setColor("#E9D985")}></Button>
             <Button id="red" onClick={() => setColor("#BF211E")}></Button>
@@ -88,7 +87,7 @@ function addToCart()
         </Row>
       </Col>
     </Row>
-    </Container>
+   
     </div>
   );
 }
