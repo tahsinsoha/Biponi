@@ -118,14 +118,17 @@
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
     margin-bottom: 50px;
+    background-color: #2b3039;
   }
   
   .main_content .card .card_img {
     margin-top: -5vw;
+    /* background-color: #2b3039; */
   }
   
   .main_content .card .card_img img {
     width: 200px;
+    /* background-color: #2b3039; */
   }
   
   .main_content .card .card_header {
@@ -139,6 +142,7 @@
   
   .main_content .card .card_header h2 {
     font-size: 18px;
+    /* background-color: #2b3039; */
   }
   
   .main_content .card .card_header p {
@@ -160,7 +164,7 @@
   }
   
   .main_content .card:hover {
-    background-color: #2b3039;
+    /* background-color: #2b3039; */
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
     cursor: pointer;
@@ -168,7 +172,7 @@
   
   .main_content .card:hover .btn {
     background-color: #fe8033;
-    color: #fff;
+    color: #2b3039;
   }
   
   .btn {

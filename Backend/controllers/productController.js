@@ -6,9 +6,9 @@ const getProducts = asyncHandler(async(req,res) => {
 }
 )
 const setProduct =  asyncHandler(async(req,res) => {
-  console.log(req)
+  // console.log(req)
   console.log(req.body)   
-  console.log(req.Title)
+  // console.log(req.Title)
   if(!req.body.Title){
          res.status(400)
          throw new Error('Please add a title field')
