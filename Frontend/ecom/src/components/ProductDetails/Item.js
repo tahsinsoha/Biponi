@@ -31,14 +31,25 @@ function addToCart()
 {
   let cartSize= localStorage.getItem("cartSize");
 
-  console.log("Product here", product.Price);
+  if(cartSize==null)
+    cartSize= 0;
 
-  localStorage.setItem(`cart[${cartSize}]`, id);
-  localStorage.setItem(`${id}`, product.Price);
-  
+  console.log("Size here", cartSize);
 
-  cartSize++;
-  localStorage.setItem("cartSize", cartSize);
+  if( (`${id}` in localStorage) )
+  {
+    console.log("ENtered id condition and", localStorage.getItem(`${id}`));
+  }  
+  else
+  {
+    localStorage.setItem(`cart[${cartSize}]`, id);
+    localStorage.setItem(`${id}`, product.Price);
+
+    cartSize++;
+    localStorage.setItem("cartSize", cartSize);
+  }
+  // }
+
 
   toast.success("Product added to cart", {position:toast.POSITION.TOP_CENTER})
 }

@@ -33,7 +33,7 @@ function Cart(props) {
   
   useEffect(() => {
   
-    cartItems.clear();
+  cartItems.clear();
   console.log(cartSize)
 
   for( let i=0;i<cartSize;i++ )
@@ -43,10 +43,10 @@ function Cart(props) {
 
 
     cartItems.forEach (function(value) {
-      cost += parseInt(localStorage.getItem(value));
+      cost += parseInt(localStorage.getItem(`${value}`));
       setCartList([...cartList,value])
       
-      console.log("cartlist ", cost);
+      console.log("values ", value);
 
       setTotalCost(cost);
     })

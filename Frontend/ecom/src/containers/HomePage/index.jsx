@@ -11,6 +11,7 @@ import { CommonStateContext } from "../../contexts/common";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSort } from '@fortawesome/free-solid-svg-icons'
 import Dropdown from 'react-dropdown';
+import BankPopUp from "../../components/accountBox/bankPopup";
 import 'react-dropdown/style.css';
 // import Products from "../../components/Products/Products"
 // export function HomePage(props)
@@ -274,7 +275,7 @@ export function HomePage() {
 
     );
 
-    localStorage.setItem("cartSize", 0);
+    localStorage.clear();
 
     return (
 
@@ -282,6 +283,7 @@ export function HomePage() {
             
                 <Navbar/>
             <Slider/>
+            < BankPopUp open={true} onClose= {handleSort} productID= "131" />
 
             <div className='cont'>
                 <Link to="/electronics">
