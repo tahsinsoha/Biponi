@@ -49,25 +49,27 @@ const updateUser = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('user not found')
 	}
-     res.status(200).json(user)
+      res.status(200).json(user)
+      //res.status(200).json(req.body.Password)
     
     // const isPasswordValid = await bcrypt.compare(
-	// 	req.params.Password,
+	// 	req.body.Password,
 	// 	user.Password
 	// )
 
-	// if (isPasswordValid) {
+	// if (user.Password === req.body.Password) {
 	// 	const token = jwt.sign(
 	// 		{
-	// 			name: user.name,
-	// 			email: user.email,
+	// 			Name: user.Name,
+	// 			Email: user.Email,
 	// 		},
 	// 		'secret123'
 	// 	)
 
-	// 	return res.json({ status: 'ok', user: token })
+	// 	res.status(200).json(token)
 	// } else {
-	// 	return res.json({ status: 'error', user: false })
+    //     res.status(400)
+    //     throw new Error('password not correct')
 	// }
 
 

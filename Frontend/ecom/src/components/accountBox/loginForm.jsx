@@ -56,7 +56,13 @@ const Login = ({ handleLogin }) => {
 
       console.log(data)
       localStorage.setItem('user', data.id)
-
+	// if (data.user) {
+	// 		localStorage.setItem('token', data.user)
+	// 		alert('Login successful')
+	// 		window.location.href = '/dashboard'
+	// 	} else {
+	// 		alert('Please check your username and password')
+	// 	}
       history.push("../../");
 
     // const response = await fetch('http://localhost:5000/api/users/login', {
