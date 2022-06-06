@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import { Row, Col, Button } from "react-bootstrap";
 import CartItem from "./CartItem";
+import axios from "axios";
 import "./style.css";
 import { Navbar } from "../navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -32,7 +33,7 @@ function Cart(props) {
     cartSize= localStorage.getItem("cartSize");
   
   useEffect(() => {
-  
+   
   cartItems.clear();
   console.log(cartSize)
 
@@ -52,7 +53,35 @@ function Cart(props) {
     })
     
 }, [])
+async function transaction(){
+  const User = localStorage.getItem('user')
+  console.log(User)
+try {
+  const config = {
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
 
+  const { data } = await axios.post(
+    'http://localhost:5000/api/transactions/',
+    {
+      'User_id': User, 'Current_amount': totalCost
+    },
+    config)
+
+  console.log(data)
+  //localStorage.setItem('user', data.id)
+ // history.push("../../");
+
+
+}
+catch (e) {
+ // setCorrect(false)
+  console.log(e)
+}
+
+}
 function updateCart(id, quantity)
 {
   console.log("agey", totalCost);
@@ -112,7 +141,7 @@ function updateCart(id, quantity)
               <Row>
                 <Col>
                   {/* <a href={props.cart.hosted_checkout_url}> */}
-                    <Button id="buy" variant="primary">
+                    <Button id="buy" variant="primary" onClick={transaction}>
                       Buy Now
                     </Button>
                   {/* </a> */}
