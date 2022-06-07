@@ -81,9 +81,11 @@ export function Navbar(props) {
         { localStorage.getItem('user') && (<Link to="/">
         <h3 onClick={()=>{ localStorage.clear() }} style={{"color":"#fff"}} >Logout</h3>
         </Link>) }
+        <Link to="/cart">
         <button >
       <i className="fas fa-shopping-cart" ></i>
               </button>
+        </Link>
       </AccessibilityContainer>
     </NavbarContainer>
   );

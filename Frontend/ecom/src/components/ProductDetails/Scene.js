@@ -14,6 +14,36 @@ export default function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF(`/${props.productId}.glb`)
 
+  if( props.productId == "629ec3706ae7b0bad55b9cd4" )
+  {
+    return (
+      <group ref={group} dispose={null}>
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <group rotation={[Math.PI / 2, 0, 0]}>
+            <group rotation={[-Math.PI / 2, 0, 0]}>
+              <group position={[0.05, 0, 0.07]}>
+                <mesh geometry={nodes['#CAM0001_Battery_Check_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+              </group>
+              <group position={[0.05, 0, 0.08]}>
+                <mesh geometry={nodes['#CAM0001_Spool_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+              </group>
+              <group position={[-0.06, 0, 0.08]}>
+                <mesh geometry={nodes['#CAM0001_Film_Advance_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+              </group>
+              <group position={[-0.03, -0.01, 0.08]}>
+                <mesh geometry={nodes['#CAM0001_Shutter_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+              </group>
+              <group position={[-0.06, 0, 0.07]}>
+                <mesh geometry={nodes['#CAM0001_Shutter_Speed_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+              </group>
+              <mesh geometry={nodes['#CAM0001_Body_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+            </group>
+          </group>
+        </group>
+      </group>
+    )
+  }
+
   if (props.productId == "629df7ee762a181375e54f04"){
     return (
       <group ref={group} dispose={null}>
