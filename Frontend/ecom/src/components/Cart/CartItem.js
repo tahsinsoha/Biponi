@@ -17,11 +17,14 @@ const CartItem = (props) => {
     e.preventDefault();
     setQuantity(quantity-1);
     props.updateCart(props.productId, -1);
+
+    if( quantity<=0 )
+      props.removeItem(props.productId)
   };
 
   const handleRemove = (e) => {
     e.preventDefault();
-    props.removeItemFromCart(props.id);
+    props.removeItem(props.productId);
   };
 
   return (

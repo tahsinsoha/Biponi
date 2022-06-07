@@ -134,8 +134,7 @@ export function HomePage() {
     }
 
     const listItems1 = products.map((item) => {
-        if (item.Category == '1')
-
+        if (item.Category == '1' && item._id=="629484e5e3acff4e1c71a7e4")
             return (
                 <Link to={`/item/${item._id}`} >
                     <div className="card" key={item.id}>
@@ -153,6 +152,25 @@ export function HomePage() {
                     </div>
                 </Link>
             )
+
+        else if( item.Category == '1' && item._id=="629ec3706ae7b0bad55b9cd4" )
+        return (
+            <Link to={`/item/${item._id}`} >
+                <div className="card" key={item.id}>
+
+                    <div className="card_img">
+                    {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                        <img src={'https://i.ibb.co/1bd84km/camera-photo-png-1876.png'} />
+                    </div>
+                    <div className="card_header">
+                        <h2>{item.Title}</h2>
+                        <p>{item.description}</p>
+                        <p className="price">{item.Price}<span></span></p>
+                        <div className="btn">Show Details</div>
+                    </div>
+                </div>
+            </Link>
+        )           
     }
 
     );

@@ -40,14 +40,22 @@ function Cart(props) {
   
     function removeItem(id)
     {
+      console.log("removing")
       let newList= cartList
         for( let i=0;i<newList.size;i++ )
         {
+          console.log(newList[i], id);
           if( newList[i]==id )
+          {
+            console.log("found")
             newList.splice(i,1);
+          }
         }
 
         setCartList(newList);
+
+        console.log("New cart list");
+        console.log(cartList);
 
         cartItems.clear();
         
