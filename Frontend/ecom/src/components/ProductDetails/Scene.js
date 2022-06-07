@@ -14,7 +14,53 @@ export default function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF(`/${props.productId}.glb`)
 
-  if( props.productId == "629ec3706ae7b0bad55b9cd4" )
+  if( props.productId == "629ed00320bbe33432055f5a" )
+  {
+    return (
+      <group ref={group} {...props} dispose={null}>
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <group rotation={[Math.PI / 2, 0, 0]}>
+            <mesh material-color={props.color} geometry={nodes.AM_102_035_003_AM_102_035_002_0.geometry} material={materials.AM_102_035_002} scale={[0.02,0.02,0.02]} />
+          </group>
+        </group>
+      </group>
+    )
+  }
+
+  if( props.productId == "629eca7a20bbe33432055f46" )
+  {
+    return (
+      <group ref={group} {...props} dispose={null}>
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <mesh geometry={nodes.Headphone__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_frame__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_adjuster__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_det_down__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_det_middle__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_det_down__holder_pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_metal_up__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_metal_down__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_det_up__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_wire_cnnct__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_wire_Wire_0.geometry} material={materials.Wire} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_wire_M_Wire_0.geometry} material={materials.Wire} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_frame__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_adjuster__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_det_down__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_det_middle__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_det_down__holder_pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_metal_up__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_metal_down__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_det_up__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_wire_Wire_0.geometry} material={materials.Wire} scale={[5,5,5]} />
+          </group>
+        </group>
+      </group>
+    )
+  }
+
+  else if( props.productId == "629ec3706ae7b0bad55b9cd4" )
   {
     return (
       <group ref={group} dispose={null}>
@@ -22,21 +68,27 @@ export default function Model({ ...props }) {
           <group rotation={[Math.PI / 2, 0, 0]}>
             <group rotation={[-Math.PI / 2, 0, 0]}>
               <group position={[0.05, 0, 0.07]}>
-                <mesh geometry={nodes['#CAM0001_Battery_Check_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+                <mesh geometry={nodes['#CAM0001_Battery_Check_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
               </group>
               <group position={[0.05, 0, 0.08]}>
-                <mesh geometry={nodes['#CAM0001_Spool_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+                <mesh geometry={nodes['#CAM0001_Spool_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
               </group>
               <group position={[-0.06, 0, 0.08]}>
-                <mesh geometry={nodes['#CAM0001_Film_Advance_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+                <mesh geometry={nodes['#CAM0001_Film_Advance_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
               </group>
               <group position={[-0.03, -0.01, 0.08]}>
-                <mesh geometry={nodes['#CAM0001_Shutter_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+                <mesh geometry={nodes['#CAM0001_Shutter_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
               </group>
               <group position={[-0.06, 0, 0.07]}>
-                <mesh geometry={nodes['#CAM0001_Shutter_Speed_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+                <mesh geometry={nodes['#CAM0001_Shutter_Speed_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
               </group>
-              <mesh geometry={nodes['#CAM0001_Body_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} />
+              <mesh geometry={nodes['#CAM0001_Body_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} 
+              scale={[5,5,5]}/>
             </group>
           </group>
         </group>
@@ -44,42 +96,17 @@ export default function Model({ ...props }) {
     )
   }
 
-  if (props.productId == "629df7ee762a181375e54f04"){
+  else if (props.productId == "629df7ee762a181375e54f04"){
     return (
-      <group ref={group} dispose={null}>
-        <group rotation={[0, 0, 0]}>
-          <group rotation={[0, 0, 0]}>
-            <group position={[-121.28, 19.83, 25.91]} rotation={[-Math.PI / 2, 0, 0]}>
-              <group position={[12.03, 19.85, -19.83]}>
-                <mesh geometry={nodes.Box001_Transparent_Brown_8A570_0.geometry} material={materials.Transparent_Brown_8A570} />
-              </group>
-              <group position={[-70.04, 0, -1.5]}>
-                <group position={[82.06, 19.85, -18.33]}>
-                  <mesh geometry={nodes.Object006_Transparent_Brown_8A570_0.geometry} material={materials.Transparent_Brown_8A570} />
-                </group>
-              </group>
-              <group position={[3.99, 0.01, -0.94]}>
-                <group position={[8.04, 19.85, -18.88]}>
-                  <mesh geometry={nodes.Object002_PLASTICPVCOpaque_Black_0.geometry} material={materials.PLASTICPVCOpaque_Black} />
-                </group>
-                <group position={[8.04, 19.85, -18.88]}>
-                  <mesh geometry={nodes.Object001_PLASTICPVCOpaque_Black_0.geometry} material={materials.PLASTICPVCOpaque_Black} />
-                </group>
-              </group>
-              <group position={[-71.87, 0, 14.15]}>
-                <group position={[83.9, 19.85, -33.97]}>
-                  <mesh geometry={nodes.Object005_PLASTICPVCOpaque_Black_0.geometry} material={materials.PLASTICPVCOpaque_Black} />
-                </group>
-                <group position={[83.9, 19.85, -33.97]}>
-                  <mesh geometry={nodes.Object004_PLASTICPVCOpaque_Black_0.geometry} material={materials.PLASTICPVCOpaque_Black} />
-                </group>
-              </group>
-              <group position={[-65.75, 0, -1.73]}>
-                <group position={[77.78, 19.85, -18.1]}>
-                  <mesh geometry={nodes.Object003_9k_Yellow_Gold_0.geometry} material={materials['9k_Yellow_Gold']} />
-                </group>
-              </group>
-            </group>
+      <group ref={group} {...props} dispose={null}>
+        <group rotation={[-Math.PI / 2, 0, 0]} userData={{ name: 'Sketchfab_model' }}>
+          <group userData={{ name: 'Kurta and lunga.obj.cleaner.materialmerger.gles' }}>
+            <mesh castShadow receiveShadow geometry={nodes.Object_2.geometry} material={materials.Cotton_14_Wale_Corduroy_FRONT_1240702} userData={{ name: 'Object_2' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_3.geometry} material={materials.Fabric5878754_FRONT_1253597} userData={{ name: 'Object_3' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_4.geometry} material={materials.Knit_Cotton_Jersey_FRONT_1240711} userData={{ name: 'Object_4' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_5.geometry} material={materials.Leather_Lambskin_FRONT_1240722} userData={{ name: 'Object_5' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_6.geometry} material={materials.Material217575} userData={{ name: 'Object_6' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_7.geometry} material={materials.Material5878670} userData={{ name: 'Object_7' }} />
           </group>
         </group>
       </group>
