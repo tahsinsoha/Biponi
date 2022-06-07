@@ -73,10 +73,10 @@ export function Navbar(props) {
           <Button size={19}> Login </Button>
          
         </Link>) }
-        <Marginer direction="horizontal" margin={16} />
+        {/* <Marginer direction="horizontal" margin={16} />
         { localStorage.getItem('user') && (<Link to="/myproducts">
         <h3 style={{"color":"#fff"}}>My Products</h3>
-        </Link>) }
+        </Link>) } */}
         <Marginer direction="horizontal" margin={16} />
         { localStorage.getItem('user') && (<Link to="/">
         <h3 onClick={()=>{ localStorage.clear() }} style={{"color":"#fff"}} >Logout</h3>

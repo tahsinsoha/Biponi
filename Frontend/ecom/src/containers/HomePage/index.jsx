@@ -160,7 +160,7 @@ export function HomePage() {
 
                     <div className="card_img">
                     {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-                        <img src={'https://i.ibb.co/1bd84km/camera-photo-png-1876.png'} />
+                        <img src={'https://i.ibb.co/WV7WTtG/camera-icon.png'} />
                     </div>
                     <div className="card_header">
                         <h2>{item.Title}</h2>
@@ -170,14 +170,33 @@ export function HomePage() {
                     </div>
                 </div>
             </Link>
-        )           
+        )   
+        
+        else if( item.Category == '1' && item._id=="629eca7a20bbe33432055f46" )
+        return (
+            <Link to={`/item/${item._id}`} >
+                <div className="card" key={item.id}>
+
+                    <div className="card_img">
+                    {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                        <img src={'https://i.ibb.co/GMjSrcG/Headphone-icon.png'} />
+                    </div>
+                    <div className="card_header">
+                        <h2>{item.Title}</h2>
+                        <p>{item.description}</p>
+                        <p className="price">{item.Price}<span></span></p>
+                        <div className="btn">Show Details</div>
+                    </div>
+                </div>
+            </Link>
+        )          
     }
 
     );
 
 
     const listItems2 = products.map((item) => {
-        if (item.Category == '2')
+        if (item.Category == '2' && item._id=="6288fca2cf6785cbfd5d8d23")
 
             return (
                 <Link to={`/item/${item._id}`} >
@@ -185,7 +204,44 @@ export function HomePage() {
 
                         <div className="card_img">
                         {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-                            <img src={'https://ibb.co/M5cYCg3'} />
+                            <img src={'https://i.ibb.co/r3YCzNb/Clothing-Jacket-icon.png'} />
+                        </div>
+                        <div className="card_header">
+                            <h2>{item.Title}</h2>
+                            <p>{item.description}</p>
+                            <p className="price">{item.Price}<span></span></p>
+                            <div className="btn">Show Details</div>
+                        </div>
+                    </div>
+                </Link>
+            )
+            if (item.Category == '2' && item._id=="629ed00320bbe33432055f5a")
+            return (
+                <Link to={`/item/${item._id}`} >
+                    <div className="card" key={item.id}>
+
+                        <div className="card_img">
+                        {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                            <img src={'https://i.ibb.co/kcrgPX5/Nike-Shirt-15-icon.png'} />
+                        </div>
+                        <div className="card_header">
+                            <h2>{item.Title}</h2>
+                            <p>{item.description}</p>
+                            <p className="price">{item.Price}<span></span></p>
+                            <div className="btn">Show Details</div>
+                        </div>
+                    </div>
+                </Link>
+            )
+
+            if (item.Category == '2' && item._id=="629ee45820bbe33432055f6a")
+            return (
+                <Link to={`/item/${item._id}`} >
+                    <div className="card" key={item.id}>
+
+                        <div className="card_img">
+                        {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                            <img src={'https://i.ibb.co/r4BZdTG/Clothing-Shirt-icon.png'} />
                         </div>
                         <div className="card_header">
                             <h2>{item.Title}</h2>
@@ -332,7 +388,7 @@ export function HomePage() {
                 <div className="main_content">
                     {listItems2}
                 </div>
-                <Link to="/other">
+                {/* <Link to="/other">
                 <h1 style={{"color": "#fff"}}>
                    Other
                 </h1>
@@ -347,7 +403,7 @@ export function HomePage() {
                 </Link>
                 <div className="main_content">
                     {serviceItem1}
-                </div>
+                </div> */}
                 <Footer>
                 </Footer>
             </div>
