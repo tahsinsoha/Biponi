@@ -26,7 +26,7 @@ export const Footer = () => {
       </p> */}
       <a href="/">
       <p>
-      <strong> &copy; {currentYear} Kroy - An efficient way to buy</strong>
+      <strong> &copy; {currentYear} Biponi - An efficient way to buy</strong>
       </p>
         </a>
     </footer>
