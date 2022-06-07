@@ -75,8 +75,8 @@ const TransForm = ({onclose, productID, transID}) => {
 
   return (
     <form onSubmit={handleSubmission}>
-        <h1>{`Your transaction was successful. 
-            The transaction id is: ${transID}`}</h1>
+        <p>{`Your transaction was successful. 
+            The transaction id is: ${transID}`}</p>
       {/* <input
       style={{
         "display": "block",
