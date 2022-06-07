@@ -46,15 +46,20 @@ function Cart(props) {
     cartItems.add(localStorage.getItem(`cart[${i}]`));
   }
 
+    let templist= []
 
     cartItems.forEach (function(value) {
       cost += parseInt(localStorage.getItem(`${value}`));
-      setCartList([...cartList,value])
+      templist.push(value)
       
       console.log("values ", value);
 
+      console.log(cartList)
+
       setTotalCost(cost);
     })
+
+    setCartList(templist)
     
 }, [])
 async function transaction(){

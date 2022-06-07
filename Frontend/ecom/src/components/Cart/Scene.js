@@ -13,11 +13,185 @@ export default function Model({ ...props }) {
   console.log("props in Model ", props)
   const group = useRef()
   const { nodes, materials } = useGLTF(`/${props.productId}.glb`)
-  
-  if(props.productId=="629484e5e3acff4e1c71a7e4")
+
+  if( props.productId == "629ee45820bbe33432055f6a" )
   {
     return (
       <group ref={group} {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+          <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22593_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22594_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_12616_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_7660_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22595_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22590_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_21425_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22596_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt00_1Pattern2D_4228_Shirt01_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_14923_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22589_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_5118_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_7659_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_7658_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22591_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22592_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22597_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+  )
+  }
+
+  else if( props.productId == "629ed00320bbe33432055f5a" )
+  {
+    return (
+      <group ref={group} {...props} dispose={null}>
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <group rotation={[Math.PI / 2, 0, 0]}>
+            <mesh material-color={props.color} geometry={nodes.AM_102_035_003_AM_102_035_002_0.geometry} material={materials.AM_102_035_002} scale={[0.02,0.02,0.02]} />
+          </group>
+        </group>
+      </group>
+    )
+  }
+
+  if( props.productId == "629eca7a20bbe33432055f46" )
+  {
+    return (
+      <group ref={group} {...props} dispose={null}>
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+            <mesh geometry={nodes.Headphone__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_frame__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_adjuster__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_det_down__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_det_middle__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_det_down__holder_pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_metal_up__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_metal_down__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_det_up__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_headphone_wire_cnnct__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_wire_Wire_0.geometry} material={materials.Wire} scale={[5,5,5]} />
+            <mesh geometry={nodes.L_wire_M_Wire_0.geometry} material={materials.Wire} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_frame__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_adjuster__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_det_down__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_det_middle__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_det_down__holder_pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_metal_up__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_metal_down__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_headphone_det_up__pasted__headphones1_0.geometry} material={materials.pasted__headphones1} scale={[5,5,5]} />
+            <mesh geometry={nodes.R_wire_Wire_0.geometry} material={materials.Wire} scale={[5,5,5]} />
+          </group>
+        </group>
+      </group>
+    )
+  }
+
+  else if( props.productId == "629ec3706ae7b0bad55b9cd4" )
+  {
+    return (
+      <group ref={group} dispose={null}>
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <group rotation={[Math.PI / 2, 0, 0]}>
+            <group rotation={[-Math.PI / 2, 0, 0]}>
+              <group position={[0.05, 0, 0.07]}>
+                <mesh geometry={nodes['#CAM0001_Battery_Check_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
+              </group>
+              <group position={[0.05, 0, 0.08]}>
+                <mesh geometry={nodes['#CAM0001_Spool_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
+              </group>
+              <group position={[-0.06, 0, 0.08]}>
+                <mesh geometry={nodes['#CAM0001_Film_Advance_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
+              </group>
+              <group position={[-0.03, -0.01, 0.08]}>
+                <mesh geometry={nodes['#CAM0001_Shutter_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
+              </group>
+              <group position={[-0.06, 0, 0.07]}>
+                <mesh geometry={nodes['#CAM0001_Shutter_Speed_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures}
+                scale={[5,5,5]} />
+              </group>
+              <mesh geometry={nodes['#CAM0001_Body_#CAM0001_Textures_0'].geometry} material={materials.CAM0001_Textures} 
+              scale={[5,5,5]}/>
+            </group>
+          </group>
+        </group>
+      </group>
+    )
+  }
+
+  else if (props.productId == "629df7ee762a181375e54f04"){
+    return (
+      <group ref={group} {...props} dispose={null}>
+        <group rotation={[-Math.PI / 2, 0, 0]} userData={{ name: 'Sketchfab_model' }}>
+          <group userData={{ name: 'Kurta and lunga.obj.cleaner.materialmerger.gles' }}>
+            <mesh castShadow receiveShadow geometry={nodes.Object_2.geometry} material={materials.Cotton_14_Wale_Corduroy_FRONT_1240702} userData={{ name: 'Object_2' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_3.geometry} material={materials.Fabric5878754_FRONT_1253597} userData={{ name: 'Object_3' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_4.geometry} material={materials.Knit_Cotton_Jersey_FRONT_1240711} userData={{ name: 'Object_4' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_5.geometry} material={materials.Leather_Lambskin_FRONT_1240722} userData={{ name: 'Object_5' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_6.geometry} material={materials.Material217575} userData={{ name: 'Object_6' }} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_7.geometry} material={materials.Material5878670} userData={{ name: 'Object_7' }} />
+          </group>
+        </group>
+      </group>
+    )
+  }
+
+  else if (props.productId == "6288fca2cf6785cbfd5d8d23"){
+  return (
+    <group ref={group} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <mesh material-color={props.color} geometry={nodes.defaultMaterial.geometry} material={materials.Jacket_Lv2_Jacket} />
+        </group> 
+      </group>
+    </group>
+  )
+  }
+  else if (props.productId=="629484e5e3acff4e1c71a7e4") {
+    return(
+    <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} userData={{ name: 'Sketchfab_model' }}>
         <group userData={{ name: 'root' }}>
          <group rotation={[Math.PI / 2, 0, 0]} userData={{ name: 'GLTF_SceneRootNode' }}>
@@ -96,104 +270,9 @@ export default function Model({ ...props }) {
          </group>
        </group>
      </group>
-    )
-  }
-  if( props.productId=="6288fca2cf6785cbfd5d8d23" )
-  {
-    return (
-      <group ref={group} dispose={null}>
-        <group rotation={[-Math.PI / 2, 0, 0]}>
-          <group rotation={[Math.PI / 2, 0, 0]}>
-            <mesh geometry={nodes.defaultMaterial.geometry} material={materials.Jacket_Lv2_Jacket} />
-          </group> 
-        </group>
-      </group>
-    )
-  }
-//   else if (props.userId=="629484e5e3acff4e1c71a7e4") {
-//     return(
-//     <group ref={group} {...props} dispose={null}>
-//       <group rotation={[-Math.PI / 2, 0, 0]} userData={{ name: 'Sketchfab_model' }}>
-//         <group userData={{ name: 'root' }}>
-//          <group rotation={[Math.PI / 2, 0, 0]} userData={{ name: 'GLTF_SceneRootNode' }}>
-//             <group position={[0.39, 0.3, 0.32]} scale={[0.05, 0.02, 0.05]} userData={{ name: 'Cube.015_1' }}>
-//               <mesh castShadow receiveShadow geometry={nodes.Object_4.geometry} material={materials['Material.006']} userData={{ name: 'Object_4' }} />
-//               <mesh castShadow receiveShadow geometry={nodes.Object_5.geometry} material={materials['Material.031']} userData={{ name: 'Object_5' }} />
-//             </group>
-//             <group position={[0.48, 0.24, 0.12]} scale={[0.82, 1, 1]} userData={{ name: 'Cube_2' }}>
-//               <mesh castShadow receiveShadow geometry={nodes.Object_7.geometry} material={materials['Material.025']} userData={{ name: 'Object_7' }} />
-//               <mesh castShadow receiveShadow geometry={nodes.Object_8.geometry} material={materials['Material.002']} userData={{ name: 'Object_8' }} />
-//               <mesh castShadow receiveShadow geometry={nodes.Object_9.geometry} material={materials['Material.007']} userData={{ name: 'Object_9' }} />
-//               <mesh castShadow receiveShadow geometry={nodes.Object_10.geometry} material={materials['Material.005']} userData={{ name: 'Object_10' }} />
-//             </group>
-//             <group position={[0.48, 0.29, -0.28]} rotation={[0.02, 0, 0]} scale={[0.82, 1, 1]} userData={{ name: 'Plane_3' }}>
-//               <mesh castShadow receiveShadow geometry={nodes.Object_12.geometry} material={materials['Material.006']} userData={{ name: 'Object_12' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_13.geometry} material={materials['Material.007']} userData={{ name: 'Object_13' }} />
-//              </group>
-//              <group position={[0.48, 0.32, 0.72]} rotation={[Math.PI / 2, 0, 0]} scale={[1, 0.61, 1]} userData={{ name: 'Cube.001_4' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_15.geometry} material={materials['Material.025']} userData={{ name: 'Object_15' }} />
-//               <mesh castShadow receiveShadow geometry={nodes.Object_16.geometry} material={materials['Material.003']} userData={{ name: 'Object_16' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_17.geometry} material={materials['Material.004']} userData={{ name: 'Object_17' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_18.geometry} material={materials['Material.008']} userData={{ name: 'Object_18' }} />
-//             </group>
-//             <group position={[0.47, 0.19, 0.66]} userData={{ name: 'Plane.001_5' }}>
-//               <mesh castShadow receiveShadow geometry={nodes.Object_20.geometry} material={materials['Material.025']} userData={{ name: 'Object_20' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_21.geometry} material={materials['Material.002']} userData={{ name: 'Object_21' }} />
-//              </group>
-//              <group position={[1.37, 0.18, 0.66]} scale={[1, 1.72, 1]} userData={{ name: 'Cube.002_6' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_23.geometry} material={materials['Material.007']} userData={{ name: 'Object_23' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_24.geometry} material={materials['Material.006']} userData={{ name: 'Object_24' }} />
-//              </group>
-//              <group position={[1.4, 0.3, 0.72]} rotation={[0.17, 0, 0]} scale={[1.2, 0.95, 0.95]} userData={{ name: 'Cube.003_7' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_26.geometry} material={materials['Material.005']} userData={{ name: 'Object_26' }} />
-//              </group>
-//              <group position={[1.4, 0.26, 0.14]} scale={[0.02, 0, 0.03]} userData={{ name: 'Cube.004_8' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_28.geometry} material={materials['Material.010']} userData={{ name: 'Object_28' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_29.geometry} material={materials['Material.011']} userData={{ name: 'Object_29' }} />
-//              </group>
-//             <group position={[1.4, 0.26, 0.07]} scale={[0.02, 0, 0.03]} userData={{ name: 'Cube.005_9' }}>
-//               <mesh castShadow receiveShadow geometry={nodes.Object_31.geometry} material={materials['Material.010']} userData={{ name: 'Object_31' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_32.geometry} material={materials['Material.011']} userData={{ name: 'Object_32' }} />
-//              </group>
-//              <group position={[1.4, 0.26, 0.14]} scale={[0.02, 0, 0.03]} userData={{ name: 'Cube.006_10' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_34.geometry} material={materials['Material.010']} userData={{ name: 'Object_34' }} />
-//               <mesh castShadow receiveShadow geometry={nodes.Object_35.geometry} material={materials['Material.011']} userData={{ name: 'Object_35' }} />
-//              </group>
-//              <group position={[0.48, 0.24, 0.16]} rotation={[-Math.PI, 0, -Math.PI]} scale={[0.82, 1, 1]} userData={{ name: 'Cube.007_11' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_37.geometry} material={materials['Material.005']} userData={{ name: 'Object_37' }} />
-//              </group>
-//              <group position={[-0.43, 0.26, 0.13]} rotation={[-Math.PI, 0, -Math.PI]} scale={[0.02, 0, 0.03]} userData={{ name: 'Cube.008_12' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_39.geometry} material={materials['Material.010']} userData={{ name: 'Object_39' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_40.geometry} material={materials['Material.011']} userData={{ name: 'Object_40' }} />
-//              </group>
-//             <group position={[0.48, 0.24, 0.24]} rotation={[-Math.PI, 0, -Math.PI]} scale={[0.82, 1, 1]} userData={{ name: 'Cube.009_13' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_42.geometry} material={materials['Material.005']} userData={{ name: 'Object_42' }} />
-//              </group>
-//             <group position={[-0.43, 0.26, 0.21]} rotation={[-Math.PI, 0, -Math.PI]} scale={[0.02, 0, 0.03]} userData={{ name: 'Cube.010_14' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_44.geometry} material={materials['Material.010']} userData={{ name: 'Object_44' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_45.geometry} material={materials['Material.011']} userData={{ name: 'Object_45' }} />
-//              </group>
-//              <group position={[0.48, 0.22, 0.67]} rotation={[0, -Math.PI / 2, 0]} scale={[0.02, 0, 0.04]} userData={{ name: 'Cube.011_15' }}>
-//               <mesh castShadow receiveShadow geometry={nodes.Object_47.geometry} material={materials['Material.010']} userData={{ name: 'Object_47' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_48.geometry} material={materials['Material.011']} userData={{ name: 'Object_48' }} />
-//              </group>
-//             <group position={[0.46, 1.04, 0.74]} rotation={[Math.PI / 2, 0, 0]} scale={[0.14, 0.1, 0.1]} userData={{ name: 'Circle_16' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_50.geometry} material={materials['Material.025']} userData={{ name: 'Object_50' }} />
-//              </group>
-//              <group position={[-0.46, 0.26, 0.05]} rotation={[-Math.PI, 0, -Math.PI]} scale={[0.01, 0, 0.02]} userData={{ name: 'Cube.012_17' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_52.geometry} material={materials['Material.010']} userData={{ name: 'Object_52' }} />
-//                <mesh castShadow receiveShadow geometry={nodes.Object_53.geometry} material={materials['Material.011']} userData={{ name: 'Object_53' }} />
-//              </group>
-//              <group position={[-0.5, 0.26, 0.01]} rotation={[0, 0, -Math.PI / 2]} scale={0} userData={{ name: 'Plane.002_18' }}>
-//                <mesh castShadow receiveShadow geometry={nodes.Object_55.geometry} material={materials.material_0} userData={{ name: 'Object_55' }} />
-//              </group>
-//            </group>
-//          </group>
-//        </group>
-//      </group>
-//  )
+ )
 
-//   }
+  }
 }
 
 // export default function Laptop_model({ ...props }) {
@@ -284,4 +363,5 @@ export default function Model({ ...props }) {
 
 
 useGLTF.preload('/jacket_model.glb')
-useGLTF.preload('laptop_model.glb')
+useGLTF.preload('/laptop_model.glb')
+useGLTF.preload('/kurti_model.glb')
