@@ -15,16 +15,24 @@ const CartItem = (props) => {
 
   const handleDecrement = (e) => {
     e.preventDefault();
+
+    if( quantity==1 )
+    {
+      props.removeItem(props.productId)
+      props.updateCart(props.productId, -quantity);
+      setQuantity(0);
+      return;
+    }
+
     setQuantity(quantity-1);
     props.updateCart(props.productId, -1);
-
-    if( quantity<=0 )
-      props.removeItem(props.productId)
   };
 
   const handleRemove = (e) => {
     e.preventDefault();
-    props.removeItem(props.productId);
+    props.removeItem(props.productId)
+    props.updateCart(props.productId, -quantity);
+    setQuantity(0);
   };
 
   return (

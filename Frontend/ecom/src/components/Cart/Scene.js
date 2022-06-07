@@ -10,7 +10,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function Model({ ...props }) {
-  console.log("props in Model ", props)
+  // console.log("props in Model ", props)
   const group = useRef()
   const { nodes, materials } = useGLTF(`/${props.productId}.glb`)
 

@@ -38,8 +38,8 @@ export function BrandLogo(props) {
           </LogoImage>
     
     
-        <LogoTitle size={textSize} >
-        Kroy 
+        <LogoTitle size={25} >
+        Biponi
         </LogoTitle>
       
     </BrandLogoContainer>

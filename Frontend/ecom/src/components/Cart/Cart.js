@@ -40,11 +40,20 @@ function Cart(props) {
   
     function removeItem(id)
     {
-      console.log("removing")
-      let newList= cartList
-        for( let i=0;i<newList.size;i++ )
+      
+      let newList= []
+      
+      for( let i=0;i<cartList.length;i++ )
+      {
+        newList.push(cartList[i]);
+        console.log("inside loop", cartList[i]);
+      }
+
+        console.log("size",newList.length)
+
+        for( let i=0;i<newList.length;i++ )
         {
-          console.log(newList[i], id);
+          console.log(newList[i]);
           if( newList[i]==id )
           {
             console.log("found")
@@ -57,19 +66,22 @@ function Cart(props) {
         console.log("New cart list");
         console.log(cartList);
 
+        let idx= 0;
+
         cartItems.clear();
-        
 
         for( let i=0;i<cartList.size;i++ )
         {
           cartItems.add(cartList[i])
         }
 
-        let idx= 0;
-
         cartItems.forEach (function(value) {
-            localStorage.setItem(`cart[${idx}]`, value);
-        })
+            localStorage.setItem(`cart[${idx++}]`, value);
+        
+        console.log("idx size", idx);
+
+        localStorage.setItem('cartSize', idx);
+      })
     }
 
   useEffect(() => {

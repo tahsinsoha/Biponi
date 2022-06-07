@@ -204,7 +204,7 @@ export function HomePage() {
 
                         <div className="card_img">
                         {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-                            <img src={'https://i.ibb.co/r3YCzNb/Clothing-Jacket-icon.png'} />
+                            <img src={'https://i.ibb.co/Ms0LFg8/jacket.png'} />
                         </div>
                         <div className="card_header">
                             <h2>{item.Title}</h2>
@@ -222,7 +222,7 @@ export function HomePage() {
 
                         <div className="card_img">
                         {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-                            <img src={'https://i.ibb.co/kcrgPX5/Nike-Shirt-15-icon.png'} />
+                            <img src={'https://i.ibb.co/7rd596B/tshirt-1.png'} />
                         </div>
                         <div className="card_header">
                             <h2>{item.Title}</h2>
@@ -241,7 +241,7 @@ export function HomePage() {
 
                         <div className="card_img">
                         {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-                            <img src={'https://i.ibb.co/r4BZdTG/Clothing-Shirt-icon.png'} />
+                            <img src={'https://i.ibb.co/9bZf2Nv/cloth-1.png'} />
                         </div>
                         <div className="card_header">
                             <h2>{item.Title}</h2>

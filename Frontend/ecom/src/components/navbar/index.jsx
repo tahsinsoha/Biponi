@@ -79,8 +79,9 @@ export function Navbar(props) {
         </Link>) } */}
         <Marginer direction="horizontal" margin={16} />
         { localStorage.getItem('user') && (<Link to="/">
-        <h3 onClick={()=>{ localStorage.clear() }} style={{"color":"#fff"}} >Logout</h3>
+        <div onClick={()=>{localStorage.clear()}}><Button size={17}> Logout </Button></div>
         </Link>) }
+        <Marginer direction="horizontal" margin={16} />
         <Link to="/cart">
         <button >
       <i className="fas fa-shopping-cart" ></i>
