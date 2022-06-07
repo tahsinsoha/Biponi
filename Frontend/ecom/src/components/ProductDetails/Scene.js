@@ -14,7 +14,72 @@ export default function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF(`/${props.productId}.glb`)
 
-  if( props.productId == "629ed00320bbe33432055f5a" )
+  if( props.productId == "629ee45820bbe33432055f6a" )
+  {
+    return (
+      <group ref={group} {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+          <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22593_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22594_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_12616_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_7660_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22595_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22590_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_21425_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22596_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt00_1Pattern2D_4228_Shirt01_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_14923_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22589_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_5118_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_7659_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_7658_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22591_Blue_chacker_0.geometry} material={materials.Blue_chacker} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22592_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+            <group position={[-0.01, -0.08, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+              <mesh material-color={props.color} geometry={nodes.Shirt01_Shirt00_1Pattern2D_22597_Button_0.geometry} material={materials.Button} scale={[0.5,0.5,0.5]} />
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
+  )
+  }
+
+  else if( props.productId == "629ed00320bbe33432055f5a" )
   {
     return (
       <group ref={group} {...props} dispose={null}>
