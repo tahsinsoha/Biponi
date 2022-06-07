@@ -19,6 +19,7 @@ app.use('/api/products', require('./routes/productRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/banks', require('./routes/bankRoutes'))
 app.use('/api/transactions', require('./routes/transactionRoutes'))
+app.use('/api/seller', require('./routes/sellerRoutes'))
 app.use(errorHandler)
 
 const cors = require('cors');
