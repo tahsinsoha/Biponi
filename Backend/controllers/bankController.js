@@ -25,9 +25,9 @@ const setBank_acc =  asyncHandler(async(req,res) => {
 
 
 const updateBank_acc = asyncHandler(async (req, res) => {
-    const Bank_acc = await Bank_acc.findById(req.params.id)
+    const bank_acc = await Bank_acc.findById(req.params.id)
   
-    if (!Bank_acc) {
+    if (!bank_acc) {
       res.status(400)
       throw new Error('Bank_acc not found')
     }
@@ -40,20 +40,34 @@ const updateBank_acc = asyncHandler(async (req, res) => {
   })
 
   const getBank_accByid = asyncHandler(async (req, res) => {
-    const Bank_acc = await Bank_acc.findById(req.params.id)
+    const bank_acc = await Bank_acc.findById(req.params.id)
   
     if (!Bank_acc) {
       res.status(400)
       throw new Error('Bank_acc not found')
     }
   
-    res.status(200).json(Bank_acc)
+    res.status(200).json(bank_acc)
+  })
+
+  const getBank_accByuser = asyncHandler(async (req, res) => {
+    const bank_acc = await Bank_acc.findOne({
+     User_id: req.body.User_id
+      })
+     console.log(req.body)
+     console.log(bank_acc)
+    if (!bank_acc) {
+      res.status(400)
+      throw new Error('Bank_acc not found')
+    }
+    
+    res.status(200).json(bank_acc)
   })
 
   const deleteBank_acc = asyncHandler(async (req, res) => {
-    const Bank_acc = await Bank_acc.findById(req.params.id)
+    const bank_acc = await Bank_acc.findById(req.params.id)
   
-    if (!Bank_acc) {
+    if (!bank_acc) {
       res.status(400)
       throw new Error('Bank_acc not found')
     }
@@ -68,5 +82,6 @@ setBank_acc,
 updateBank_acc,
 deleteBank_acc,
 getBank_accByid,
+getBank_accByuser
 
 }

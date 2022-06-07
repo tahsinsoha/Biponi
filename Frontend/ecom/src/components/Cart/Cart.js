@@ -78,6 +78,44 @@ try {
   console.log(data)
   //localStorage.setItem('user', data.id)
  // history.push("../../");
+ let Bank_Balance = 0;
+ let Bank_id = 0;
+ let Ecom_Balance = 0;
+ const  bankdata  = await axios.post(
+  'http://localhost:5000/api/banks/user',
+  {
+    'User_id': User
+  },
+  config).then((value)=>( 
+    Bank_Balance = value.data.Current_amount,
+    Bank_id = value.data._id,
+    console.log(Bank_Balance)
+  ))
+  console.log(Bank_Balance) 
+  Bank_Balance = Bank_Balance - totalCost; //user balance 
+  Ecom_Balance = Bank_Balance + totalCost;
+
+   const  changeUserBalance  = await axios.put(
+  `http://localhost:5000/api/banks/${Bank_id}`,
+  {
+    'Current_amount': Bank_Balance
+  },
+  config).then((value)=>( 
+    // Bank_Balance = value.data.Current_amount,
+    console.log(value),
+    console.log(value.data.Current_amount)
+  ))  
+
+  const  changeEcomBalance  = await axios.put(
+    `http://localhost:5000/api/banks/${'629ebb59e9a4d3fbd9dff48b'}`,
+    {
+      'Current_amount': Ecom_Balance
+    },
+    config).then((value)=>( 
+      // Bank_Balance = value.data.Current_amount,
+      console.log(value),
+      console.log(value.data.Current_amount)
+    )) 
 
     setTransactionID(data._id);
     setbuyclicked(true);
