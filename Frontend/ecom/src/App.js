@@ -39,6 +39,7 @@ import Cart from "./components/Cart/Cart";
 import { Container } from "@material-ui/core";
 
 const App = () => {
+  document.title= "Biponi"
   return (
     <div className="App" >
         <ProductsProvider>
