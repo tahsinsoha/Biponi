@@ -27,6 +27,8 @@ function Cart(props) {
   const [cartList, setCartList]= useState([]);
   const [popupOpen, setPopupOpen]= useState(true)
   const [transactionID, setTransactionID]= useState('')
+  const [listChanged, setListChanged]= useState(false)
+  
   
    localStorage.setItem('amount', totalCost);
   let cartItems= new Set();
@@ -36,6 +38,32 @@ function Cart(props) {
   if( "cartSize" in localStorage )
     cartSize= localStorage.getItem("cartSize");
   
+    function removeItem(id)
+    {
+      let newList= cartList
+        for( let i=0;i<newList.size;i++ )
+        {
+          if( newList[i]==id )
+            newList.splice(i,1);
+        }
+
+        setCartList(newList);
+
+        cartItems.clear();
+        
+
+        for( let i=0;i<cartList.size;i++ )
+        {
+          cartItems.add(cartList[i])
+        }
+
+        let idx= 0;
+
+        cartItems.forEach (function(value) {
+            localStorage.setItem(`cart[${idx}]`, value);
+        })
+    }
+
   useEffect(() => {
    
   cartItems.clear();
@@ -168,6 +196,7 @@ function updateCart(id, quantity)
                 <CartItem  
                   key={item}
                   productId= {item}
+                  removeItem= {removeItem}
                   // uniqueId={item.product_id}
                   updateCart={updateCart}
                   // removeItemFromCart={props.removeItemFromCart}
