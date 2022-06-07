@@ -144,9 +144,9 @@ function updateCart(id, quantity)
 }
 
   return (
-    // <Container style = {{color:"black"}}>
-    <div style = {{BackgroundColor:"black"}}>
-    <div style = {{BackgroundColor:"black"}}>
+    // <Container style = {{color:"#2d343e"}}>
+    
+    <div style = {{backgroundColor:"#2d343e"}}>
         <Navbar/>
         {cartSize== 0 ? (
             <h3 style={{ textAlign: "center" }}>
@@ -154,13 +154,13 @@ function updateCart(id, quantity)
             </h3>
         )
         : (
-        <div className="cart">
+        <div className="cart" style = {{backgroundColor:"#2d343e"}}>
       
-        <div>
+        <div style = {{backgroundColor:"#2d343e"}} >
           
-            <>
+            
               {cartList.map((item) => (
-                <CartItem
+                <CartItem  
                   key={item}
                   productId= {item}
                   // uniqueId={item.product_id}
@@ -185,15 +185,16 @@ function updateCart(id, quantity)
                   quantity={4}
                 //   {...item}
                 /> */}
-              <Row>
-                <Col>
+                <Container >
+              <Row style = {{Color:"#2d343e"}}>
+                <Col style = {{Color:"#2d343e"}}>
                   <h3 id="total">
                     Total: {totalCost}
                   </h3>
                 </Col>
               </Row>
-              <Row>
-                <Col>
+              <Row style = {{Color:"#2d343e"}}>
+                <Col style = {{Color:"#2d343e"}}>
                   {/* <a href={props.cart.hosted_checkout_url}> */}
                     <Button id="buy" variant="primary" onClick={transaction} >
                       Buy Now
@@ -202,7 +203,7 @@ function updateCart(id, quantity)
                   {/* </a> */}
                 </Col>
               </Row>
-            </>
+              </Container>
           
         </div>
     </div>
@@ -211,7 +212,7 @@ function updateCart(id, quantity)
   )
               }
               </div>
-              </div>
+            
              
   )
               

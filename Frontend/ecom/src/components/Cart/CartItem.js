@@ -25,7 +25,8 @@ const CartItem = (props) => {
   };
 
   return (
-    <div>
+    <Container style = {{backgroundColor:"#2d343e"}}>
+    <div style = {{backgroundColor:"#2d343e"}}>
       <Row style={{maxHeight:"250px"}}>
         <Col xs={6} style={{maxHeight:"250px"}} >
           <Animation {...props} />
@@ -70,6 +71,7 @@ const CartItem = (props) => {
         
       </Row> */}
     </div>
+    </Container>
   );
 };
 
