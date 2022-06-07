@@ -45,7 +45,7 @@ const CartItem = (props) => {
         <Col>
         <Row>
         <Col xs={8} style={{marginTop:"60px"}}>
-          <h4>Jacket
+          <h4>T-shirt
 
           </h4>
         </Col>

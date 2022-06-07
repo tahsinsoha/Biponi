@@ -85,7 +85,7 @@ const BankForm = ({onclose, productID}) => {
       }}
         value={account_no}
         onChange={e => updateFormData(e)}
-        placeholder="account_no"
+        placeholder="Bank Account Number"
         type="text"
         name="account_no"
         required
@@ -104,7 +104,7 @@ const BankForm = ({onclose, productID}) => {
       }}
         value={pin}
         onChange={e => updateFormData(e)}
-        placeholder="pin"
+        placeholder="Pin Number"
         type="text"
         name="pin"
         required
