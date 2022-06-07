@@ -19,7 +19,7 @@ const setSeller =  asyncHandler(async(req,res) => {
          Product_list: req.body.Product_list,
          
      })
-    res.status(200).json(Seller)
+    res.status(200).json(seller)
 })
 
 
