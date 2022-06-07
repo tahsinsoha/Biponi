@@ -199,11 +199,11 @@ function updateCart(id, quantity)
   return (
     // <Container style = {{color:"#2d343e"}}>
     
-    <div>
+    <div style = {{backgroundColor:"#2d343e"}}>
         <Navbar/>
         {cartSize== 0 ? (
           <div>
-            <h3 style={{ textAlign: "center" }}>
+            <h3 style={{ backgroundColor: "#E2E6FD" ,textAlign: "center" }}>
               Your cart is currently empty.
             </h3>
             </div>
