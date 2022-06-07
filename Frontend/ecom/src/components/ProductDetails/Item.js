@@ -79,7 +79,7 @@ function addToCart()
           <Col style={{ textAlign: "right" }}>
             {/* <p>Price: {props.price.formatted_with_symbol}</p> */}
             {/* <a href={props.checkout_url.display}> */}
-              <Button style={{color: "#6C7AB6"}} id="buy" variant="primary" onClick={addToCart}>
+              <Button id="buy" variant="primary" onClick={addToCart}>
                 Add to Cart
               </Button>
             {/* </a> */}
