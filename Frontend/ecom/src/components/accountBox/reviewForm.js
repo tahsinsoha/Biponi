@@ -21,12 +21,11 @@ const ReviewForm = ({onclose, productID}) => {
 
     console.log("submit clicked")
 
-    Data.append("Account_no", formData.account_no)
-    Data.append("Pin", formData.pin)
+    Data.append("Rating", formData.rating)
+    Data.append("Comment", formData.comment)
     Data.append("User_id", localStorage.getItem('user'))
-    Data.append("Current_amount", 80000)
    const User =  localStorage.getItem('user')
-   const amount = 80000;
+   //const amount = 80000;
    console.log(User)
     //   console.log(Data)
     // const result= await axios.post("http://localhost:5000/api/banks/",
@@ -47,12 +46,10 @@ const ReviewForm = ({onclose, productID}) => {
     }
 
     const { data } = await axios.post(
-      'http://localhost:5000/api/banks/',
+      'http://localhost:5000/api/products/`${productID}`/reviews',
       {
-        'Account_no': account_no,
-        'Pin': pin, 
-        'User_id': User,
-        'Current_amount': amount, 
+        'Rating': rating,
+        'Comment': comment, 
       },
       config)
       console.log(data)
