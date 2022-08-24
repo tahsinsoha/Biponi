@@ -80,14 +80,14 @@ function Item(props) {
                 Add to Cart
               </Button>
               {/* </a> */}
-              {product !== null ? <Card.Text as='div'>
+              {product!==null && product.reviews !== null ? <Card.Text as='div'>
                 <Rating
                   value={product.rating}
                   text={`${product.numReviews} reviews`}
                 />
               </Card.Text> : <></>}
 
-              {product !== null ? <h2 style={{ color: "white" }}>{product.reviews[0].comment}</h2> : <>  </>}
+              {product!==null && product.reviews !== null ? <h2 style={{ color: "white" }}>{product.reviews}</h2> : <>  </>}
 
             </Col>
           </Row>
