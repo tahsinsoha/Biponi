@@ -51,8 +51,53 @@ function Item(props) {
 
     toast.success("Product added to cart", { position: toast.POSITION.TOP_CENTER })
   }
+  const [formData, setFormData] = useState({
+    rating: "",
+    comment: ""
+  });
+  const { price, quantity, description } = formData;
+    
+async function handleSubmission(event) {
 
-  const description = "Description";
+  event.preventDefault();
+  const Data = new FormData();
+
+  console.log("submit clicked")
+
+  Data.append("Rating", formData.rating)
+  Data.append("Comment", formData.comment)
+  Data.append("User_id", localStorage.getItem('user'))
+ const User =  localStorage.getItem('user')
+ //const amount = 80000;
+ console.log(User)
+ 
+  const config = {
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+
+  const { data } = await axios.post(
+    `http://localhost:5000/api/products/${id}/reviews`,
+    {
+      'Rating': formData.rating,
+      'Comment': formData.comment, 
+    },
+    config)
+    console.log(data)
+    console.log(data.User_id)
+  
+}
+
+// 629ec3706ae7b0bad55b9cd4
+
+const updateFormData = event =>
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
+
+  //const description = "Description";
   // props.description !== null
   //   ? props.description.slice(3, props.description.length - 4)
   //   : "";
@@ -86,9 +131,52 @@ function Item(props) {
                   text={`${product.numReviews} reviews`}
                 />
               </Card.Text> : <></>}
+              <form onSubmit={handleSubmission}>
+      <input
+      style={{
+        "display": "block",
+    "min-width": "90%",
+    "margin": "1em",
+    "padding": "1em",
+    "width": "24em",
+    "border-radius": "8px",
+    "border-style": "none",
+    "border": "1px solid #e4e6e8",
+    "transition": "0.1s ease"
+      }}
+        value={formData.rating}
+        onChange={e => updateFormData(e)}
+        placeholder="Rating"
+        type="text"
+        name="rating"
+        required
+      />
+      {/* <input
+      style={{
+        "display": "block",
+    "min-width": "90%",
+    "margin": "1em",
+    "padding": "1em",
+    "width": "24em",
+    "border-radius": "8px",
+    "border-style": "none",
+    "border": "1px solid #e4e6e8",
+    "transition": "0.1s ease"
+      }}
+        value={formData.comment}
+        onChange={e => updateFormData(e)}
+        placeholder="Comment"
+        type="text"
+        name="comment"
+        required
+      />
+       */}
 
-              {product!==null && product.reviews !== null ? <h2 style={{ color: "white" }}>{product.reviews}</h2> : <>  </>}
+      <button type="submit">Submit</button>
+    </form>
 
+              {/* {product!==null && product.reviews !== null ? <h2 style={{ color: "white" }}>{"lalala"}</h2> : <>  </>} */}
+             
             </Col>
           </Row>
         </Col>

@@ -64,7 +64,7 @@ const ReviewForm = ({onclose, productID}) => {
     });
 
     
-  const { account_no, pin } = formData;
+  const { rating, comment } = formData;
 
   return (
     <form onSubmit={handleSubmission}>
