@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const Buyer = require('../model/BuyerModel')
+const Buyer = require('../model/buyerModel')
 const getBuyers = asyncHandler(async(req,res) => {
     const Buyers = await Buyer.find()
     res.status(200).json(Buyers)

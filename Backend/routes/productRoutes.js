@@ -13,12 +13,13 @@ const {
   setProduct,
   updateProduct,
   deleteProduct,
-  getProductByid
+  getProductByid,
+  createProductReview,
 } = require('../controllers/productController');
 const { Router } = require('express');
 
 router.route('/').get(getProducts).post(
  upload.any(),setProduct);
 router.route('/:id').delete(deleteProduct).put(updateProduct).get(getProductByid);
-
+router.route('/:id/reviews').post( createProductReview)
 module.exports = router;

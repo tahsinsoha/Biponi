@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { CartDispatchContext, addToCart } from "../contexts/cart";
-
+import Rating from './Rating'
+import { Card } from 'react-bootstrap'
 const ProductCard = ({ data }) => {
   const [isAdded, setIsAdded] = useState(false);
   const dispatch = useContext(CartDispatchContext);
@@ -31,6 +32,9 @@ const ProductCard = ({ data }) => {
           {!isAdded ? "ADD TO CART" : "✔ ADDED"}
         </button>
       </div>
+     
+          
+    
     </div>
   );
 };

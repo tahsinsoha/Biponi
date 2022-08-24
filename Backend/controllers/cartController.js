@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const Cart = require('../model/CartModel')
+const Cart = require('../model/cartModel')
 const getCarts = asyncHandler(async(req,res) => {
     const Carts = await Cart.find()
     res.status(200).json(Carts)
