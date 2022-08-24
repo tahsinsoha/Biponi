@@ -18,6 +18,7 @@ import CheckoutProvider from "./contexts/checkout";
 import AuthLayout from "./layouts/AuthLayout";
 import CommonLayout from "./layouts/CommonLayout";
 import AuthPage from "./pages/auth";
+import Confirm from "./components/checkout/confirm"
 import MTable from "./components/Products/Product/MTable";
 //import HomePage from "../pages/home";
 import CheckoutPage from "./pages/checkout";
@@ -53,11 +54,17 @@ const App = () => {
                     component={HomePage}
                    // layout={CommonLayout}
                   />
-                  <Route
+                  {/* <Route
                     path="/checkout"
                     component={CheckoutPage}
                     layout={CommonLayout}
+                  /> */}
+                  <Route
+                    path="/checkout"
+                    component={Confirm}
+                    layout={CommonLayout}
                   />
+                  
                   <Route
                     path="/electronics"
                     component={Electronics}
