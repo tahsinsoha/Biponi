@@ -97,6 +97,7 @@
     "react-toastify": "^8.2.0",
     "react-treebeard": "^3.2.4",
     "react-trello": "^2.2.11",
+    "recharts": "^2.1.13",
     "redux-thunk": "^2.3.0",
     "simple-line-icons": "^2.5.5",
     "slick-carousel": "^1.8.1",

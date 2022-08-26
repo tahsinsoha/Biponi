@@ -37,6 +37,8 @@ import Item from "./components/ProductDetails/Item";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from "./components/Cart/Cart";
 import { Container } from "@material-ui/core";
+//import { Dashboard } from "@material-ui/icons";
+import Dashboard from "./Dashboard";
 
 const App = () => {
   document.title= "Biponi"
@@ -91,6 +93,10 @@ const App = () => {
                     component={Cart}
                   />
                   
+                  <Route
+                    path="/dashboard"
+                    component={Dashboard}
+                  />
                   
                   <Route
                     path="/auth"

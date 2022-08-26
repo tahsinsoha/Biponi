@@ -1,0 +1,25 @@
+.row_boxes {
+    display: flex;
+    justify-content: space-between;
+  }
+  .row_boxes_inner {
+    background-color: white;
+    padding: 20px 10px;
+    width: 23%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px dashed grey;
+  }
+  .second {
+    color: dodgerblue;
+    font-size: 3rem;
+  }
+  .first .number {
+    font-size: 2rem;
+    color: grey;
+    margin-bottom: 0.5rem;
+  }
+  .first .title {
+    color: dodgerblue;
+  }
+  
