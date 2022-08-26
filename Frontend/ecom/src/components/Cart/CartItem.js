@@ -5,6 +5,8 @@ import Animation from "./Animation";
 
 const CartItem = (props) => {
 
+
+
   const [quantity, setQuantity]= useState(1);
 
   const handleIncrement = (e) => {
@@ -30,8 +32,8 @@ const CartItem = (props) => {
 
   const handleRemove = (e) => {
     e.preventDefault();
-    props.removeItem(props.productId)
     props.updateCart(props.productId, -quantity);
+    props.removeItem(props.productId)
     setQuantity(0);
   };
 
@@ -45,7 +47,7 @@ const CartItem = (props) => {
         <Col>
         <Row>
         <Col xs={8} style={{marginTop:"60px"}}>
-          <h4>T-shirt
+          <h4>{localStorage.getItem(`${props.productId}name`)}
 
           </h4>
         </Col>

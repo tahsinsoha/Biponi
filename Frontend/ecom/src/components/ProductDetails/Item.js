@@ -42,9 +42,14 @@ function Item(props) {
     else {
       localStorage.setItem(`cart[${cartSize}]`, id);
       localStorage.setItem(`${id}`, product.Price);
-
+      localStorage.setItem(`${id}name`, product.Title);
+      localStorage.setItem(`${id}qty`, 1);
+      
+      
       cartSize++;
       localStorage.setItem("cartSize", cartSize);
+
+      console.log("ekhon cartsize ", localStorage.getItem("cartSize"));
     }
     // }
 

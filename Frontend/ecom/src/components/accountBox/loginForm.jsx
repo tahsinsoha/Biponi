@@ -37,6 +37,7 @@ const Login = ({ handleLogin }) => {
   async function signin() {
     console.log(email)
     console.log(password)
+    localStorage.clear()
     try {
       const config = {
         headers: {

@@ -30,13 +30,17 @@ function Cart(props) {
   const [listChanged, setListChanged]= useState(false)
   
   
-   localStorage.setItem('amount', totalCost);
+  localStorage.setItem('amount', totalCost);
   let cartItems= new Set();
   let cost= 0;
   let cartSize= 0;
 
   if( "cartSize" in localStorage )
-    cartSize= localStorage.getItem("cartSize");
+    {
+      cartSize= localStorage.getItem("cartSize");
+
+      console.log("first e cartsize", cartSize)
+    }
   
     function removeItem(id)
     {
@@ -57,6 +61,7 @@ function Cart(props) {
           if( newList[i]==id )
           {
             console.log("found")
+            localStorage.removeItem(`${id}`)
             newList.splice(i,1);
           }
         }
@@ -64,30 +69,31 @@ function Cart(props) {
         setCartList(newList);
 
         console.log("New cart list");
-        console.log(cartList);
+        console.log(newList);
 
         let idx= 0;
 
         cartItems.clear();
+        cartItems= new Set();
 
-        for( let i=0;i<cartList.size;i++ )
+        for( let i=0;i<newList.length;i++ )
         {
-          cartItems.add(cartList[i])
+          cartItems.add(newList[i])
         }
+
+        console.log("Cart rem", cartItems)
 
         cartItems.forEach (function(value) {
             localStorage.setItem(`cart[${idx++}]`, value);
-        
-        console.log("idx size", idx);
-
-        localStorage.setItem('cartSize', idx);
       })
+      console.log("idx size", idx);
+
+      localStorage.setItem('cartSize', idx);
     }
 
   useEffect(() => {
    
   cartItems.clear();
-  console.log(cartSize)
 
   for( let i=0;i<cartSize;i++ )
   {
@@ -110,6 +116,7 @@ function Cart(props) {
     setCartList(templist)
     
 }, [])
+
 async function transaction(){
   const User = localStorage.getItem('user')
   
@@ -189,11 +196,15 @@ function handleClose()
   }
 function updateCart(id, quantity)
 {
+  if( localStorage.getItem(id)==null )
+    return;
   console.log("agey", totalCost);
   cost= totalCost;
   cost+= parseInt(localStorage.getItem(id))*quantity;
+  localStorage.setItem(`${id}qty`, quantity);
   console.log("pore", cost);
   setTotalCost(cost);
+  localStorage.setItem('amount', totalCost);
 }
 
   return (
