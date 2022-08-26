@@ -35,6 +35,9 @@ import Search from "./components/Search/Search";
 import SingleService from "./components/Products/Product/SingleService";
 import Item from "./components/ProductDetails/Item";
 import Dashboard from "./dashboard/Dashboard";
+import Header from "./dashboard/Header";
+import Footer from "./dashboard/Footer";
+import Menu from "./dashboard/Menu";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from "./components/Cart/Cart";
 import { Container } from "@material-ui/core";
@@ -68,10 +71,6 @@ const App = () => {
                   <Route
                     path="/electronics"
                     component={Electronics}
-                  />
-                    <Route
-                    path="/dashboard"
-                    component={Dashboard}
                   />
                   <Route
                     path="/search/"
@@ -149,5 +148,15 @@ const App = () => {
     </div>
   );
 };
+// function App() {
+//   return (
+//     <div class="wrapper">
+     
+//       <Dashboard/>
+
+//     </div>
+//   );
+// }
+
 
 export default App;
