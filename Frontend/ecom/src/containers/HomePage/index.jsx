@@ -5,15 +5,14 @@ import { TopSection } from "./topSection";
 import { Link , Redirect} from "react-router-dom";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Slider from "./slider";
-import SingleProduct from "../../components/Products/Product/SingleProduct";
+import Slider from "./slider"
+import SingleProduct from "../../components/Products/Product/SingleProduct"
 import { CommonStateContext } from "../../contexts/common";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSort } from "@fortawesome/free-solid-svg-icons";
-import Dropdown from "react-dropdown";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSort } from '@fortawesome/free-solid-svg-icons'
+import Dropdown from 'react-dropdown';
 import BankPopUp from "../../components/accountBox/bankPopup";
-import "react-dropdown/style.css";
-import Dashboard from "../../dashboard/Dashboard";
+import 'react-dropdown/style.css';
 // import Products from "../../components/Products/Products"
 // export function HomePage(props)
 // {
@@ -26,9 +25,9 @@ import Dashboard from "../../dashboard/Dashboard";
 //         );
 // }
 
-import React from "react";
-import "./App.css";
-import { Footer } from "../../components/Footer";
+import React from 'react'
+import './App.css'
+import { Footer } from "../../components/Footer"
 // const product_card=[
 //     {id: 1, name: "Shoes", description: "Running shoes", details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donecvenenatis, dolor in finibus malesuada, lectus ipsum porta nunc, atiaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, egettristique tortor pretium ut. Curabitur elit justo, consequat idcondimentum ac, volutpat ornare.", price: "1500 taka", image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/how-to-buy-running-shoes-1611448820.jpg?crop=0.516xw:0.774xh;0.247xw,0.226xh&resize=640:*" },
 //     {id: 2, name: "Macbook", description: "Apple macbook", details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donecvenenatis, dolor in finibus malesuada, lectus ipsum porta nunc, atiaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, egettristique tortor pretium ut. Curabitur elit justo, consequat idcondimentum ac, volutpat ornare.", price: "90000 taka", image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000" },
@@ -41,313 +40,322 @@ import { Footer } from "../../components/Footer";
 //     ]
 
 const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 3,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3
 };
 
 export function HomePage() {
-  const options = [
-    "Sort by newest",
-    "Sort by oldest",
-    "Sort by budget (ascending)",
-    "Sort by budget (descending)",
-  ];
-  const defaultOption = options[0];
-  const [initial, setinitial] = useState([]);
-  const [products, setproducts] = useState([]);
-  const [collection, setcollection] = useState([]);
-  const [services, setservices] = useState([]);
-  const [popupOpen, setPopupOpen] = useState(true);
-  let history = useHistory();
-  useEffect(() => {
-    async function fetchProducts() {
-      const { data } = await axios.get("http://127.0.0.1:5000/api/products");
-      setproducts(data);
-      setinitial(data);
-      console.log(data);
+    
+    const options = [
+        'Sort by newest', 'Sort by oldest', 'Sort by budget (ascending)', 'Sort by budget (descending)'
+      ];
+    const defaultOption = options[0];
+    const [initial, setinitial] = useState([])
+    const [products, setproducts] = useState([])
+    const [collection, setcollection] = useState([])
+    const [services, setservices] = useState([])
+    const [popupOpen, setPopupOpen]= useState(true)
+    let history= useHistory()
+    useEffect(() => {
 
-      // var data2 = {"username": "bob_baker","secret": "secret-123-jBj02","email": "b_baker@mail.com","first_name": "Bob","last_name": "Baker","custom_json": { "fav_game": "Candy Crush", "high_score": 2002 }};
+        async function fetchProducts() {
+            const { data } = await axios.get('http://127.0.0.1:5000/api/products')
+            setproducts(data)
+            setinitial(data)
+            console.log(data)
 
-      var config2 = {
-        headers: {
-          "PRIVATE-KEY": "{{dbab5f23-8b77-4ffc-b8c6-6d2894ef1ea0}}",
-        },
-      };
+            // var data2 = {"username": "bob_baker","secret": "secret-123-jBj02","email": "b_baker@mail.com","first_name": "Bob","last_name": "Baker","custom_json": { "fav_game": "Candy Crush", "high_score": 2002 }};
 
-      // const { data2 } = await axios.post(
-      //     'https://api.chatengine.io/users/',
-      //     {
-      //       'username': 'test',
-      //       'secret': '123456'
-      //     },
-      //     config2)
+            var config2 = {
+                headers: {
+                    'PRIVATE-KEY': '{{dbab5f23-8b77-4ffc-b8c6-6d2894ef1ea0}}'
+                }
+            };
 
-      // console.log()
+            // const { data2 } = await axios.post(
+            //     'https://api.chatengine.io/users/',
+            //     {
+            //       'username': 'test',
+            //       'secret': '123456'
+            //     },
+            //     config2)
+
+            // console.log()
+        }
+
+        fetchProducts()
+
+        // async function fetchCollection() {
+        //     const { data } = await axios.get('http://127.0.0.1:8000/store/collections')
+        //     setcollection(data)
+        //     console.log(data)
+        // }
+
+        // fetchCollection()
+
+        // async function fetchServices() {
+        //     console.log("service")
+        //     const { data } = await axios.get('http://127.0.0.1:8000/store/services')
+        //     setservices(data)
+
+        // }
+
+        // fetchServices()
+
+
+    }, [])
+
+
+    function handleSort(x){
+        if(x==0)
+            setproducts(initial)
+        else if(x==1)
+        {
+            let arr= initial
+            arr.reverse()
+            setproducts(arr)
+        }
+        else if(x==2)
+        {
+            let arr= products
+            arr.sort( function(a,b){return a.budget-b.budget} )
+            setproducts(arr)
+        }
+        else
+        {
+            let arr= products
+            arr.sort( function(a,b){return b.budget-a.budget} )
+            setproducts(arr)
+        }
+        
     }
 
-    fetchProducts();
+    const listItems1 = products.map((item) => {
+        if (item.Category == '1' && item._id=="629484e5e3acff4e1c71a7e4")
+            return (
+                <Link to={`/item/${item._id}`} >
+                    <div className="card" key={item.id}>
 
-    // async function fetchCollection() {
-    //     const { data } = await axios.get('http://127.0.0.1:8000/store/collections')
-    //     setcollection(data)
-    //     console.log(data)
-    // }
+                        <div className="card_img">
+                        {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                            <img src={'https://i.ibb.co/VWJQKTC/laptop-png-6754.png'} />
+                        </div>
+                        <div className="card_header">
+                            <h2>{item.Title}</h2>
+                            <p>{item.description}</p>
+                            <p className="price">{item.Price}<span></span></p>
+                            <div className="btn">Show Details</div>
+                        </div>
+                    </div>
+                </Link>
+            )
 
-    // fetchCollection()
+        else if( item.Category == '1' && item._id=="629ec3706ae7b0bad55b9cd4" )
+        return (
+            <Link to={`/item/${item._id}`} >
+                <div className="card" key={item.id}>
 
-    // async function fetchServices() {
-    //     console.log("service")
-    //     const { data } = await axios.get('http://127.0.0.1:8000/store/services')
-    //     setservices(data)
+                    <div className="card_img">
+                    {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                        <img src={'https://i.ibb.co/WV7WTtG/camera-icon.png'} />
+                    </div>
+                    <div className="card_header">
+                        <h2>{item.Title}</h2>
+                        <p>{item.description}</p>
+                        <p className="price">{item.Price}<span></span></p>
+                        <div className="btn">Show Details</div>
+                    </div>
+                </div>
+            </Link>
+        )   
+        
+        else if( item.Category == '1' && item._id=="629eca7a20bbe33432055f46" )
+        return (
+            <Link to={`/item/${item._id}`} >
+                <div className="card" key={item.id}>
 
-    // }
-
-    // fetchServices()
-  }, []);
-
-  function handleSort(x) {
-    if (x == 0) setproducts(initial);
-    else if (x == 1) {
-      let arr = initial;
-      arr.reverse();
-      setproducts(arr);
-    } else if (x == 2) {
-      let arr = products;
-      arr.sort(function (a, b) {
-        return a.budget - b.budget;
-      });
-      setproducts(arr);
-    } else {
-      let arr = products;
-      arr.sort(function (a, b) {
-        return b.budget - a.budget;
-      });
-      setproducts(arr);
+                    <div className="card_img">
+                    {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                        <img src={'https://i.ibb.co/GMjSrcG/Headphone-icon.png'} />
+                    </div>
+                    <div className="card_header">
+                        <h2>{item.Title}</h2>
+                        <p>{item.description}</p>
+                        <p className="price">{item.Price}<span></span></p>
+                        <div className="btn">Show Details</div>
+                    </div>
+                </div>
+            </Link>
+        )          
     }
-  }
 
-  const listItems1 = products.map((item) => {
-    if (item.Category == "1" && item._id == "629484e5e3acff4e1c71a7e4")
-      return (
-        <Link to={`/item/${item._id}`}>
-          <div className="card" key={item.id}>
-            <div className="card_img">
-              {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-              <img src={"https://i.ibb.co/VWJQKTC/laptop-png-6754.png"} />
-            </div>
-            <div className="card_header">
-              <h2>{item.Title}</h2>
-              <p>{item.description}</p>
-              <p className="price">
-                {item.Price}
-                <span></span>
-              </p>
-              <div className="btn">Show Details</div>
-            </div>
-          </div>
-        </Link>
-      );
-    else if (item.Category == "1" && item._id == "629ec3706ae7b0bad55b9cd4")
-      return (
-        <Link to={`/item/${item._id}`}>
-          <div className="card" key={item.id}>
-            <div className="card_img">
-              {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-              <img src={"https://i.ibb.co/WV7WTtG/camera-icon.png"} />
-            </div>
-            <div className="card_header">
-              <h2>{item.Title}</h2>
-              <p>{item.description}</p>
-              <p className="price">
-                {item.Price}
-                <span></span>
-              </p>
-              <div className="btn">Show Details</div>
-            </div>
-          </div>
-        </Link>
-      );
-    else if (item.Category == "1" && item._id == "629eca7a20bbe33432055f46")
-      return (
-        <Link to={`/item/${item._id}`}>
-          <div className="card" key={item.id}>
-            <div className="card_img">
-              {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-              <img src={"https://i.ibb.co/GMjSrcG/Headphone-icon.png"} />
-            </div>
-            <div className="card_header">
-              <h2>{item.Title}</h2>
-              <p>{item.description}</p>
-              <p className="price">
-                {item.Price}
-                <span></span>
-              </p>
-              <div className="btn">Show Details</div>
-            </div>
-          </div>
-        </Link>
-      );
-  });
-
-  const listItems2 = products.map((item) => {
-    if (item.Category == "2" && item._id == "6288fca2cf6785cbfd5d8d23")
-      return (
-        <Link to={`/item/${item._id}`}>
-          <div className="card" key={item.id}>
-            <div className="card_img">
-              {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-              <img src={"https://i.ibb.co/Ms0LFg8/jacket.png"} />
-            </div>
-            <div className="card_header">
-              <h2>{item.Title}</h2>
-              <p>{item.description}</p>
-              <p className="price">
-                {item.Price}
-                <span></span>
-              </p>
-              <div className="btn">Show Details</div>
-            </div>
-          </div>
-        </Link>
-      );
-    if (item.Category == "2" && item._id == "629ed00320bbe33432055f5a")
-      return (
-        <Link to={`/item/${item._id}`}>
-          <div className="card" key={item.id}>
-            <div className="card_img">
-              {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-              <img src={"https://i.ibb.co/7rd596B/tshirt-1.png"} />
-            </div>
-            <div className="card_header">
-              <h2>{item.Title}</h2>
-              <p>{item.description}</p>
-              <p className="price">
-                {item.Price}
-                <span></span>
-              </p>
-              <div className="btn">Show Details</div>
-            </div>
-          </div>
-        </Link>
-      );
-
-    if (item.Category == "2" && item._id == "629ee45820bbe33432055f6a")
-      return (
-        <Link to={`/item/${item._id}`}>
-          <div className="card" key={item.id}>
-            <div className="card_img">
-              {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-              <img src={"https://i.ibb.co/9bZf2Nv/cloth-1.png"} />
-            </div>
-            <div className="card_header">
-              <h2>{item.Title}</h2>
-              <p>{item.description}</p>
-              <p className="price">
-                {item.Price}
-                <span></span>
-              </p>
-              <div className="btn">Show Details</div>
-            </div>
-          </div>
-        </Link>
-      );
-  });
-
-  const listItems3 = products.map((item) => {
-    if (item.Category == "3")
-      return (
-        <Link to={`/item/${item._id}`}>
-          <div className="card" key={item.id}>
-            <div className="card_img">
-              {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
-              <img src={"https://ibb.co/M5cYCg3"} />
-            </div>
-            <div className="card_header">
-              <h2>{item.Title}</h2>
-              <p>{item.description}</p>
-              <p className="price">
-                {item.Price}
-                <span></span>
-              </p>
-              <div className="btn">Show Details</div>
-            </div>
-          </div>
-        </Link>
-      );
-  });
-
-  const listItems4 = products.map((item) => {
-    if (item.collection == 4)
-      return (
-        <Link to={`/products/${item.id}`}>
-          <div className="card" key={item.id}>
-            <div className="card_img">
-              <img src={"http://127.0.0.1:8000" + item.image} />
-            </div>
-            <div className="card_header">
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <p className="price">
-                {item.budget}
-                <span></span>
-              </p>
-              <div className="btn">Show Details</div>
-            </div>
-          </div>
-        </Link>
-      );
-  });
-
-  const listItems5 = products.map((item) => {
-    if (item.collection == 10)
-      return (
-        <Link to={`/products/${item.id}`}>
-          <div className="card" key={item.id}>
-            <div className="card_img">
-              <img src={"http://127.0.0.1:8000" + item.image} />
-            </div>
-            <div className="card_header">
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <p className="price">
-                {item.budget}
-                <span></span>
-              </p>
-              <div className="btn">Show Details</div>
-            </div>
-          </div>
-        </Link>
-      );
-  });
-
-  const serviceItem1 = services.map((item) => {
-    console.log("service");
-    return (
-      <Link to={`/services/${item.id}`}>
-        <div className="card" key={item.id}>
-          <div className="card_img">
-            <img src={"http://127.0.0.1:8000" + item.image} />
-          </div>
-          <div className="card_header">
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
-            <p className="price">
-              {item.budget}
-              <span></span>
-            </p>
-            <div className="btn">Show Details</div>
-          </div>
-        </div>
-      </Link>
     );
-  });
 
-  //    localStorage.clear();
 
-  function handleClose() {
+    const listItems2 = products.map((item) => {
+        if (item.Category == '2' && item._id=="6288fca2cf6785cbfd5d8d23")
+
+            return (
+                <Link to={`/item/${item._id}`} >
+                    <div className="card" key={item.id}>
+
+                        <div className="card_img">
+                        {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                            <img src={'https://i.ibb.co/Ms0LFg8/jacket.png'} />
+                        </div>
+                        <div className="card_header">
+                            <h2>{item.Title}</h2>
+                            <p>{item.description}</p>
+                            <p className="price">{item.Price}<span></span></p>
+                            <div className="btn">Show Details</div>
+                        </div>
+                    </div>
+                </Link>
+            )
+            if (item.Category == '2' && item._id=="629ed00320bbe33432055f5a")
+            return (
+                <Link to={`/item/${item._id}`} >
+                    <div className="card" key={item.id}>
+
+                        <div className="card_img">
+                        {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                            <img src={'https://i.ibb.co/7rd596B/tshirt-1.png'} />
+                        </div>
+                        <div className="card_header">
+                            <h2>{item.Title}</h2>
+                            <p>{item.description}</p>
+                            <p className="price">{item.Price}<span></span></p>
+                            <div className="btn">Show Details</div>
+                        </div>
+                    </div>
+                </Link>
+            )
+
+            if (item.Category == '2' && item._id=="629ee45820bbe33432055f6a")
+            return (
+                <Link to={`/item/${item._id}`} >
+                    <div className="card" key={item.id}>
+
+                        <div className="card_img">
+                        {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                            <img src={'https://i.ibb.co/9bZf2Nv/cloth-1.png'} />
+                        </div>
+                        <div className="card_header">
+                            <h2>{item.Title}</h2>
+                            <p>{item.description}</p>
+                            <p className="price">{item.Price}<span></span></p>
+                            <div className="btn">Show Details</div>
+                        </div>
+                    </div>
+                </Link>
+            )
+    }
+
+    );
+
+    const listItems3 = products.map((item) => {
+        if (item.Category == '3')
+
+            return (
+                <Link to={`/item/${item._id}`} >
+                    <div className="card" key={item.id}>
+
+                        <div className="card_img">
+                        {/* <img src={'http://127.0.0.1:8000' + item.image} /> */}
+                            <img src={'https://ibb.co/M5cYCg3'} />
+                        </div>
+                        <div className="card_header">
+                            <h2>{item.Title}</h2>
+                            <p>{item.description}</p>
+                            <p className="price">{item.Price}<span></span></p>
+                            <div className="btn">Show Details</div>
+                        </div>
+                    </div>
+                </Link>
+            )
+    }
+
+    );
+
+    const listItems4 = products.map((item) => {
+        if (item.collection == 4)
+
+            return (
+                <Link to={`/products/${item.id}`} >
+                    <div className="card" key={item.id}>
+
+                        <div className="card_img">
+                            <img src={'http://127.0.0.1:8000' + item.image} />
+                        </div>
+                        <div className="card_header">
+                            <h2>{item.title}</h2>
+                            <p>{item.description}</p>
+                            <p className="price">{item.budget}<span></span></p>
+                            <div className="btn">Show Details</div>
+                        </div>
+                    </div>
+                </Link>
+            )
+    }
+
+
+    );
+
+    const listItems5 = products.map((item) => {
+        if (item.collection == 10)
+
+            return (
+                <Link to={`/products/${item.id}`} >
+                    <div className="card" key={item.id}>
+
+                        <div className="card_img">
+                            <img src={'http://127.0.0.1:8000' + item.image} />
+                        </div>
+                        <div className="card_header">
+                            <h2>{item.title}</h2>
+                            <p>{item.description}</p>
+                            <p className="price">{item.budget}<span></span></p>
+                            <div className="btn">Show Details</div>
+                        </div>
+                    </div>
+                </Link>
+            )
+    }
+    );
+
+    const serviceItem1 = services.map ((item) => {
+
+        console.log("service")
+        return (
+            <Link to={`/services/${item.id}`} >
+                <div className="card" key={item.id}>
+
+                    <div className="card_img">
+                        <img src={'http://127.0.0.1:8000' + item.image} />
+                    </div>
+                    <div className="card_header">
+                        <h2>{item.title}</h2>
+                        <p>{item.description}</p>
+                        <p className="price">{item.budget}<span></span></p>
+                        <div className="btn">Show Details</div>
+                    </div>
+                </div>
+            </Link>
+
+        
+        )
+
+    }
+
+    );
+
+//    localStorage.clear();
+
+  function handleClose()
+  {
     setPopupOpen(false);
   }
   // if (localStorage.getItem("user") == "629ebb2ee9a4d3fbd9dff488") {
@@ -371,13 +379,19 @@ export function HomePage() {
                     <FontAwesomeIcon icon={faSort} color="#fff"></FontAwesomeIcon>
                     <Dropdown options={options} onChange={()=>{}} value={defaultOption} placeholder="Select an option" />;
                     </h1></div> */}
-        <div className="main_content">{listItems1}</div>
-        {/* </Slider> */}
-        <Link to="/furnitures">
-          <h1 style={{ color: "#fff" }}>Mens' and Womens' Closet</h1>
-        </Link>
-        <div className="main_content">{listItems2}</div>
-        {/* <Link to="/other">
+                <div className="main_content">
+                    {listItems1}
+                </div>
+                {/* </Slider> */}
+                <Link to="/furnitures">
+                    <h1 style={{ "color": "#fff" }}>
+                        Mens' and Womens' Closet
+                    </h1>
+                </Link>
+                <div className="main_content">
+                    {listItems2}
+                </div>
+                {/* <Link to="/other">
                 <h1 style={{"color": "#fff"}}>
                    Other
                 </h1>
@@ -393,8 +407,11 @@ export function HomePage() {
                 <div className="main_content">
                     {serviceItem1}
                 </div> */}
-        <Footer></Footer>
-      </div>
-    </PageContainer>
-  );
+                <Footer>
+                </Footer>
+            </div>
+
+        </PageContainer>
+
+    )
 }

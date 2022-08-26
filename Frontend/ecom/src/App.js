@@ -72,10 +72,6 @@ const App = () => {
                     path="/electronics"
                     component={Electronics}
                   />
-                    <Route
-                    path="/dashboard"
-                    component={Dashboard}
-                  />
                   <Route
                     path="/search/"
                     component={Search}
