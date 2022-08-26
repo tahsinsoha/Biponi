@@ -38,7 +38,7 @@ import Item from "./components/ProductDetails/Item";
 import Cart from "./components/Cart/Cart";
 import { Container } from "@material-ui/core";
 //import { Dashboard } from "@material-ui/icons";
-import Dashboard from "./Dashboard";
+import Dashboard from "./Dashboard/Dashboard";
 
 const App = () => {
   document.title= "Biponi"
