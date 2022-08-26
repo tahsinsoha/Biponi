@@ -9,6 +9,8 @@ import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import LayersIcon from "@material-ui/icons/Layers";
 import AssignmentIcon from "@material-ui/icons/Assignment";
+import { Navbar } from "../components/navbar";
+import { PageContainer } from "../components/pageContainer";
 
 export const mainListItems = (
   <div>

@@ -21,7 +21,8 @@ import { mainListItems, secondaryListItems } from "./listItems";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
-
+import { PageContainer } from "../components/pageContainer";
+import { Navbar } from "../components/navbar";
 function Copyright() {
   // classes created because it is needed in the footer.
   const classes = useStyles();
@@ -147,8 +148,11 @@ export default function Dashboard() {
       <CssBaseline />
       <AppBar
         position="absolute"
-        className={clsx(classes.appBar, open && classes.appBarShift)}
+        className={clsx(classes.appBar, open && classes.appBarShift) 
+        }
+        style={{ height: '36px' }}
       >
+      
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
@@ -168,7 +172,7 @@ export default function Dashboard() {
             color="inherit"
             noWrap
             className={classes.title}
-            height="13"
+            height="9"
           >
             Dashboard
           </Typography>
