@@ -2,8 +2,61 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { Link,useHistory } from "react-router-dom";
 
-function Confirm()
+function Confirm(props)
 {
+    const [cartList, setCartList]= useState([]);
+    let cartItems= new Set();
+    let cartSize= 0;
+
+    if( "cartSize" in localStorage )
+    {
+      cartSize= localStorage.getItem("cartSize");
+
+      console.log("first e cartsize", cartSize)
+    }
+
+    useEffect(() => {
+   
+        cartItems.clear();
+      
+        for( let i=0;i<cartSize;i++ )
+        {
+          cartItems.add(localStorage.getItem(`cart[${i}]`));
+        }
+      
+          let templist= []
+      
+          cartItems.forEach (function(value) {
+            
+            templist.push(value)
+          })
+      
+          setCartList(templist)
+          
+      }, [])
+      const listItems3 = cartList.map((item,idx) => {
+       
+        return (
+         <>
+         <tr>
+    <td style={{"borderColor": "black"}}>{localStorage.getItem(`${item}name`)}</td>
+    <td style={{"borderColor": "black"}}>{localStorage.getItem(`${item}`)}</td>
+    <td style={{"borderColor": "black"}}>{localStorage.getItem(`${item}qty`)}</td>
+    <td style={{"borderColor": "black"}}>{localStorage.getItem('amount')}</td>
+        </tr>
+       </>
+          );
+                                        //     <tr>
+                                        //         <h1>hiii</h1>
+                                        // <td style={{"borderColor": "black"}}>{localStorage.getItem(`${item}name`)}</td>
+                                        // <td style={{"borderColor": "black"}}>{localStorage.getItem(`${item}`)}</td>
+                                        // <td style={{"borderColor": "black"}}>{localStorage.getItem(`${item}qty`)}</td>
+                                        // <td style={{"borderColor": "black"}}>{localStorage.getItem('amount')}</td>
+                                        //     </tr>
+                                        
+      });
+    
+
     return (
         <div>
             <div className="py-4">
@@ -77,24 +130,20 @@ function Confirm()
 
                         </div>
 
-                        <div style="border-color:black;" className="col-md-5">
-                            <table style="border-color:black;" className="table table-bordered">
-                                <thead style="border-color:black;">
-                                    <tr style="border-color:black;">
-                                        <th style="border-color:black;" width="50%">Product</th>
-                                        <th style="border-color:black;" >Price</th>
-                                        <th style="border-color:black;">Quantity</th>
-                                        <th style="border-color:black;">Total</th>
+                        <div style={{"borderColor": "black"}} className="col-md-5">
+                            <table style={{"borderColor": "black"}} className="table table-bordered">
+                                <thead style={{"borderColor": "black"}}>
+                                    <tr style={{"borderColor": "black"}}>
+                                        <th style={{"borderColor": "black"}} width="50%">Product</th>
+                                        <th style={{"borderColor": "black"}} >Price</th>
+                                        <th style={{"borderColor": "black"}}>Quantity</th>
+                                        <th style={{"borderColor": "black"}}>Total</th>
                                         
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td style="border-color:black;">T shirt</td>
-                                        <td style="border-color:black;">750</td>
-                                        <td style="border-color:black;">2</td>
-                                        <td style="border-color:black;">1500</td>
-                                    </tr>
+                                    {
+                                   listItems3}
                                 </tbody>
                             </table>
 
