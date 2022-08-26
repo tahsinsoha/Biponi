@@ -58,7 +58,7 @@ function Confirm(props)
     
 
     return (
-        <div>
+        <div className="App">
             <div className="py-4">
                 <div className="container">
                     <div className="row">
