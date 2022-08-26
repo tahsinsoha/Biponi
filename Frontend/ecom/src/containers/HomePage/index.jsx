@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Navbar } from "../../components/navbar";
 import { PageContainer } from "../../components/pageContainer";
 import { TopSection } from "./topSection";
-import { Link } from "react-router-dom";
+import { Link , Redirect} from "react-router-dom";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Slider from "./slider";
@@ -350,9 +350,9 @@ export function HomePage() {
   function handleClose() {
     setPopupOpen(false);
   }
-  if (localStorage.getItem("user") == "629ebb2ee9a4d3fbd9dff488") {
-    return <Dashboard></Dashboard>;
-  }
+  // if (localStorage.getItem("user") == "629ebb2ee9a4d3fbd9dff488") {
+  //   return ( <Redirect to="/dashboard"> </Redirect>);
+  // }
   return (
     <PageContainer>
       <Navbar />

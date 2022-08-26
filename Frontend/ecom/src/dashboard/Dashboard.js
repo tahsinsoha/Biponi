@@ -1,442 +1,585 @@
-// @ts-nocheck
-import React, { Component } from 'react';
-import { Line, Doughnut } from 'react-chartjs-2'
-// import { URLS } from "../../config/urls";
-import axios from "axios";
-import Chart from 'chart.js/auto';
-import { VectorMap } from "react-jvectormap"
-// import {Chart, ArcElement} from 'chart.js'
-// import {CategoryScale} from 'chart.js'; 
-// Chart.register(CategoryScale);
-// Chart.register(ArcElement);
-const mapData = {
-  "BZ": 75.00,
-  "US": 56.25,
-  "AU": 15.45,
-  "GB": 25.00,
-  "RO": 10.25,
-  "GE": 33.25
-}
+// import React, { Component } from 'react'
+// import Footer  from './Footer'
+// import Header from './Header'
+// import Menu from './Menu'
+// export default class Dashboard extends Component {
+//     render() {
+//         return (
+//             <div>
+  
+              
+//   <div className="content-wrapper">
+//     {/* Content Header (Page header) */}
+//     <div className="content-header">
+//       <div className="container-fluid">
+//         <div className="row mb-2">
+//           <div className="col-sm-6">
+//             <h1 className="m-0 text-dark">Dashboard</h1>
+//           </div>{/* /.col */}
+//           <div className="col-sm-6">
+//             <ol className="breadcrumb float-sm-right">
+//               <li className="breadcrumb-item"><a href="#">Home</a></li>
+//               <li className="breadcrumb-item active">Dashboard v1</li>
+//             </ol>
+//           </div>{/* /.col */}
+//         </div>{/* /.row */}
+//       </div>{/* /.container-fluid */}
+//     </div>
+//     {/* /.content-header */}
+//     {/* Main content */}
+//     <section className="content">
+//       <div className="container-fluid">
+//         {/* Small boxes (Stat box) */}
+//         <div className="row">
+//           <div className="col-lg-3 col-6">
+//             {/* small box */}
+//             <div className="small-box bg-info">
+//               <div className="inner">
+//                 <h3>150</h3>
+//                 <p>New Orders</p>
+//               </div>
+//               <div className="icon">
+//                 <i className="ion ion-bag" />
+//               </div>
+//               <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+//             </div>
+//           </div>
+//           {/* ./col */}
+//           <div className="col-lg-3 col-6">
+//             {/* small box */}
+//             <div className="small-box bg-success">
+//               <div className="inner">
+//                 <h3>53<sup style={{fontSize: 20}}>%</sup></h3>
+//                 <p>Bounce Rate</p>
+//               </div>
+//               <div className="icon">
+//                 <i className="ion ion-stats-bars" />
+//               </div>
+//               <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+//             </div>
+//           </div>
+//           {/* ./col */}
+//           <div className="col-lg-3 col-6">
+//             {/* small box */}
+//             <div className="small-box bg-warning">
+//               <div className="inner">
+//                 <h3>44</h3>
+//                 <p>User Registrations</p>
+//               </div>
+//               <div className="icon">
+//                 <i className="ion ion-person-add" />
+//               </div>
+//               <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+//             </div>
+//           </div>
+//           {/* ./col */}
+//           <div className="col-lg-3 col-6">
+//             {/* small box */}
+//             <div className="small-box bg-danger">
+//               <div className="inner">
+//                 <h3>65</h3>
+//                 <p>Unique Visitors</p>
+//               </div>
+//               <div className="icon">
+//                 <i className="ion ion-pie-graph" />
+//               </div>
+//               <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+//             </div>
+//           </div>
+//           {/* ./col */}
+//         </div>
+//         {/* /.row */}
+//         {/* Main row */}
+//         <div className="row">
+//           {/* Left col */}
+//           <section className="col-lg-7 connectedSortable">
+//             {/* Custom tabs (Charts with tabs)*/}
+//             <div className="card">
+//               <div className="card-header">
+//                 <h3 className="card-title">
+//                   <i className="fas fa-chart-pie mr-1" />
+//                   Sales
+//                 </h3>
+//                 <div className="card-tools">
+//                   <ul className="nav nav-pills ml-auto">
+//                     <li className="nav-item">
+//                       <a className="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+//                     </li>
+//                     <li className="nav-item">
+//                       <a className="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+//                     </li>
+//                   </ul>
+//                 </div>
+//               </div>{/* /.card-header */}
+//               <div className="card-body">
+//                 <div className="tab-content p-0">
+//                   {/* Morris chart - Sales */}
+//                   <div className="chart tab-pane active" id="revenue-chart" style={{position: 'relative', height: 300}}>
+//                     <canvas id="revenue-chart-canvas" height={300} style={{height: 300}} />                         
+//                   </div>
+//                   <div className="chart tab-pane" id="sales-chart" style={{position: 'relative', height: 300}}>
+//                     <canvas id="sales-chart-canvas" height={300} style={{height: 300}} />                         
+//                   </div>  
+//                 </div>
+//               </div>{/* /.card-body */}
+//             </div>
+//             {/* /.card */}
+//             {/* DIRECT CHAT */}
+//             <div className="card direct-chat direct-chat-primary">
+//               <div className="card-header">
+//                 <h3 className="card-title">Direct Chat</h3>
+//                 <div className="card-tools">
+//                   <span data-toggle="tooltip" title="3 New Messages" className="badge badge-primary">3</span>
+//                   <button type="button" className="btn btn-tool" data-card-widget="collapse">
+//                     <i className="fas fa-minus" />
+//                   </button>
+//                   <button type="button" className="btn btn-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+//                     <i className="fas fa-comments" />
+//                   </button>
+//                   <button type="button" className="btn btn-tool" data-card-widget="remove"><i className="fas fa-times" />
+//                   </button>
+//                 </div>
+//               </div>
+//               {/* /.card-header */}
+//               <div className="card-body">
+//                 {/* Conversations are loaded here */}
+//                 <div className="direct-chat-messages">
+//                   {/* Message. Default to the left */}
+//                   <div className="direct-chat-msg">
+//                     <div className="direct-chat-infos clearfix">
+//                       <span className="direct-chat-name float-left">Alexander Pierce</span>
+//                       <span className="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+//                     </div>
+//                     {/* /.direct-chat-infos */}
+//                     <img className="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image" />
+//                     {/* /.direct-chat-img */}
+//                     <div className="direct-chat-text">
+//                       Is this template really for free? That's unbelievable!
+//                     </div>
+//                     {/* /.direct-chat-text */}
+//                   </div>
+//                   {/* /.direct-chat-msg */}
+//                   {/* Message to the right */}
+//                   <div className="direct-chat-msg right">
+//                     <div className="direct-chat-infos clearfix">
+//                       <span className="direct-chat-name float-right">Sarah Bullock</span>
+//                       <span className="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+//                     </div>
+//                     {/* /.direct-chat-infos */}
+//                     <img className="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image" />
+//                     {/* /.direct-chat-img */}
+//                     <div className="direct-chat-text">
+//                       You better believe it!
+//                     </div>
+//                     {/* /.direct-chat-text */}
+//                   </div>
+//                   {/* /.direct-chat-msg */}
+//                   {/* Message. Default to the left */}
+//                   <div className="direct-chat-msg">
+//                     <div className="direct-chat-infos clearfix">
+//                       <span className="direct-chat-name float-left">Alexander Pierce</span>
+//                       <span className="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
+//                     </div>
+//                     {/* /.direct-chat-infos */}
+//                     <img className="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image" />
+//                     {/* /.direct-chat-img */}
+//                     <div className="direct-chat-text">
+//                       Working with AdminLTE on a great new app! Wanna join?
+//                     </div>
+//                     {/* /.direct-chat-text */}
+//                   </div>
+//                   {/* /.direct-chat-msg */}
+//                   {/* Message to the right */}
+//                   <div className="direct-chat-msg right">
+//                     <div className="direct-chat-infos clearfix">
+//                       <span className="direct-chat-name float-right">Sarah Bullock</span>
+//                       <span className="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
+//                     </div>
+//                     {/* /.direct-chat-infos */}
+//                     <img className="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image" />
+//                     {/* /.direct-chat-img */}
+//                     <div className="direct-chat-text">
+//                       I would love to.
+//                     </div>
+//                     {/* /.direct-chat-text */}
+//                   </div>
+//                   {/* /.direct-chat-msg */}
+//                 </div>
+//                 {/*/.direct-chat-messages*/}
+//                 {/* Contacts are loaded here */}
+//                 <div className="direct-chat-contacts">
+//                   <ul className="contacts-list">
+//                     <li>
+//                       <a href="#">
+//                         <img className="contacts-list-img" src="dist/img/user1-128x128.jpg" />
+//                         <div className="contacts-list-info">
+//                           <span className="contacts-list-name">
+//                             Count Dracula
+//                             <small className="contacts-list-date float-right">2/28/2015</small>
+//                           </span>
+//                           <span className="contacts-list-msg">How have you been? I was...</span>
+//                         </div>
+//                         {/* /.contacts-list-info */}
+//                       </a>
+//                     </li>
+//                     {/* End Contact Item */}
+//                     <li>
+//                       <a href="#">
+//                         <img className="contacts-list-img" src="dist/img/user7-128x128.jpg" />
+//                         <div className="contacts-list-info">
+//                           <span className="contacts-list-name">
+//                             Sarah Doe
+//                             <small className="contacts-list-date float-right">2/23/2015</small>
+//                           </span>
+//                           <span className="contacts-list-msg">I will be waiting for...</span>
+//                         </div>
+//                         {/* /.contacts-list-info */}
+//                       </a>
+//                     </li>
+//                     {/* End Contact Item */}
+//                     <li>
+//                       <a href="#">
+//                         <img className="contacts-list-img" src="dist/img/user3-128x128.jpg" />
+//                         <div className="contacts-list-info">
+//                           <span className="contacts-list-name">
+//                             Nadia Jolie
+//                             <small className="contacts-list-date float-right">2/20/2015</small>
+//                           </span>
+//                           <span className="contacts-list-msg">I'll call you back at...</span>
+//                         </div>
+//                         {/* /.contacts-list-info */}
+//                       </a>
+//                     </li>
+//                     {/* End Contact Item */}
+//                     <li>
+//                       <a href="#">
+//                         <img className="contacts-list-img" src="dist/img/user5-128x128.jpg" />
+//                         <div className="contacts-list-info">
+//                           <span className="contacts-list-name">
+//                             Nora S. Vans
+//                             <small className="contacts-list-date float-right">2/10/2015</small>
+//                           </span>
+//                           <span className="contacts-list-msg">Where is your new...</span>
+//                         </div>
+//                         {/* /.contacts-list-info */}
+//                       </a>
+//                     </li>
+//                     {/* End Contact Item */}
+//                     <li>
+//                       <a href="#">
+//                         <img className="contacts-list-img" src="dist/img/user6-128x128.jpg" />
+//                         <div className="contacts-list-info">
+//                           <span className="contacts-list-name">
+//                             John K.
+//                             <small className="contacts-list-date float-right">1/27/2015</small>
+//                           </span>
+//                           <span className="contacts-list-msg">Can I take a look at...</span>
+//                         </div>
+//                         {/* /.contacts-list-info */}
+//                       </a>
+//                     </li>
+//                     {/* End Contact Item */}
+//                     <li>
+//                       <a href="#">
+//                         <img className="contacts-list-img" src="dist/img/user8-128x128.jpg" />
+//                         <div className="contacts-list-info">
+//                           <span className="contacts-list-name">
+//                             Kenneth M.
+//                             <small className="contacts-list-date float-right">1/4/2015</small>
+//                           </span>
+//                           <span className="contacts-list-msg">Never mind I found...</span>
+//                         </div>
+//                         {/* /.contacts-list-info */}
+//                       </a>
+//                     </li>
+//                     {/* End Contact Item */}
+//                   </ul>
+//                   {/* /.contacts-list */}
+//                 </div>
+//                 {/* /.direct-chat-pane */}
+//               </div>
+//               {/* /.card-body */}
+//               <div className="card-footer">
+//                 <form action="#" method="post">
+//                   <div className="input-group">
+//                     <input type="text" name="message" placeholder="Type Message ..." className="form-control" />
+//                     <span className="input-group-append">
+//                       <button type="button" className="btn btn-primary">Send</button>
+//                     </span>
+//                   </div>
+//                 </form>
+//               </div>
+//               {/* /.card-footer*/}
+//             </div>
+//             {/*/.direct-chat */}
+//             {/* TO DO List */}
+//             <div className="card">
+//               <div className="card-header">
+//                 <h3 className="card-title">
+//                   <i className="ion ion-clipboard mr-1" />
+//                   To Do List
+//                 </h3>
+//                 <div className="card-tools">
+//                   <ul className="pagination pagination-sm">
+//                     <li className="page-item"><a href="#" className="page-link">«</a></li>
+//                     <li className="page-item"><a href="#" className="page-link">1</a></li>
+//                     <li className="page-item"><a href="#" className="page-link">2</a></li>
+//                     <li className="page-item"><a href="#" className="page-link">3</a></li>
+//                     <li className="page-item"><a href="#" className="page-link">»</a></li>
+//                   </ul>
+//                 </div>
+//               </div>
+//               {/* /.card-header */}
+//               <div className="card-body">
+//                 <ul className="todo-list" data-widget="todo-list">
+//                   <li>
+//                     {/* drag handle */}
+//                     <span className="handle">
+//                       <i className="fas fa-ellipsis-v" />
+//                       <i className="fas fa-ellipsis-v" />
+//                     </span>
+//                     {/* checkbox */}
+//                     <div className="icheck-primary d-inline ml-2">
+//                       <input type="checkbox" defaultValue name="todo1" id="todoCheck1" />
+//                       <label htmlFor="todoCheck1" />
+//                     </div>
+//                     {/* todo text */}
+//                     <span className="text">Design a nice theme</span>
+//                     {/* Emphasis label */}
+//                     <small className="badge badge-danger"><i className="far fa-clock" /> 2 mins</small>
+//                     {/* General tools such as edit or delete*/}
+//                     <div className="tools">
+//                       <i className="fas fa-edit" />
+//                       <i className="fas fa-trash-o" />
+//                     </div>
+//                   </li>
+//                   <li>
+//                     <span className="handle">
+//                       <i className="fas fa-ellipsis-v" />
+//                       <i className="fas fa-ellipsis-v" />
+//                     </span>
+//                     <div className="icheck-primary d-inline ml-2">
+//                       <input type="checkbox" defaultValue name="todo2" id="todoCheck2" defaultChecked />
+//                       <label htmlFor="todoCheck2" />
+//                     </div>
+//                     <span className="text">Make the theme responsive</span>
+//                     <small className="badge badge-info"><i className="far fa-clock" /> 4 hours</small>
+//                     <div className="tools">
+//                       <i className="fas fa-edit" />
+//                       <i className="fas fa-trash-o" />
+//                     </div>
+//                   </li>
+//                   <li>
+//                     <span className="handle">
+//                       <i className="fas fa-ellipsis-v" />
+//                       <i className="fas fa-ellipsis-v" />
+//                     </span>
+//                     <div className="icheck-primary d-inline ml-2">
+//                       <input type="checkbox" defaultValue name="todo3" id="todoCheck3" />
+//                       <label htmlFor="todoCheck3" />
+//                     </div>
+//                     <span className="text">Let theme shine like a star</span>
+//                     <small className="badge badge-warning"><i className="far fa-clock" /> 1 day</small>
+//                     <div className="tools">
+//                       <i className="fas fa-edit" />
+//                       <i className="fas fa-trash-o" />
+//                     </div>
+//                   </li>
+//                   <li>
+//                     <span className="handle">
+//                       <i className="fas fa-ellipsis-v" />
+//                       <i className="fas fa-ellipsis-v" />
+//                     </span>
+//                     <div className="icheck-primary d-inline ml-2">
+//                       <input type="checkbox" defaultValue name="todo4" id="todoCheck4" />
+//                       <label htmlFor="todoCheck4" />
+//                     </div>
+//                     <span className="text">Let theme shine like a star</span>
+//                     <small className="badge badge-success"><i className="far fa-clock" /> 3 days</small>
+//                     <div className="tools">
+//                       <i className="fas fa-edit" />
+//                       <i className="fas fa-trash-o" />
+//                     </div>
+//                   </li>
+//                   <li>
+//                     <span className="handle">
+//                       <i className="fas fa-ellipsis-v" />
+//                       <i className="fas fa-ellipsis-v" />
+//                     </span>
+//                     <div className="icheck-primary d-inline ml-2">
+//                       <input type="checkbox" defaultValue name="todo5" id="todoCheck5" />
+//                       <label htmlFor="todoCheck5" />
+//                     </div>
+//                     <span className="text">Check your messages and notifications</span>
+//                     <small className="badge badge-primary"><i className="far fa-clock" /> 1 week</small>
+//                     <div className="tools">
+//                       <i className="fas fa-edit" />
+//                       <i className="fas fa-trash-o" />
+//                     </div>
+//                   </li>
+//                   <li>
+//                     <span className="handle">
+//                       <i className="fas fa-ellipsis-v" />
+//                       <i className="fas fa-ellipsis-v" />
+//                     </span>
+//                     <div className="icheck-primary d-inline ml-2">
+//                       <input type="checkbox" defaultValue name="todo6" id="todoCheck6" />
+//                       <label htmlFor="todoCheck6" />
+//                     </div>
+//                     <span className="text">Let theme shine like a star</span>
+//                     <small className="badge badge-secondary"><i className="far fa-clock" /> 1 month</small>
+//                     <div className="tools">
+//                       <i className="fas fa-edit" />
+//                       <i className="fas fa-trash-o" />
+//                     </div>
+//                   </li>
+//                 </ul>
+//               </div>
+//               {/* /.card-body */}
+//               <div className="card-footer clearfix">
+//                 <button type="button" className="btn btn-info float-right"><i className="fas fa-plus" /> Add item</button>
+//               </div>
+//             </div>
+//             {/* /.card */}
+//           </section>
+//           {/* /.Left col */}
+//           {/* right col (We are only adding the ID to make the widgets sortable)*/}
+//           <section className="col-lg-5 connectedSortable">
+//             {/* Map card */}
+//             <div className="card bg-gradient-primary">
+//               <div className="card-header border-0">
+//                 <h3 className="card-title">
+//                   <i className="fas fa-map-marker-alt mr-1" />
+//                   Visitors
+//                 </h3>
+//                 {/* card tools */}
+//                 <div className="card-tools">
+//                   <button type="button" className="btn btn-primary btn-sm daterange" data-toggle="tooltip" title="Date range">
+//                     <i className="far fa-calendar-alt" />
+//                   </button>
+//                   <button type="button" className="btn btn-primary btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+//                     <i className="fas fa-minus" />
+//                   </button>
+//                 </div>
+//                 {/* /.card-tools */}
+//               </div>
+//               <div className="card-body">
+//                 <div id="world-map" style={{height: 250, width: '100%'}} />
+//               </div>
+//               {/* /.card-body*/}
+//               <div className="card-footer bg-transparent">
+//                 <div className="row">
+//                   <div className="col-4 text-center">
+//                     <div id="sparkline-1" />
+//                     <div className="text-white">Visitors</div>
+//                   </div>
+//                   {/* ./col */}
+//                   <div className="col-4 text-center">
+//                     <div id="sparkline-2" />
+//                     <div className="text-white">Online</div>
+//                   </div>
+//                   {/* ./col */}
+//                   <div className="col-4 text-center">
+//                     <div id="sparkline-3" />
+//                     <div className="text-white">Sales</div>
+//                   </div>
+//                   {/* ./col */}
+//                 </div>
+//                 {/* /.row */}
+//               </div>
+//             </div>
+//             {/* /.card */}
+//             {/* solid sales graph */}
+//             <div className="card bg-gradient-info">
+//               <div className="card-header border-0">
+//                 <h3 className="card-title">
+//                   <i className="fas fa-th mr-1" />
+//                   Sales Graph
+//                 </h3>
+//                 <div className="card-tools">
+//                   <button type="button" className="btn bg-info btn-sm" data-card-widget="collapse">
+//                     <i className="fas fa-minus" />
+//                   </button>
+//                   <button type="button" className="btn bg-info btn-sm" data-card-widget="remove">
+//                     <i className="fas fa-times" />
+//                   </button>
+//                 </div>
+//               </div>
+//               <div className="card-body">
+//                 <canvas className="chart" id="line-chart" style={{minHeight: 250, height: 250, maxHeight: 250, maxWidth: '100%'}} />
+//               </div>
+//               {/* /.card-body */}
+//               <div className="card-footer bg-transparent">
+//                 <div className="row">
+//                   <div className="col-4 text-center">
+//                     <input type="text" className="knob" data-readonly="true" defaultValue={20} data-width={60} data-height={60} data-fgcolor="#39CCCC" />
+//                     <div className="text-white">Mail-Orders</div>
+//                   </div>
+//                   {/* ./col */}
+//                   <div className="col-4 text-center">
+//                     <input type="text" className="knob" data-readonly="true" defaultValue={50} data-width={60} data-height={60} data-fgcolor="#39CCCC" />
+//                     <div className="text-white">Online</div>
+//                   </div>
+//                   {/* ./col */}
+//                   <div className="col-4 text-center">
+//                     <input type="text" className="knob" data-readonly="true" defaultValue={30} data-width={60} data-height={60} data-fgcolor="#39CCCC" />
+//                     <div className="text-white">In-Store</div>
+//                   </div>
+//                   {/* ./col */}
+//                 </div>
+//                 {/* /.row */}
+//               </div>
+//               {/* /.card-footer */}
+//             </div>
+//             {/* /.card */}
+//             {/* Calendar */}
+//             <div className="card bg-gradient-success">
+//               <div className="card-header border-0">
+//                 <h3 className="card-title">
+//                   <i className="far fa-calendar-alt" />
+//                   Calendar
+//                 </h3>
+//                 {/* tools card */}
+//                 <div className="card-tools">
+//                   {/* button with a dropdown */}
+//                   <div className="btn-group">
+//                     <button type="button" className="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+//                       <i className="fas fa-bars" /></button>
+//                     <div className="dropdown-menu float-right" role="menu">
+//                       <a href="#" className="dropdown-item">Add new event</a>
+//                       <a href="#" className="dropdown-item">Clear events</a>
+//                       <div className="dropdown-divider" />
+//                       <a href="#" className="dropdown-item">View calendar</a>
+//                     </div>
+//                   </div>
+//                   <button type="button" className="btn btn-success btn-sm" data-card-widget="collapse">
+//                     <i className="fas fa-minus" />
+//                   </button>
+//                   <button type="button" className="btn btn-success btn-sm" data-card-widget="remove">
+//                     <i className="fas fa-times" />
+//                   </button>
+//                 </div>
+//                 {/* /. tools */}
+//               </div>
+//               {/* /.card-header */}
+//               <div className="card-body pt-0">
+//                 {/*The calendar */}
+//                 <div id="calendar" style={{width: '100%'}} />
+//               </div>
+//               {/* /.card-body */}
+//             </div>
+//             {/* /.card */}
+//           </section>
+//           {/* right col */}
+//         </div>
+//         {/* /.row (main row) */}
+//       </div>{/* /.container-fluid */}
+//     </section>
+//     {/* /.content */}
+//   </div>
 
-export class Dashboard extends Component {
+// </div>
 
-  state = {
-    dashboardStats: null,
-  }
-
-  componentDidMount() {
-    const headers = {
-      'Content-Type': 'application/json',
-      'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDkzODgzNzd9.rp7EpZh8XMposQDIIBBbRZsOu9z3njklUWJXpiQVtbk'
-    }
-    // axios.get(URLS.FINANCIAL_VALUE, {
-    //   headers: headers
-    // }).then((response) => {
-    //   this.setState({
-    //     dashboardStats: response.data.dashboardStats
-    //   })
-    //   console.log(response.data.dashboardStats);
-    // }).catch((error) => { console.log(error); })
-  }
-
-
-  areaData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    datasets: [{
-      label: 'Income',
-      data: [0, 10, 3, 5, 2, 3, 12, 19, 3, 5, 4, 3],
-      backgroundColor: [
-        "#3300d255"
-      ],
-      borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
-      borderWidth: 1,
-      fill: true, // 3: no fill
-    },
-    {
-      label: 'Payouts',
-      data: [15, 17, 5, 7, 2, 3, 10, 11, 5, 7, 2, 3],
-      backgroundColor: [
-        "#33ffee55",
-      ],
-      borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
-      borderWidth: 1,
-      fill: true, // 3: no fill
-    }
-    ]
-  };
-
-  areaOptions = {
-    plugins: {
-      filler: {
-        propagate: true
-      }
-    },
-    scales: {
-      yAxes: [{
-        gridLines: {
-          color: "rgba(204, 204, 204,0.1)"
-        }
-      }],
-      xAxes: [{
-        gridLines: {
-          color: "rgba(204, 204, 204,0.1)"
-        }
-      }]
-    }
-  }
-
-  transactionHistoryData = {
-    labels: ["Paypal", "Stripe", "Cash"],
-    datasets: [{
-      data: [55, 25, 20],
-      backgroundColor: [
-        "#111111", "#00d25b", "#ffab00"
-      ]
-    }
-    ]
-  };
-
-  transactionHistoryOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
-    segmentShowStroke: false,
-    cutoutPercentage: 70,
-    elements: {
-      arc: {
-        borderWidth: 0
-      }
-    },
-    legend: {
-      display: false
-    },
-    tooltips: {
-      enabled: true
-    }
-  }
-
-  sliderSettings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  }
-  toggleProBanner() {
-    document.querySelector('.proBanner').classList.toggle("hide");
-  }
-  render() {
-    return (
-      <div>
-        <p className="text-muted">*All financial stats are in Bangladeshi Taka (BDT)</p>
-        <div className="row">
-          <div className="col-sm-4 grid-margin">
-            <div className="card">
-              <div className="card-body">
-                <h5>Revenue</h5>
-                <div className="row">
-                  <div className="col-8 col-sm-12 col-xl-8 my-auto">
-                    <div className="d-flex d-sm-block d-md-flex align-items-center">
-                      <h2 className="mb-0">{"\u09F3"}{this.state.dashboardStats ? this.state.dashboardStats.revenue : "0"}</h2>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">+11.28%</p>
-                    </div>
-                    <h6 className="text-muted font-weight-normal">11.38% Growth since last month</h6>
-                  </div>
-                  <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                    <i className="icon-lg mdi mdi-codepen text-primary ml-auto"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-4 grid-margin">
-            <div className="card">
-              <div className="card-body">
-                <h5>Appointment Fees</h5>
-                <div className="row">
-                  <div className="col-8 col-sm-12 col-xl-8 my-auto">
-                    <div className="d-flex d-sm-block d-md-flex align-items-center">
-                      <h2 className="mb-0">{"\u09F3"}{this.state.dashboardStats ? this.state.dashboardStats.appointmentFee : "0"}</h2>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">+8.3%</p>
-                    </div>
-                    <h6 className="text-muted font-weight-normal"> 9.61% Growth since last month</h6>
-                  </div>
-                  <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                    <i className="icon-lg mdi mdi-wallet-travel text-danger ml-auto"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-4 grid-margin">
-            <div className="card">
-              <div className="card-body">
-                <h5>Payouts</h5>
-                <div className="row">
-                  <div className="col-8 col-sm-12 col-xl-8 my-auto">
-                    <div className="d-flex d-sm-block d-md-flex align-items-center">
-                      <h2 className="mb-0">{"\u09F3"}{this.state.dashboardStats ? this.state.dashboardStats.payouts : "0"}</h2>
-                      <p className="text-danger ml-2 mb-0 font-weight-medium">-2.1% </p>
-                    </div>
-                    <h6 className="text-muted font-weight-normal">2.27% Shrinking since last month</h6>
-                  </div>
-                  <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                    <i className="icon-lg mdi mdi-monitor text-success ml-auto"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">{this.state.dashboardStats ? this.state.dashboardStats.totalUsers : "0"}</h3>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-success ">
-                      <span className="mdi mdi-arrow-top-right icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal">Total Users</h6>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">{this.state.dashboardStats ? this.state.dashboardStats.totalPatients : "0"}</h3>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">+11%</p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-success">
-                      <span className="mdi mdi-arrow-top-right icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal">Total Patients</h6>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">{this.state.dashboardStats ? this.state.dashboardStats.totalDoctors : "0"}</h3>
-                      <p className="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-danger">
-                      <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal">Total Doctors</h6>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">{this.state.dashboardStats ? this.state.dashboardStats.totalAgents : "67"}</h3>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-success ">
-                      <span className="mdi mdi-arrow-top-right icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal">Total Agents</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Transaction History</h4>
-                <div className="aligner-wrapper">
-                  <Doughnut data={this.transactionHistoryData} options={this.transactionHistoryOptions} />
-                  <div className="absolute center-content">
-                    <h5 className="font-weight-normal text-whiite text-center mb-2 text-white">1200</h5>
-                    <p className="text-small text-muted text-center mb-0">Total</p>
-                  </div>
-                </div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Transfer to Card</h6>
-                    <p className="text-muted mb-0">07 Jan 2022, 09:12AM</p>
-                  </div>
-                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0">{"\u09F3"}236</h6>
-                  </div>
-                </div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Tranfer to Stripe</h6>
-                    <p className="text-muted mb-0">07 Jan 2022, 09:12AM</p>
-                  </div>
-                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0">{"\u09F3"}593</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-8 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Financial Stats</h4>
-                <Line data={this.areaData} options={this.areaOptions} />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-12">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Users by Countries</h4>
-                <div className="row">
-                  <div className="col-md-5">
-                    <div className="table-responsive">
-                      <table className="table">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img className="img-xs" src={require('../assets/flags/1x1/us.svg')} alt="flag" />
-                              {/* <i className="flag-icon flag-icon-us flag-icon-background"></i> */}
-                            </td>
-                            <td>USA</td>
-                            <td className="text-right"> 1500 </td>
-                            <td className="text-right font-weight-medium"> 56.35% </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src={require('../assets/flags/1x1/de.svg')} alt="flag" />
-                              {/* <i className="flag-icon flag-icon-de"></i> */}
-                            </td>
-                            <td>Germany</td>
-                            <td className="text-right"> 800 </td>
-                            <td className="text-right font-weight-medium"> 33.25% </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src={require('../assets/flags/1x1/au.svg')} alt="flag" />
-                              {/* <i className="flag-icon flag-icon-au"></i> */}
-                            </td>
-                            <td>Australia</td>
-                            <td className="text-right"> 760 </td>
-                            <td className="text-right font-weight-medium"> 15.45% </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src={require('../assets/flags/1x1/gb.svg')} alt="flag" />
-                              {/* <i className="flag-icon flag-icon-gb"></i> */}
-                            </td>
-                            <td>United Kingdom</td>
-                            <td className="text-right"> 450 </td>
-                            <td className="text-right font-weight-medium"> 25.00% </td>
-
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src={require('../assets/flags/1x1/ro.svg')} alt="flag" />
-                              {/* <i className="flag-icon flag-icon-ro"></i> */}
-                            </td>
-                            <td>Romania</td>
-                            <td className="text-right"> 620 </td>
-                            <td className="text-right font-weight-medium"> 10.25% </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src={require('../assets/flags/1x1/br.svg')} alt="flag" />
-                              {/* <i className="flag-icon flag-icon-br"></i> */}
-                            </td>
-                            <td>Brasil</td>
-                            <td className="text-right"> 230 </td>
-                            <td className="text-right font-weight-medium"> 75.00% </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div id="audience-map" className="vector-map"></div>
-                    <VectorMap
-                      map={"world_mill"}
-                      backgroundColor="transparent" //change it to ocean blue: #0077be
-                      panOnDrag={true}
-                      containerClassName="dashboard-vector-map"
-                      focusOn={{
-                        x: 0.5,
-                        y: 0.5,
-                        scale: 1,
-                        animate: true
-                      }}
-                      series={{
-                        regions: [{
-                          scale: ['#3d3c3c', '#aaffcc'],
-                          normalizeFunction: 'polynomial',
-                          values: mapData
-                        }]
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default Dashboard;
+//         )
+//     }
+// }
