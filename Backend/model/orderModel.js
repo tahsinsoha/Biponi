@@ -2,17 +2,25 @@ const mongoose = require('mongoose')
 
 
 const orderSchema = mongoose.Schema(
-{
-  productid :{
-        type: String,
-    
+    {
+        username: {
+            type: String
+        },
+        products: {
+            type: String
 
+        },
+
+        cost: {
+            type: Number
+        }
+        ,
+        date: {
+            type: String
+        }
+        ,
     },
 
-   quantity: {
-       type: Number
-   }
-},
     {
         timestamps: true
     }

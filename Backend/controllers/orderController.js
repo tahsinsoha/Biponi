@@ -9,12 +9,15 @@ const getOrders = asyncHandler(async(req,res) => {
 )
 const setOrder =  asyncHandler(async(req,res) => {
   // console.log(req)
-  console.log(req.body.quantity)   
+  console.log(req.body.products)   
   // console.log(req.Title)
  
      const order = await Order.create({
-         productid : req.body.productid,
-         quantity: req.body.quantity,
+         products : req.body.products,
+         cost : req.body.cost,
+         username: req.body.username,
+         date : req.body.date
+
     
      })
     res.status(200).json(order)
