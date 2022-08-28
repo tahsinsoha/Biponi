@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link , Redirect} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -8,9 +7,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Title from "./Title";
-import Moreorders from "./Moreorders";
+//import { Link , Redirect} from "react-router-dom";
 import axios from "axios";
-import { More } from "@material-ui/icons";
 // // Generate Order Data
 // function createData(id, date, name, shipTo, paymentMethod, amount) {
 //   return { id, date, name, shipTo, paymentMethod, amount };
@@ -58,14 +56,14 @@ import { More } from "@material-ui/icons";
 //     212.79
 //   )
 // ];
-const user = localStorage.getItem('user')
+
 const useStyles = makeStyles(theme => ({
   seeMore: {
     marginTop: theme.spacing(3)
   }
 }));
 
-export default function Orders() {
+export default function Moreorders() {
   const classes = useStyles();
   const [orders, setorders] = useState([])
 useEffect(() => {
@@ -75,19 +73,13 @@ useEffect(() => {
       setorders(data)
       console.log(data)
   }
-//   async function fetchBanks() {
-//     const { data } = await axios.get(`http://127.0.0.1:5000/api/banks/${user}`)
-//     setorders(data)
-//     console.log(data)
-// }
-  
-// fetchBanks()
+
   fetchOrders()
 
 }, [])
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title> Orders</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -110,11 +102,7 @@ useEffect(() => {
           ))}
         </TableBody>
       </Table>
-      <div className={classes.seeMore}>
-        <Link color="primary" href="javascript:;" to= "/moreorders">
-          See more orders
-        </Link>
-      </div>
+      
     </React.Fragment>
   );
 }

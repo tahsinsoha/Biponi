@@ -39,7 +39,7 @@ import Cart from "./components/Cart/Cart";
 import { Container } from "@material-ui/core";
 //import { Dashboard } from "@material-ui/icons";
 import Dashboard from "./Dashboard/Dashboard";
-
+import Moreorders from "./Dashboard/Moreorders"
 const App = () => {
   document.title= "Biponi"
   return (
@@ -97,7 +97,10 @@ const App = () => {
                     path="/dashboard"
                     component={Dashboard}
                   />
-                  
+                    <Route
+                    path="/moreorders"
+                    component={Moreorders}
+                  />
                   <Route
                     path="/auth"
                     component={AuthPage}

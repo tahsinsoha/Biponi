@@ -14,12 +14,13 @@ const {
   updateBank_acc,
   deleteBank_acc,
   getBank_accByid,
-  getBank_accByuser
+  getBank_accByuser,
+  putBank_accByuser
 } = require('../controllers/bankController');
 const { Router } = require('express');
 
 router.route('/').get(getBank_accs).post(setBank_acc);
 router.route('/:id').delete(deleteBank_acc).put(updateBank_acc).get(getBank_accByid);
-router.route('/user').post(getBank_accByuser)
+router.route('/user').post(getBank_accByuser).put(putBank_accByuser)
 
 module.exports = router;
