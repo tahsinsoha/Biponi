@@ -17,17 +17,17 @@
 * Setting up users’ bank account information 
 * Products list in home page 
 * Bank APIs: 
-  ○ Account confirmation ( Receives account number and secret key ) 
-  ○ Balance transferring 
-  ○ Transaction number or account information ( Sends this information to the website ) 
+  * Account confirmation ( Receives account number and secret key ) 
+  * Balance transferring 
+  * Transaction number or account information ( Sends this information to the website ) 
 * E-commerce APIs: 
-  ○ User and product creation, reading, updation, deletion 
-  ○ Product list 
-  ○ Individual product and user information 
-  ○ Order details from checkout information
+  * User and product creation, reading, updation, deletion 
+  * Product list 
+  * Individual product and user information 
+  * Order details from checkout information
 
 * Supplier API: 
-  ○ Order details ( Send the product list, quantity and transaction number to the supplier )
+  * Order details ( Send the product list, quantity and transaction number to the supplier )
 * Dedicated pages for individual product information ( product details, rating etc. ). Users can try on different colors of the products and can rotate and view the product in any angle as the products are 3D models. 
 * Notifications for order confirmation
 * A cart to add desired products
