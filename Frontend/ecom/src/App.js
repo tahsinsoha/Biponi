@@ -41,7 +41,10 @@ import { Container } from "@material-ui/core";
 import Dashboard from "./Dashboard/Dashboard";
 import Moreorders from "./Dashboard/Moreorders"
 import Customers from "./Dashboard/Customers"
+
+
 const App = () => {
+  
   document.title= "Biponi"
   return (
     <div className="App" >
@@ -151,6 +154,11 @@ const App = () => {
                   path="/item/:id"
                   component={Item} 
                   />
+                  <Route
+                  path="/done"
+                  component={AfterPayment} 
+                  />
+                  
                 </Switch>
               </Router>
             </CheckoutProvider>
