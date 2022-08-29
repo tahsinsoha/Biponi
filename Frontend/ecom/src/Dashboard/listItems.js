@@ -11,7 +11,7 @@ import LayersIcon from "@material-ui/icons/Layers";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import { Navbar } from "../components/navbar";
 import { PageContainer } from "../components/pageContainer";
-
+import { Link , Redirect} from "react-router-dom";
 export const mainListItems = (
   <div>
     <ListItem button>
@@ -26,13 +26,17 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Orders" />
     </ListItem>
+    <Link color="primary" href="javascript:;" to= "/customers">
+         
     <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItem>
+    </Link>
     <ListItem button>
+    
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>

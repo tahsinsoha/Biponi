@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link , Redirect} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -11,6 +10,7 @@ import Title from "./Title";
 import Moreorders from "./Moreorders";
 import axios from "axios";
 import { More } from "@material-ui/icons";
+import { Link , Redirect} from "react-router-dom";
 // // Generate Order Data
 // function createData(id, date, name, shipTo, paymentMethod, amount) {
 //   return { id, date, name, shipTo, paymentMethod, amount };
@@ -68,6 +68,7 @@ const useStyles = makeStyles(theme => ({
 export default function Orders() {
   const classes = useStyles();
   const [orders, setorders] = useState([])
+  const [users, setusers] = useState([])
 useEffect(() => {
 
   async function fetchOrders() {
@@ -82,7 +83,13 @@ useEffect(() => {
 // }
   
 // fetchBanks()
+async function fetchUsers() {
+    const { data } = await axios.get('http://127.0.0.1:5000/api/users')
+    setusers(data)
+    console.log(data)
+}
   fetchOrders()
+  fetchUsers()
 
 }, [])
   return (
@@ -100,13 +107,15 @@ useEffect(() => {
         </TableHead>
         <TableBody>
           {orders.map(order => (
-            <TableRow >
-              <TableCell>{order.date}</TableCell>
-              <TableCell>{order.username}</TableCell>
-              <TableCell>{order.products}</TableCell>
-               <TableCell>{order.cost}</TableCell>
-              {/* <TableCell align="right">{row.amount}</TableCell>  */}
-            </TableRow>
+            users.map(userr => (  
+                  (order.userid === userr._id) ? <>  <TableRow >
+                    <TableCell>{order.date}</TableCell>
+                    <TableCell>{order.username}</TableCell>
+                    <TableCell>{order.products}</TableCell>
+                     <TableCell>{order.cost}</TableCell>
+                  </TableRow> </> : <></>
+           
+              ))
           ))}
         </TableBody>
       </Table>

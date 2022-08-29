@@ -9,18 +9,15 @@ router.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 const {
-  getBank_accs,
-  setBank_acc,
-  updateBank_acc,
-  deleteBank_acc,
-  getBank_accByid,
-  getBank_accByuser,
-  putBank_accByuser
-} = require('../controllers/bankController');
+  getOrders,
+  setOrder,
+  updateOrder,
+  deleteOrder,
+  getOrderByid,
+ 
+} = require('../controllers/orderController');
 const { Router } = require('express');
 
-router.route('/').get(getBank_accs).post(setBank_acc);
-router.route('/:id').delete(deleteBank_acc).put(updateBank_acc).get(getBank_accByid);
-router.route('/user').post(getBank_accByuser)
-router.route('/putuser/:id').put(putBank_accByuser)
+router.route('/').get(getOrders).post(setOrder);
+router.route('/:id').delete(deleteOrder).put(updateOrder).get(getOrderByid);
 module.exports = router;
