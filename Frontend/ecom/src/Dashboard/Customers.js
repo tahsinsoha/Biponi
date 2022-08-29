@@ -70,11 +70,17 @@ export default function Orders() {
   const [orders, setorders] = useState([])
   const [users, setusers] = useState([])
 useEffect(() => {
+  async function fetchUsers() {
+    const { pd } = await axios.get('http://127.0.0.1:5000/api/users').then((value)=>
+     {setusers(value)})
+  
+   
+}
 
   async function fetchOrders() {
-      const { data } = await axios.get('http://127.0.0.1:5000/api/orders')
-      setorders(data)
-      console.log(data)
+    const { data } = await axios.get('http://127.0.0.1:5000/api/orders').then((value)=>
+     {setorders(value)})
+  
   }
 //   async function fetchBanks() {
 //     const { data } = await axios.get(`http://127.0.0.1:5000/api/banks/${user}`)
@@ -83,18 +89,14 @@ useEffect(() => {
 // }
   
 // fetchBanks()
-async function fetchUsers() {
-    const { data } = await axios.get('http://127.0.0.1:5000/api/users')
-    setusers(data)
-    console.log(data)
-}
-  fetchOrders()
-  fetchUsers()
 
-}, [])
+  fetchUsers()
+  fetchOrders()
+
+}, [] )
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Customers</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -106,10 +108,12 @@ async function fetchUsers() {
           </TableRow>
         </TableHead>
         <TableBody>
+          { console.log(orders) && (users!= null && orders!=null) ? <h1>
           {orders.map(order => (
-            users.map(userr => (  
-                  (order.userid === userr._id) ? <>  <TableRow >
-                    <TableCell>{order.date}</TableCell>
+         users.map(userr => (  
+                  (order.userid === userr._id) && order.date ? <>  <TableRow >
+
+                    <TableCell>{order.userid}</TableCell>
                     <TableCell>{order.username}</TableCell>
                     <TableCell>{order.products}</TableCell>
                      <TableCell>{order.cost}</TableCell>
@@ -117,6 +121,7 @@ async function fetchUsers() {
            
               ))
           ))}
+          </h1> : <></>}
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
