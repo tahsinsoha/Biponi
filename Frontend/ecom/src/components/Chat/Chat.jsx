@@ -5,7 +5,9 @@ import './App.css';
 
 function Chat() {
 
-if( localStorage.getItem('user')==1 )
+  console.log("chat entered");
+
+if( localStorage.getItem('user')=='629ebb2ee9a4d3fbd9dff488' )
   return (
     <ChatEngine
       height="100vh"

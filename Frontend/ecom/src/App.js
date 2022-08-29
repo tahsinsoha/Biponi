@@ -158,6 +158,11 @@ const App = () => {
                   path="/done"
                   component={AfterPayment} 
                   />
+                  <Route
+                  path="/chat"
+                  component={Chat} 
+                  />
+                  
                   
                 </Switch>
               </Router>
