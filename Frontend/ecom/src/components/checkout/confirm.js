@@ -12,6 +12,8 @@ function Confirm(props)
     let cartItems= new Set();
     let cartSize= 0;
 
+    // 629dd4721cc1da6a55956f47 -> seller
+
     if( "cartSize" in localStorage )
     {
       cartSize= localStorage.getItem("cartSize");
@@ -42,6 +44,7 @@ function Confirm(props)
        // history.push("../../");
        let Bank_Balance = 0;
        let Bank_id = 0;
+       let Ecom_Bank_id= 0;
        let Ecom_Balance = 0;
        const  bankdata  = await axios.post( // fetching user bank data
         'http://localhost:5000/api/banks/user',
@@ -53,10 +56,22 @@ function Confirm(props)
           Bank_id = value.data._id,
           console.log(Bank_Balance)
         ))
+
+        const  EcomBankdata  = await axios.post( // fetching user bank data
+        'http://localhost:5000/api/banks/user',
+        {
+          'User_id': '629ebb59e9a4d3fbd9dff48b'
+        },
+        config).then((value)=>( 
+          Ecom_Balance = value.data.Current_amount,
+          Ecom_Bank_id = value.data._id,
+          console.log(Ecom_Balance)
+        ))
+
         
         console.log(Bank_Balance) 
         Bank_Balance = Bank_Balance - totalCost; //user balance 
-        Ecom_Balance = Bank_Balance + totalCost;
+        Ecom_Balance = Ecom_Balance + totalCost;
       
          const  changeUserBalance  = await axios.put( // setting user balance
         `http://localhost:5000/api/banks/${Bank_id}`,
