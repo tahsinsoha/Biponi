@@ -7,6 +7,7 @@ import "./style.css";
 import { Navbar } from "../navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TransPopUp from "../../components/accountBox/TransPopup";
+import { Link } from "react-router-dom";
 function Cart(props) {
   const showCart = useSpring(
     props.isCartOpen
@@ -151,6 +152,7 @@ try {
     Bank_id = value.data._id,
     console.log(Bank_Balance)
   ))
+  
   console.log(Bank_Balance) 
   Bank_Balance = Bank_Balance - totalCost; //user balance 
   Ecom_Balance = Bank_Balance + totalCost;
@@ -263,10 +265,16 @@ function updateCart(id, quantity)
               <Row style = {{Color:"#2d343e"}}>
                 <Col style = {{Color:"#2d343e"}}>
                   {/* <a href={props.cart.hosted_checkout_url}> */}
-                    <Button id="buy" variant="primary" onClick={transaction} >
+                    {/* <Button id="buy" variant="primary" onClick={transaction} >
                       Buy Now
                     </Button>
-                    { buyclicked == true && transactionID!='' ? ( < TransPopUp open={true} transID= {transactionID} onClose= {handleClose} />) : ( < TransPopUp open={false} transID= {transactionID} />)}
+                    { buyclicked == true && transactionID!='' ? ( < TransPopUp open={true} transID= {transactionID} onClose= {handleClose} />) : ( < TransPopUp open={false} transID= {transactionID} />)} */}
+                    <Link to="/checkout">
+                    <Button id="buy" variant="primary">
+                      Buy Now
+                    </Button>
+                    </Link>
+                  
                   {/* </a> */}
                 </Col>
               </Row>

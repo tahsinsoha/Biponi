@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { Link,useHistory } from "react-router-dom";
+import HashLoader from "react-spinners/HashLoader";
+import { Navbar } from "../navbar";
 
 function Confirm(props)
 {
     const [cartList, setCartList]= useState([]);
+    const [loading, setLoading]= useState(false);
+    
     let cartItems= new Set();
     let cartSize= 0;
 
@@ -14,6 +18,80 @@ function Confirm(props)
 
       console.log("first e cartsize", cartSize)
     }
+
+    async function transaction(){
+        const User = localStorage.getItem('user')
+        
+        console.log(User)
+      try {
+        const config = {
+          headers: {
+            'Content-type': 'application/json'
+          }
+        }
+      
+        const { data } = await axios.post(
+          'http://localhost:5000/api/transactions/',
+          {
+            'User_id': User, 'Current_amount': totalCost
+          },
+          config)
+      
+        console.log(data)
+        //localStorage.setItem('user', data.id)
+       // history.push("../../");
+       let Bank_Balance = 0;
+       let Bank_id = 0;
+       let Ecom_Balance = 0;
+       const  bankdata  = await axios.post( // fetching user bank data
+        'http://localhost:5000/api/banks/user',
+        {
+          'User_id': User
+        },
+        config).then((value)=>( 
+          Bank_Balance = value.data.Current_amount,
+          Bank_id = value.data._id,
+          console.log(Bank_Balance)
+        ))
+        
+        console.log(Bank_Balance) 
+        Bank_Balance = Bank_Balance - totalCost; //user balance 
+        Ecom_Balance = Bank_Balance + totalCost;
+      
+         const  changeUserBalance  = await axios.put( // setting user balance
+        `http://localhost:5000/api/banks/${Bank_id}`,
+        {
+          'Current_amount': Bank_Balance
+        },
+        config).then((value)=>( 
+          // Bank_Balance = value.data.Current_amount,
+          console.log(value),
+          console.log(value.data.Current_amount)
+        ))  
+      
+        const  changeEcomBalance  = await axios.put(
+          `http://localhost:5000/api/banks/${'629ebb59e9a4d3fbd9dff48b'}`,
+          {
+            'Current_amount': Ecom_Balance
+          },
+          config).then((value)=>( 
+            // Bank_Balance = value.data.Current_amount,
+            console.log(value),
+            console.log(value.data.Current_amount)
+          )) 
+      
+          setTransactionID(data._id);
+          setbuyclicked(true);
+          // localStorage.setItem('transID',data._id);
+          console.log("locally ",data._id);
+      }
+      
+      catch (e) {
+       // setCorrect(false)
+        console.log(e)
+      }
+      
+      }
 
     useEffect(() => {
    
@@ -58,8 +136,16 @@ function Confirm(props)
     
 
     return (
-        <div className="App">
-            <div className="py-4">
+        <div>
+            <Navbar />
+            <div className="loading">
+            {loading? 
+            (<HashLoader 
+            color={"#142786"} 
+            loading={loading} 
+            size={160} />)
+            :
+            (<div className="py-4">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-7">
@@ -152,6 +238,7 @@ function Confirm(props)
 
                 </div>
 
+            </div>)}
             </div>
         </div>
     )

@@ -91,6 +91,7 @@
     "react-simple-maps": "^1.0.0",
     "react-simplemde-editor": "^4.1.5",
     "react-slick": "^0.28.1",
+    "react-spinners": "^0.13.4",
     "react-svg-gauge": "^1.0.10",
     "react-table": "^6.11.5",
     "react-tag-autocomplete": "^5.13.1",
