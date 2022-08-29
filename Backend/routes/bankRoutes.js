@@ -21,6 +21,6 @@ const { Router } = require('express');
 
 router.route('/').get(getBank_accs).post(setBank_acc);
 router.route('/:id').delete(deleteBank_acc).put(updateBank_acc).get(getBank_accByid);
-router.route('/user').post(getBank_accByuser).put(putBank_accByuser)
-
+router.route('/user').post(getBank_accByuser)
+router.route('/putuser').put(putBank_accByuser)
 module.exports = router;

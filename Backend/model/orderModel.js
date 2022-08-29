@@ -3,6 +3,9 @@ const mongoose = require('mongoose')
 
 const orderSchema = mongoose.Schema(
     {
+        userid: {
+            type: String
+        }, 
         username: {
             type: String
         },

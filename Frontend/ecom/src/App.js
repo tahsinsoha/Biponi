@@ -40,6 +40,7 @@ import { Container } from "@material-ui/core";
 //import { Dashboard } from "@material-ui/icons";
 import Dashboard from "./Dashboard/Dashboard";
 import Moreorders from "./Dashboard/Moreorders"
+import Customers from "./Dashboard/Customers"
 const App = () => {
   document.title= "Biponi"
   return (
@@ -100,6 +101,11 @@ const App = () => {
                     <Route
                     path="/moreorders"
                     component={Moreorders}
+                  />
+
+<Route
+                    path="/customers"
+                    component={Customers}
                   />
                   <Route
                     path="/auth"

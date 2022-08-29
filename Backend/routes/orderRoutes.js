@@ -18,7 +18,6 @@ const {
 } = require('../controllers/orderController');
 const { Router } = require('express');
 
-router.route('/').get(getOrders).post(
- upload.any(),setOrder);
+router.route('/').get(getOrders).post(setOrder);
 router.route('/:id').delete(deleteOrder).put(updateOrder).get(getOrderByid);
 module.exports = router;
