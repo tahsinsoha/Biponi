@@ -65,22 +65,38 @@ const updateBank_acc = asyncHandler(async (req, res) => {
     
     res.status(200).json(bank_acc)
   })
+  var findAndUpdate = function(personName, done) {
+    var ageToSet = 20;
+    
+    Person.findOneAndUpdate({name: personName}, {age: ageToSet}, {new: true}, (error, updatedRecord) => {
+      if(error){
+        console.log(error)
+      }else{
+        done(null, updatedRecord)
+      }
+    })  
+  };
 
   const putBank_accByuser = asyncHandler(async (req, res) => {
     console.log("hi")
     const bank_acc = await Bank_acc.findOne({
-     User_id: req.body.User_id
+     User_id: req.params.id
       })
+      const filter = {  User_id: req.params.id };
       
      console.log(bank_acc)
     if (!bank_acc) {
       res.status(400)
       throw new Error('Bank_acc not found')
     }
-    const updatedBank_acc = await Bank_acc.findOneAndUpdate(req.body.User_id, req.body, {
-      new: true,
-    })
-    res.status(200).json(updatedBank_acc)
+    console.log(req.body)
+    const updatedBank_acc = await Bank_acc.findOneAndUpdate(filter, req.body).then(
+      (value) => {
+        console.log(value)
+        res.status(200).json(value)
+      }
+    )
+    
   })
 
   const deleteBank_acc = asyncHandler(async (req, res) => {
