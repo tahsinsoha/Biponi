@@ -3,7 +3,7 @@
 <p align=center>
 
  <img src="https://camo.githubusercontent.com/4e4a3b5c3e9c00501ec866e2f2466c5a6032f838aca5f2cf3b14450e39e8a2f0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656163742532302d2532333230323332612e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d253233363144414642"> 
- <img src=["https://camo.githubusercontent.com/cdbfb9bf0597a58b6be1e9f8f6ed64e5cbf1b15a09f7e15a9ce711bb99738483/68747470733a2f2f63646e2e737667706f726e2e636f6d2f6c6f676f732f6d6f6e676f64622d69636f6e2e737667](https://github.com/mongodb-js/leaf/blob/master/dist/mongodb-leaf_32x32.png)"> <img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB">
+ <img src="https://github.com/mongodb-js/leaf/blob/master/dist/mongodb-leaf_32x32.png"> <img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB">
 </p>
 
 
@@ -78,7 +78,7 @@ cd Frontend
 cd ecom
 
 ```
-IInstall the necessary packages:
+Install the necessary packages:
 
 ```
 
