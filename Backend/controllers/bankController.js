@@ -56,7 +56,7 @@ const updateBank_acc = asyncHandler(async (req, res) => {
       })
       const obj = JSON.parse(JSON.stringify(req.body)); // req.body = [Object: null prototype] { title: 'product' }
 
-      console.log(obj)
+      console.log(req.body.User_id)
      console.log(bank_acc)
     if (!bank_acc) {
       res.status(400)

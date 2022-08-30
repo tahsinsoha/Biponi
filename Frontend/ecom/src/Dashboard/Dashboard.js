@@ -21,20 +21,19 @@ import { mainListItems, secondaryListItems } from "./listItems";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
-import { PageContainer } from "../components/pageContainer";
 import { Navbar } from "../components/navbar";
+import { PageContainer } from "../components/pageContainer";
 function Copyright() {
   // classes created because it is needed in the footer.
   const classes = useStyles();
   return (
     <Container className={classes.footer}>
       <Typography variant="body2" color="textSecondary" align="center">
-        {"Copyright © "}
+    
         <Link color="inherit" href="https://material-ui.com/">
-          Your Website
+    
         </Link>{" "}
-        {new Date().getFullYear()}
-        {"."}
+       
       </Typography>
     </Container>
   );
@@ -72,7 +71,11 @@ const useStyles = makeStyles(theme => ({
     })
   },
   menuButton: {
-    marginRight: 36
+    marginRight: 2,
+    marginTop: -80,
+    color: "white",
+    marginLeft: -60
+    
   },
   menuButtonHidden: {
     display: "none"
@@ -150,13 +153,12 @@ export default function Dashboard() {
         position="absolute"
         className={clsx(classes.appBar, open && classes.appBarShift) 
         }
-        style={{ height: '36px' }}
+        style={{ height: '0' , backgroundColor : "#264653"}}
       >
       
-        <Toolbar className={classes.toolbar}>
+        <Toolbar className={classes.toolbar}  style={{ height: '0' , color : "#264653"}}  >
           <IconButton
             edge="start"
-            color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             className={clsx(
@@ -166,20 +168,11 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            component="h1"
-            variant="h3"
-            color="inherit"
-            noWrap
-            className={classes.title}
-            height="15"
-          >
-            Dashboard
-          </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
+          
+            
+            
+        
+          <IconButton >
           </IconButton>
         </Toolbar>
       </AppBar>

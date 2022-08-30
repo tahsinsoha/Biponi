@@ -17,7 +17,6 @@ const setOrder =  asyncHandler(async(req,res) => {
          cost : req.body.cost,
          username: req.body.username,
          date : req.body.date
-
     
      })
     res.status(200).json(order)

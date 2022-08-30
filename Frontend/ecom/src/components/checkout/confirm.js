@@ -124,6 +124,7 @@ function Confirm(props) {
                 },
                 config).then((value) => (
                     Ecom_Balance = parseInt(value.data.Current_amount),
+                  
                     Ecom_Bank_id = value.data._id,
                     console.log(Ecom_Balance)
                 ))
