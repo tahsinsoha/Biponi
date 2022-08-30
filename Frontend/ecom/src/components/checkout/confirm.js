@@ -9,6 +9,7 @@ function Confirm(props) {
     const [loading, setLoading] = useState(false);
     const [done, setDone] = useState(false);
     
+    let history= useHistory();
     let cartItems = new Set();
     let cartSize = 0;
     var quantityStr= ""
@@ -24,8 +25,7 @@ function Confirm(props) {
 
     const GoTODone= () =>
     {
-        let history= useHistory();
-        history.push("../done");
+        history.push("/done");
     }
 
     async function transaction() {
@@ -142,6 +142,7 @@ function Confirm(props) {
             console.log("locally ", data._id);
 
             setLoading(false);
+            GoTODone();
         }
 
         catch (e) {
