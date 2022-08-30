@@ -23,7 +23,7 @@ const data = [
   createData("15:00", 2000),
   createData("18:00", 2400),
   createData("21:00", 2400),
-  createData("24:00", undefined)
+  // createData("24:00", 2800)
 ];
 
 export default function Chart() {
@@ -43,7 +43,7 @@ export default function Chart() {
           <XAxis dataKey="time" />
           <YAxis>
             <Label angle={270} position="left" style={{ textAnchor: "middle" }}>
-              Sales ($)
+              Sales
             </Label>
           </YAxis>
           <Line type="monotone" dataKey="amount" stroke="#556CD6" dot={false} />

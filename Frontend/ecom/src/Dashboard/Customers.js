@@ -71,16 +71,15 @@ export default function Orders() {
   const [users, setusers] = useState([])
 useEffect(() => {
   async function fetchUsers() {
-    const { pd } = await axios.get('http://127.0.0.1:5000/api/users').then((value)=>
-     {setusers(value)})
-  
-   
+    const { data } = await axios.get('http://127.0.0.1:5000/api/users')
+    console.log(data)
+    setusers(data)
 }
 
   async function fetchOrders() {
-    const { data } = await axios.get('http://127.0.0.1:5000/api/orders').then((value)=>
-     {setorders(value)})
-  
+    const { data } = await axios.get('http://127.0.0.1:5000/api/orders')
+    console.log("Orders", data);
+    setorders(data)
   }
 //   async function fetchBanks() {
 //     const { data } = await axios.get(`http://127.0.0.1:5000/api/banks/${user}`)
@@ -98,37 +97,25 @@ useEffect(() => {
     <React.Fragment>
       <Title>Customers</Title>
       <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Products</TableCell>
-            <TableCell>Total Cost</TableCell>
-      
-          </TableRow>
-        </TableHead>
+        
         <TableBody>
-          { console.log(orders) && (users!= null && orders!=null) ? <h1>
-          {orders.map(order => (
-         users.map(userr => (  
-                  (order.userid === userr._id) && order.date ? <>  <TableRow >
-
-                    <TableCell>{order.userid}</TableCell>
-                    <TableCell>{order.username}</TableCell>
-                    <TableCell>{order.products}</TableCell>
-                     <TableCell>{order.cost}</TableCell>
-                  </TableRow> </> : <></>
+        {/* <TableRow >
+                    <TableCell style={{ "borderColor": "black" }}>{"User Name"}</TableCell>
+                    <TableCell style={{ "borderColor": "black" }}>{"Email"}</TableCell>
+                  </TableRow> */}
+          { (users.length!= 0) ? <h1>
+         {users.map((userr) => ( 
            
-              ))
-          ))}
+                  <TableRow >
+                    <TableCell style={{ "borderColor": "black" }}>{userr.Name}</TableCell>
+                    <TableCell style={{ "borderColor": "black" }}>{userr.Email}</TableCell>
+                  </TableRow>
+           
+              ))}
+          
           </h1> : <></>}
         </TableBody>
       </Table>
-      <div className={classes.seeMore}>
-        <Link color="primary" href="javascript:;" to= "/moreorders">
-          See more orders
-        </Link>
-      </div>
     </React.Fragment>
   );
 }

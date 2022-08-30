@@ -33,7 +33,7 @@ export default function Deposits() {
   }, [])
   return (
     <React.Fragment>
-      <Title>Recent Deposits</Title>
+      <Title>Current Balance</Title>
       <Typography component="p" variant="h4">
      { banks!=null?  <h1>{banks.Current_amount} </h1> : <></>}
       </Typography>

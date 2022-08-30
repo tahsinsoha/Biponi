@@ -168,11 +168,11 @@ export default function Dashboard() {
           </IconButton>
           <Typography
             component="h1"
-            variant="h6"
+            variant="h3"
             color="inherit"
             noWrap
             className={classes.title}
-            height="9"
+            height="15"
           >
             Dashboard
           </Typography>

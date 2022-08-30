@@ -83,10 +83,10 @@ useEffect(() => {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Products</TableCell>
-            <TableCell>Total Cost</TableCell>
+            <TableCell style={{ "borderColor": "black" }}>Date</TableCell>
+            <TableCell style={{ "borderColor": "black" }}>Name</TableCell>
+            <TableCell style={{ "borderColor": "black" }}>Products</TableCell>
+            <TableCell style={{ "borderColor": "black" }}>Total Cost</TableCell>
       
           </TableRow>
         </TableHead>
@@ -94,10 +94,10 @@ useEffect(() => {
         {orders.map(order => (
         
         order.date ? <>  <TableRow >
-          <TableCell>{order.date}</TableCell>
-          <TableCell>{order.username}</TableCell>
-          <TableCell>{order.products}</TableCell>
-           <TableCell>{order.cost}</TableCell>
+          <TableCell style={{ "borderColor": "black" }}>{order.date}</TableCell>
+          <TableCell style={{ "borderColor": "black" }}>{order.username}</TableCell>
+          <TableCell style={{ "borderColor": "black" }}>{order.products}</TableCell>
+           <TableCell style={{ "borderColor": "black" }}>{order.cost}</TableCell>
         </TableRow> </> : <></>
  
     
