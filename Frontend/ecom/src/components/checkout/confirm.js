@@ -34,7 +34,7 @@ function Confirm(props) {
         setLoading(true);
 
         const User = localStorage.getItem('user')
-        const totalCost = localStorage.getItem('amount')
+        const totalCost = parseInt(localStorage.getItem('amount'))
 
         let cartSize = 0;
 
@@ -66,6 +66,25 @@ function Confirm(props) {
                 },
                 config)
 
+            const userData= await axios.get(
+                `http://localhost:5000/api/users/${User}`)
+
+            let userName= userData.data.Name;
+
+            console.log("username", userName);
+            let currentDate= (new Date()).toLocaleDateString('en-GB');
+
+            const orderData  = await axios.post(
+                'http://localhost:5000/api/orders/',
+                {
+                  'userid': User,
+                  'username': userName,
+                  'products': productList,
+                  'cost': totalCost,
+                  'date': currentDate
+                }
+              )
+
             const { sellerData } = await axios.post(
                 'http://localhost:5000/api/seller/',
                 {
@@ -91,11 +110,11 @@ function Confirm(props) {
                     'User_id': User
                 },
                 config).then((value) => (
-                    Bank_Balance = value.data.Current_amount,
+                    Bank_Balance = parseInt(value.data.Current_amount),
                     Bank_id = value.data._id,
                     console.log("Balance ",Bank_Balance)
                 )).catch((e)=>{
-                    console.log("balance e problem")
+                    console.log("balance e problem", e)
                 })
 
             const EcomBankdata = await axios.post( // fetching user bank data
@@ -104,7 +123,7 @@ function Confirm(props) {
                     'User_id': '629ebb2ee9a4d3fbd9dff488'
                 },
                 config).then((value) => (
-                    Ecom_Balance = value.data.Current_amount,
+                    Ecom_Balance = parseInt(value.data.Current_amount),
                     Ecom_Bank_id = value.data._id,
                     console.log(Ecom_Balance)
                 ))
@@ -113,6 +132,8 @@ function Confirm(props) {
             console.log(Bank_Balance)
             Bank_Balance = Bank_Balance - totalCost; //user balance 
             Ecom_Balance = Ecom_Balance + totalCost;
+
+            console.log(typeof Bank_Balance, typeof Ecom_Balance, typeof totalCost)
 
             const changeUserBalance = await axios.put( // setting user balance
                 `http://localhost:5000/api/banks/${Bank_id}`,

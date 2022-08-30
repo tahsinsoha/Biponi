@@ -8,6 +8,7 @@ import { Navbar } from "../navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TransPopUp from "../../components/accountBox/TransPopup";
 import { Link } from "react-router-dom";
+import { Eco } from "@material-ui/icons";
 function Cart(props) {
   const showCart = useSpring(
     props.isCartOpen
@@ -141,7 +142,16 @@ try {
  // history.push("../../");
  let Bank_Balance = 0;
  let Bank_id = 0;
- let Ecom_Balance = 0;
+ let Ecom_Balance= 0;
+ const ecom_bank= await axios.get(
+  'http://localhost:5000/api/banks/user',
+  {
+    'User_id': '629ebb59e9a4d3fbd9dff48b'
+  },
+  config).then((value)=>( 
+    Ecom_Balance= parseInt(value)
+  ))
+
  const  bankdata  = await axios.post(
   'http://localhost:5000/api/banks/user',
   {
@@ -155,7 +165,9 @@ try {
   
   console.log(Bank_Balance) 
   Bank_Balance = Bank_Balance - totalCost; //user balance 
-  Ecom_Balance = Bank_Balance + totalCost;
+  Ecom_Balance = Ecom_Balance + totalCost;
+
+  // console.log("balances ", Bank_Balance, Ecom_Balance, totalCost)
 
    const  changeUserBalance  = await axios.put(
   `http://localhost:5000/api/banks/${Bank_id}`,

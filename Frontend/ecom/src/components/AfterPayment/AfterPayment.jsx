@@ -88,6 +88,9 @@ export default function AfterPayment() {
     useEffect(() => {
 
         function addOrder() {
+
+            console.log((new Date()).toLocaleDateString('en-GB'))
+
             const formData = new FormData();
 
             formData.append("payment_stats", "R");
