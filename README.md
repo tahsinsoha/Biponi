@@ -66,7 +66,7 @@ Run the server :
 
 ```
 
-npm start
+npm run server
 
 ```
 
@@ -90,7 +90,7 @@ Run the frontend :
 
 ```
 
-npm run start
+npm start
 
 ```
 
