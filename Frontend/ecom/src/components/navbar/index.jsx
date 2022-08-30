@@ -61,13 +61,17 @@ export function Navbar(props) {
       </Link>
       <AccessibilityContainer>
       <Marginer direction="horizontal" margin={16} />
-      <Form onSubmit={(e)=>{
+      {/* <Form onSubmit={(e)=>{
         e.preventDefault()
           history.push("/search?query="+query)
       }} >
       <FontAwesomeIcon icon={faSearch} color="#fff"  useTransparent={useTransparent}></FontAwesomeIcon>
         <input onChange={(e)=>{setQuery(e.target.value)}} value={query} type="text" placeholder="         Search..." />
-      </Form>
+      </Form> */}
+      <Link to="/dashboard">
+          <Button size={19}> Dashboard </Button>
+         
+        </Link>
         <Marginer direction="horizontal" margin={16} />
         { localStorage.getItem('user')==null && (<Link to="/customer/access/signin">
           <Button size={19}> Login </Button>

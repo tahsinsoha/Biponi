@@ -91,15 +91,17 @@ useEffect(() => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {orders.map(order => (
-            <TableRow >
-              <TableCell>{order.date}</TableCell>
-              <TableCell>{order.username}</TableCell>
-              <TableCell>{order.products}</TableCell>
-               <TableCell>{order.cost}</TableCell>
-              {/* <TableCell align="right">{row.amount}</TableCell>  */}
-            </TableRow>
-          ))}
+        {orders.map(order => (
+        
+        order.date ? <>  <TableRow >
+          <TableCell>{order.date}</TableCell>
+          <TableCell>{order.username}</TableCell>
+          <TableCell>{order.products}</TableCell>
+           <TableCell>{order.cost}</TableCell>
+        </TableRow> </> : <></>
+ 
+    
+))}
         </TableBody>
       </Table>
       
