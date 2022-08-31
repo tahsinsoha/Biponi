@@ -60,10 +60,14 @@ export function Navbar(props) {
       <BrandLogo />
       </Link>
       <AccessibilityContainer>
-      <Link to="/chat">
+      {
+        localStorage.getItem('user')!=null && (
+          <Link to="/chat">
           <Button size={19}> Chat </Button>
          
         </Link>
+        )
+      }
       <Marginer direction="horizontal" margin={16} />
       {/* <Form onSubmit={(e)=>{
         e.preventDefault()
@@ -72,11 +76,12 @@ export function Navbar(props) {
       <FontAwesomeIcon icon={faSearch} color="#fff"  useTransparent={useTransparent}></FontAwesomeIcon>
         <input onChange={(e)=>{setQuery(e.target.value)}} value={query} type="text" placeholder="         Search..." />
       </Form> */}
-    
-      <Link to="/dashboard">
-          <Button size={19}> Dashboard </Button>
-         
-        </Link>
+      { localStorage.getItem('user')!=null && (
+        <Link to="/dashboard">
+        <Button size={19}> Dashboard </Button>
+       
+      </Link>
+      ) }
         <Marginer direction="horizontal" margin={16} />
         { localStorage.getItem('user')==null && (<Link to="/customer/access/signin">
           <Button size={19}> Login </Button>

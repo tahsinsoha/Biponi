@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import {
   LineChart,
   Line,
@@ -14,25 +15,47 @@ function createData(time, amount) {
   return { time, amount };
 }
 
-const data = [
-  createData("00:00", 0),
-  createData("03:00", 300),
-  createData("06:00", 600),
-  createData("09:00", 800),
-  createData("12:00", 1500),
-  createData("15:00", 2000),
-  createData("18:00", 2400),
-  createData("21:00", 2400),
-  // createData("24:00", 2800)
-];
 
 export default function Chart() {
+
+  const [values, setValues]= useState([]);
+
+  async function fetchOrders()
+{
+  const {data}  = await axios.get(
+    'http://localhost:5000/api/orders/'
+  )
+  
+  let xTime= 0;
+  let total= 0;
+
+  data.forEach(element => {
+    
+    console.log("element "+xTime+" ");
+    console.log(element)
+
+    if(element.cost!=null)
+    {
+      xTime++;
+      total+= parseInt(element.cost)
+    setValues([...values,createData(xTime+":00", total)]);
+
+    }
+  });
+}
+
+  useEffect(()=>{
+
+    fetchOrders();
+
+  },[])
+
   return (
     <React.Fragment>
       <Title>Today</Title>
       <ResponsiveContainer>
         <LineChart
-          data={data}
+          data={values}
           margin={{
             top: 16,
             right: 16,
