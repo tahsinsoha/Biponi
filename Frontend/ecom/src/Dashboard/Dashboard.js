@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -26,10 +26,6 @@ import Seller from "./Seller";
 import User from "./User";
 import { Navbar } from "../components/navbar";
 import { PageContainer } from "../components/pageContainer";
-import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import PeopleIcon from "@material-ui/icons/People";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 function Copyright() {
   // classes created because it is needed in the footer.
   const classes = useStyles();
@@ -144,8 +140,6 @@ const useStyles = makeStyles(theme => ({
 const user = localStorage.getItem('user');
 console.log(user)
 export default function Dashboard() {
-
-  
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -155,7 +149,6 @@ export default function Dashboard() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
   return (
   
     <div className={classes.root}>
@@ -180,6 +173,10 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
+          
+            
+            
+        
           <IconButton >
           </IconButton>
         </Toolbar>
@@ -197,35 +194,7 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-        <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    { user=='629ebb2ee9a4d3fbd9dff488' && (
-      <Link  to= "/moreorders">
-      <ListItem button>
-        <ListItemIcon>
-          <ShoppingCartIcon />
-        </ListItemIcon>
-        <ListItemText primary="Orders" />
-      </ListItem>
-      </Link>
-    ) }
-    <Link  to= "/customers">
-         
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
-    </ListItem>
-    </Link>
-  </div>
-          </List>
+        <List>{mainListItems}</List>
         <Divider />
         <List>{secondaryListItems}</List>
       </Drawer>
