@@ -11,77 +11,25 @@ import Moreorders from "./Moreorders";
 import axios from "axios";
 import { More } from "@material-ui/icons";
 import { Link , Redirect} from "react-router-dom";
-// // Generate Order Data
-// function createData(id, date, name, shipTo, paymentMethod, amount) {
-//   return { id, date, name, shipTo, paymentMethod, amount };
-// }
 
-// const rows = [
-//   createData(
-//     0,
-//     "16 Mar, 2019",
-//     "Elvis Presley",
-//     "Tupelo, MS",
-//     "VISA ⠀•••• 3719",
-//     312.44
-//   ),
-//   createData(
-//     1,
-//     "16 Mar, 2019",
-//     "Paul McCartney",
-//     "London, UK",
-//     "VISA ⠀•••• 2574",
-//     866.99
-//   ),
-//   createData(
-//     2,
-//     "16 Mar, 2019",
-//     "Tom Scholz",
-//     "Boston, MA",
-//     "MC ⠀•••• 1253",
-//     100.81
-//   ),
-//   createData(
-//     3,
-//     "16 Mar, 2019",
-//     "Michael Jackson",
-//     "Gary, IN",
-//     "AMEX ⠀•••• 2000",
-//     654.39
-//   ),
-//   createData(
-//     4,
-//     "15 Mar, 2019",
-//     "Bruce Springsteen",
-//     "Long Branch, NJ",
-//     "VISA ⠀•••• 5919",
-//     212.79
-//   )
-// ];
-const user = localStorage.getItem('user')
 const useStyles = makeStyles(theme => ({
   seeMore: {
     marginTop: theme.spacing(3)
   }
 }));
+const user = localStorage.getItem('user')
 
 export default function Orders() {
   const classes = useStyles();
   const [orders, setorders] = useState([])
   const [users, setusers] = useState([])
 useEffect(() => {
-  async function fetchUsers() {
-    const { pd } = await axios.get('http://127.0.0.1:5000/api/users').then((value)=>
-     {setusers(value)})
-  
-   
-}
 
   async function fetchOrders() {
-    const { data } = await axios.get('http://127.0.0.1:5000/api/orders').then((value)=>
-     {setorders(value)})
-  
-  }
+    const { data } = await axios.get('http://127.0.0.1:5000/api/orders')
+    setorders(data)
+    console.log(data)
+}
 //   async function fetchBanks() {
 //     const { data } = await axios.get(`http://127.0.0.1:5000/api/banks/${user}`)
 //     setorders(data)
@@ -89,16 +37,14 @@ useEffect(() => {
 // }
   
 // fetchBanks()
-
-  fetchUsers()
   fetchOrders()
 
 }, [] )
   return (
     <React.Fragment>
-      <Title>Customers</Title>
+      <Title>Orders</Title>
       <Table size="small">
-        <TableHead>
+        <TableHead >
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
@@ -108,20 +54,19 @@ useEffect(() => {
           </TableRow>
         </TableHead>
         <TableBody>
-          { console.log(orders) && (users!= null && orders!=null) ? <h1>
-          {orders.map(order => (
-         users.map(userr => (  
-                  (order.userid === userr._id) && order.date ? <>  <TableRow >
-
-                    <TableCell>{order.userid}</TableCell>
+          { orders!=null ? <>
+          {orders.map(order => 
+        
+                  ( order.userid == user && order.userid ?   <TableRow >
+                      <TableCell>{order.date}</TableCell>
                     <TableCell>{order.username}</TableCell>
                     <TableCell>{order.products}</TableCell>
                      <TableCell>{order.cost}</TableCell>
-                  </TableRow> </> : <></>
+                  </TableRow>  : <></>
            
-              ))
-          ))}
-          </h1> : <></>}
+            )
+          )}
+          </> : <></>}
         </TableBody>
       </Table>
       <div className={classes.seeMore}>

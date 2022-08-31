@@ -99,11 +99,11 @@ useEffect(() => {
       <Table size="small">
         
         <TableBody>
-        {/* <TableRow >
+        <TableRow >
                     <TableCell style={{ "borderColor": "black" }}>{"User Name"}</TableCell>
                     <TableCell style={{ "borderColor": "black" }}>{"Email"}</TableCell>
-                  </TableRow> */}
-          { (users.length!= 0) ? <h1>
+                  </TableRow>
+          { (users.length!= 0) ? <>
          {users.map((userr) => ( 
            
                   <TableRow >
@@ -113,7 +113,7 @@ useEffect(() => {
            
               ))}
           
-          </h1> : <></>}
+          </> : <></>}
         </TableBody>
       </Table>
     </React.Fragment>
