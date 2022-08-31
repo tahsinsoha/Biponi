@@ -104,6 +104,7 @@ function Confirm(props) {
             let Bank_id = 0;
             let Ecom_Bank_id = 0;
             let Ecom_Balance = 0;
+            let Seller_Balance= 0;
             const bankdata = await axios.post( // fetching user bank data
                 'http://localhost:5000/api/banks/user/',
                 {
@@ -129,11 +130,25 @@ function Confirm(props) {
                     console.log(Ecom_Balance)
                 ))
 
+            // 629dd4721cc1da6a55956f47
+            
+            const SellerBankData = await axios.post( // fetching user bank data
+                'http://localhost:5000/api/banks/user/',
+                {
+                    'User_id': '629b507cf5ea1b8332607868'
+                },
+                config).then((value) => (
+                    Seller_Balance = parseInt(value.data.Current_amount),
+                  
+                    Ecom_Bank_id = value.data._id,
+                    console.log(Ecom_Balance)
+                ))
 
             console.log(Bank_Balance)
             Bank_Balance = Bank_Balance - totalCost; //user balance 
-            Ecom_Balance = Ecom_Balance + totalCost;
-
+            Ecom_Balance = Ecom_Balance + Math.floor(totalCost*0.2);
+            Seller_Balance = Seller_Balance + Math.floor(totalCost*0.8);
+            
             console.log(typeof Bank_Balance, typeof Ecom_Balance, typeof totalCost)
 
             const changeUserBalance = await axios.put( // setting user balance
@@ -157,6 +172,19 @@ function Confirm(props) {
                     console.log(value),
                     console.log(value.data.Current_amount)
                 ))
+
+            const changeSellerBalance = await axios.put(
+                    `http://localhost:5000/api/banks/${'630ecbb4eea0ca6f5286a3c1'}`,
+                    {
+                        'Current_amount': Seller_Balance
+                    },
+                    config).then((value) => (
+                        // Bank_Balance = value.data.Current_amount,
+                        console.log(value),
+                        console.log(value.data.Current_amount)
+                    ))
+    
+                
 
             // setTransactionID(data._id);
             // setbuyclicked(true);
