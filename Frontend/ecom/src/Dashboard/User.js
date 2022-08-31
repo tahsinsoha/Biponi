@@ -16,6 +16,7 @@ export default function Deposits() {
   const classes = useStyles();
 
   const [banks, setbanks] = useState(null)
+  const[orders, setorders] = useState(null)
   useEffect(() => {
 
     async function fetchBanks() {
@@ -26,24 +27,30 @@ export default function Deposits() {
       setbanks(data)
       console.log(JSON.stringify(data))
   } 
+  async function fetchOrders() {
+    const { data } = await axios.get(`http://127.0.0.1:5000/api/users/${user}`)
+    setorders(data)
+    console.log(data)
+}
   //629ebb59e9a4d3fbd9dff48b
     
   fetchBanks()
+  fetchOrders()
   
   }, [])
   return (
     <React.Fragment>
-      <Title>Current Balance</Title>
-      <Typography component="p" variant="h4">
-     { banks!=null?  <h1>{banks.Current_amount} Taka </h1> : <></>}
+      <Title>User Details</Title>
+      <Typography component="p" >
+     { banks!=null?  <>Bank Account No: {banks.Account_no}  </> : <></>}
       </Typography>
-      {/* <Typography color="textSecondary" className={classes.depositContext}>
-        on 15 March, 2019
-      </Typography> */}
+      <Typography component="p" color="primary" >
+      { orders!=null?  <>Name: {orders.Name} </> : <></>}
+      </Typography>
       <div>
-        {/* <Link color="primary" href="javascript:;">
-          View balance
-        </Link> */}
+      <Typography component="p" color="primary" >
+        { orders!=null?  <>Email: {orders.Email} </> : <></>}
+        </Typography >
       </div>
     </React.Fragment>
   );

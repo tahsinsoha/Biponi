@@ -22,6 +22,8 @@ import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
 import Precustomers from "./PreCustomers";
+import Seller from "./Seller";
+import User from "./User";
 import { Navbar } from "../components/navbar";
 import { PageContainer } from "../components/pageContainer";
 function Copyright() {
@@ -273,6 +275,11 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
+            <Grid item xs={12} md={8} lg={9}>
+              <Paper className={fixedHeightPaper}>
+            <User/>
+              </Paper>
+            </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
@@ -282,7 +289,7 @@ export default function Dashboard() {
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Precustomers />
+                {user==="629b507cf5ea1b8332607868"? <> <Seller /> </> : <><Precustomers/></>}
               </Paper>
             </Grid>
           </Grid>
