@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import HashLoader from "react-spinners/HashLoader";
 import { Navbar } from "../navbar";
+import { toast } from "react-toastify";
 
 function Confirm(props) {
     const [cartList, setCartList] = useState([]);
@@ -16,6 +17,8 @@ function Confirm(props) {
     var productList= ""
 
     // 629dd4721cc1da6a55956f47 -> seller
+
+    const User = localStorage.getItem('user')
 
     if ("cartSize" in localStorage) {
         cartSize = localStorage.getItem("cartSize");
@@ -33,7 +36,6 @@ function Confirm(props) {
         
         setLoading(true);
 
-        const User = localStorage.getItem('user')
         const totalCost = parseInt(localStorage.getItem('amount'))
 
         let cartSize = 0;
@@ -130,7 +132,7 @@ function Confirm(props) {
                     console.log(Ecom_Balance)
                 ))
 
-            // 629dd4721cc1da6a55956f47
+            // 629b507cf5ea1b8332607868
             
             const SellerBankData = await axios.post( // fetching user bank data
                 'http://localhost:5000/api/banks/user/',
@@ -200,6 +202,38 @@ function Confirm(props) {
             console.log(e)
         }
 
+    }
+
+    async function handleClick()
+    {
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+        let user_pin= ""
+
+        const nowData = await axios.post( // fetching user bank data
+                'http://localhost:5000/api/banks/user/',
+                {
+                    'User_id': User
+                },
+                config).then((value) => (
+                    user_pin = value.data.Pin,
+                    console.log("Pin ", user_pin)
+                )).catch((e)=>{
+                    console.log("balance e problem", e)
+                })
+        const enteredPin = prompt('Please enter your pin');
+
+        if( enteredPin==user_pin )
+        {
+            transaction();
+        }
+        else
+        {
+            toast.error("Incorrect Pin Entered", { position: toast.POSITION.TOP_CENTER })
+        }
     }
 
     useEffect(() => {
@@ -313,7 +347,7 @@ function Confirm(props) {
                                                 </div>
                                                 <div className="col-md-12">
                                                     <div className="form-group text-end">
-                                                        <button type="button" className="btn btn-primary" onClick={transaction}>Place Order</button>
+                                                        <button type="button" className="btn btn-primary" onClick={handleClick}>Place Order</button>
                                                     </div>
                                                 </div>
 
