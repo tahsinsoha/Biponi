@@ -50,7 +50,7 @@ useEffect(() => {
             <TableCell>Name</TableCell>
             <TableCell>Products</TableCell>
             <TableCell>Total Cost</TableCell>
-      
+            <TableCell>Product Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -62,6 +62,7 @@ useEffect(() => {
                     <TableCell>{order.username}</TableCell>
                     <TableCell>{order.products}</TableCell>
                      <TableCell>{order.cost}</TableCell>
+                     <TableCell>shipped</TableCell>
                   </TableRow>  : <></>
            
             )
@@ -69,11 +70,7 @@ useEffect(() => {
           </> : <></>}
         </TableBody>
       </Table>
-      <div className={classes.seeMore}>
-        <Link color="primary" href="javascript:;" to= "/moreorders">
-          See more orders
-        </Link>
-      </div>
+     
     </React.Fragment>
   );
 }
