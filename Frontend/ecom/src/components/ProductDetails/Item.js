@@ -115,7 +115,7 @@ const updateFormData = event =>
         </Col>
         <Col className="info"  >
           {product !== null ? <h2 style={{ color: "white" }}>{product.Title}</h2> : <></>}
-          {product !== null ? <h2 style={{ color: "white" }}>{product.Price}</h2> : <></>}
+          {product !== null ? <h2 style={{ color: "white" }}>{product.Price } Taka</h2> : <></>}
           <Row className="buttonRow">
             <Col>
               <p style={{ color: "white" }}>Available Colors:</p>
@@ -151,7 +151,7 @@ const updateFormData = event =>
       }}
         value={formData.rating}
         onChange={e => updateFormData(e)}
-        placeholder="Rating"
+        placeholder="Rate out of 5"
         type="text"
         name="rating"
         required
