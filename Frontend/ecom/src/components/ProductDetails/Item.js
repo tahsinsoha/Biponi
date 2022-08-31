@@ -133,7 +133,8 @@ const updateFormData = event =>
               {product!==null && product.reviews !== null ? <Card.Text as='div'>
                 <Rating
                   value={product.rating}
-                  text={`${product.numReviews} reviews`}
+                  margin = {30}
+                  text={`${product.numReviews} reviews` }
                 />
               </Card.Text> : <></>}
               <form onSubmit={handleSubmission}>

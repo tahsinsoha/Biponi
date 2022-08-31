@@ -12,6 +12,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import { Navbar } from "../components/navbar";
 import { PageContainer } from "../components/pageContainer";
 import { Link , Redirect} from "react-router-dom";
+const user = localStorage.getItem('user')
 export const mainListItems = (
   <div>
     <ListItem button>
@@ -20,6 +21,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
+    {user=="629ebb2ee9a4d3fbd9dff488" ? <>
     <Link  to= "/moreorders">
     <ListItem button>
       <ListItemIcon>
@@ -37,6 +39,8 @@ export const mainListItems = (
       <ListItemText primary="Customers" />
     </ListItem>
     </Link>
+    </> : <> </>}
+    
   </div>
 );
 
